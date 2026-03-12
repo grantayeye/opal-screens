@@ -1374,14 +1374,13 @@
 
     /* ─── ANIMATIONS ─── */
     .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+      opacity: 1;
+      transform: none;
     }
 
     .fade-in.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: none;
     }
 
     @media (prefers-reduced-motion: reduce) {
