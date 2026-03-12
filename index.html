@@ -1975,19 +1975,30 @@
   </footer>
 
   <script>
+    // Make all above-fold content visible immediately
+    function revealVisible() {
+      document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 100) el.classList.add('visible');
+      });
+    }
+
+    // Intersection Observer for scroll-triggered reveals
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('visible');
       });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, { threshold: 0.05 });
 
     document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    setTimeout(() => {
-      document.querySelectorAll('.fade-in').forEach(el => {
-        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
-      });
-    }, 100);
+    // Multiple fallbacks to ensure content is never invisible
+    revealVisible();
+    document.addEventListener('DOMContentLoaded', revealVisible);
+    window.addEventListener('load', revealVisible);
+    setTimeout(revealVisible, 50);
+    setTimeout(revealVisible, 300);
+    setTimeout(revealVisible, 1000);
 
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
