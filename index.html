@@ -2018,7 +2018,6 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      const data = new FormData(form);
       const data = Object.fromEntries(new FormData(form));
 
       fetch('https://atools-api.gamma.tech/functions/opalContact', {
@@ -2029,14 +2028,7 @@
       .then(r => r.json())
       .then(result => {
         if (result.error) throw new Error(result.error);
-        btn.textContent = 'Message Sent ✓';
-        btn.style.background = '#22c55e';
-        btn.disabled = false;
-        setTimeout(() => {
-          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-          btn.style.background = '';
-          form.reset();
-        }, 3000);
+        window.location.href = '/thanks.html';
       })
       .catch(err => {
         btn.textContent = err.message || 'Error — Try Again';
