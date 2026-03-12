@@ -855,6 +855,13 @@
       margin-top: 3rem;
     }
 
+    /* Center the 5th (last odd) card */
+    .series-grid .series-card:last-child:nth-child(odd) {
+      grid-column: 1 / -1;
+      max-width: 50%;
+      justify-self: center;
+    }
+
     .series-card {
       padding: 2.5rem 2rem;
       background: var(--bg-card);
@@ -885,6 +892,7 @@
     .series-card:hover::before { opacity: 1; }
 
     .series-card.crystal::before { background: linear-gradient(90deg, #00c2ff, #7b61ff); }
+    .series-card.onyx::before { background: linear-gradient(90deg, #a78bfa, #7c3aed); }
     .series-card.boulder::before { background: linear-gradient(90deg, #ff8c42, #e85d26); }
     .series-card.water::before { background: linear-gradient(90deg, #00d4aa, #00a8cc); }
 
@@ -901,17 +909,19 @@
     .series-card.crystal .series-icon-wrap { background: rgba(0, 194, 255, 0.1); }
     .series-card.crystal .icon { stroke: #00c2ff; }
 
+    .series-card.onyx .series-icon-wrap { background: rgba(167, 139, 250, 0.1); }
+    .series-card.onyx .icon { stroke: #a78bfa; }
     .series-card.boulder .series-icon-wrap { background: rgba(255, 140, 66, 0.1); }
     .series-card.boulder .icon { stroke: #ff8c42; }
 
     .series-card.water .series-icon-wrap { background: rgba(0, 212, 170, 0.1); }
     .series-card.water .icon { stroke: #00d4aa; }
 
-    .series-card.doublet::before { background: linear-gradient(90deg, #a78bfa, #818cf8); }
-    .series-card.doublet .series-icon-wrap { background: rgba(167, 139, 250, 0.1); }
-    .series-card.doublet .icon { stroke: #a78bfa; }
-    .series-card.doublet .series-tagline { color: #a78bfa; }
-    .series-card.doublet .series-badge { background: rgba(167,139,250,0.1); color: #a78bfa; }
+    .series-card.doublet::before { background: linear-gradient(90deg, #94a3b8, #64748b); }
+    .series-card.doublet .series-icon-wrap { background: rgba(148, 163, 184, 0.1); }
+    .series-card.doublet .icon { stroke: #94a3b8; }
+    .series-card.doublet .series-tagline { color: #94a3b8; }
+    .series-card.doublet .series-badge { background: rgba(148,163,184,0.1); color: #94a3b8; }
 
     .series-name {
       font-family: 'Space Grotesk', sans-serif;
@@ -929,6 +939,7 @@
     }
 
     .series-card.crystal .series-tagline { color: #00c2ff; }
+    .series-card.onyx .series-tagline { color: #a78bfa; }
     .series-card.boulder .series-tagline { color: #ff8c42; }
     .series-card.water .series-tagline { color: #00d4aa; }
 
@@ -977,6 +988,7 @@
     }
 
     .series-card.crystal .series-badge { background: rgba(0,194,255,0.1); color: #00c2ff; }
+    .series-card.onyx .series-badge { background: rgba(167,139,250,0.1); color: #a78bfa; }
     .series-card.boulder .series-badge { background: rgba(255,140,66,0.1); color: #ff8c42; }
     .series-card.water .series-badge { background: rgba(0,212,170,0.1); color: #00d4aa; }
 
@@ -1381,6 +1393,7 @@
       .blackfire-grid, .custom-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .series-grid { grid-template-columns: 1fr; }
+      .series-grid .series-card:last-child:nth-child(odd) { max-width: 100%; }
     }
 
     @media (max-width: 768px) {
@@ -1600,6 +1613,31 @@
       </div>
       <div class="series-grid">
 
+        <!-- Onyx Series -->
+        <div class="series-card onyx fade-in">
+          <div class="series-icon-wrap">
+            <svg class="icon icon-lg" viewBox="0 0 24 24">
+              <polygon points="12 2 20 7 20 17 12 22 4 17 4 7"/>
+              <line x1="12" y1="2" x2="12" y2="22"/>
+              <line x1="4" y1="7" x2="20" y2="17"/>
+              <line x1="20" y1="7" x2="4" y2="17"/>
+            </svg>
+          </div>
+          <div class="series-name">Onyx Series</div>
+          <div class="series-tagline">Ultra-Fine Pitch — BlackFire + NanoPix</div>
+          <p class="series-desc">The finest detail available. At 0.7mm pixel pitch, the Onyx delivers unmatched clarity where every pixel disappears — powered by BlackFire contrast and NanoPix color precision. Purpose-built for close-viewing environments where picture quality is everything.</p>
+          <ul class="series-specs">
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7mm</span></li>
+            <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
+            <li><span class="spec-label">Brightness</span><span class="spec-value">600 nits</span></li>
+            <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
+            <li><span class="spec-label">Color Depth</span><span class="spec-value">10-bit</span></li>
+            <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
+            <li><span class="spec-label">Environment</span><span class="series-badge">Indoor</span></li>
+            <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
+          </ul>
+        </div>
+
         <!-- Boulder Series -->
         <div class="series-card boulder fade-in">
           <div class="series-icon-wrap">
@@ -1609,10 +1647,10 @@
             </svg>
           </div>
           <div class="series-name">Boulder Series</div>
-          <div class="series-tagline">The Ultimate — BlackFire + NanoPix + SilkStream</div>
-          <p class="series-desc">For those who demand the best. The Boulder combines BlackFire, NanoPix, and SilkStream technologies — our proprietary 240Hz refresh rate delivers the smoothest picture in fast-moving content of any video wall on the market. Every sports play, every action sequence, rendered with zero motion blur.</p>
+          <div class="series-tagline">Motion King — BlackFire + SilkStream</div>
+          <p class="series-desc">Unrivaled motion performance. The Boulder pairs BlackFire contrast with SilkStream 240Hz — our proprietary refresh rate technology that delivers the smoothest picture in fast-moving content of any video wall on the market. Built for sports, cinema, and live action.</p>
           <ul class="series-specs">
-            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7mm & 0.9mm</span></li>
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm</span></li>
             <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 240Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">1,000 nits</span></li>
             <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
