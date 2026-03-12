@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Opal Screens | Premium MicroLED Video Walls</title>
+  <meta name="description" content="Opal Screens — premium MicroLED video walls with BlackFire technology. Custom sizes, 4K resolution, HDR 10-bit+, zero input lag. US-based, dealer network nationwide.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg-primary: #0a0a0f;
+      --bg-secondary: #111118;
+      --bg-card: #16161f;
+      --bg-card-hover: #1c1c28;
+      --text-primary: #f0f0f5;
+      --text-secondary: #8888a0;
+      --text-muted: #55556a;
+      --accent: #00c2ff;
+      --accent-glow: rgba(0, 194, 255, 0.15);
+      --accent-secondary: #7b61ff;
+      --gradient-accent: linear-gradient(135deg, #00c2ff, #7b61ff);
+      --border: rgba(255, 255, 255, 0.06);
+      --border-hover: rgba(255, 255, 255, 0.12);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── ICONS ─── */
+    .icon {
+      width: 24px;
+      height: 24px;
+      stroke: var(--accent);
+      stroke-width: 1.5;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-sm { width: 20px; height: 20px; }
+    .icon-lg { width: 28px; height: 28px; }
+
+    /* ─── NAVIGATION ─── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      background: rgba(10, 10, 15, 0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 0.7rem 2rem;
+      background: rgba(10, 10, 15, 0.95);
+    }
+
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 40px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      text-transform: uppercase;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      padding: 0.6rem 1.5rem;
+      background: var(--gradient-accent);
+      color: var(--bg-primary) !important;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: transform 0.2s, box-shadow 0.2s !important;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 30px rgba(0, 194, 255, 0.3);
+    }
+
+    .mobile-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .mobile-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(10,10,15,0.5) 0%, rgba(10,10,15,0.7) 40%, rgba(10,10,15,0.95) 100%),
+        url('assets/hero-theater.png') center top/cover no-repeat;
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 30%, transparent 70%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1.2rem;
+      background: rgba(0, 194, 255, 0.08);
+      border: 1px solid rgba(0, 194, 255, 0.2);
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.6);
+    }
+
+    .hero h1 .gradient {
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #c8c8d8;
+      max-width: 650px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8), 0 1px 3px rgba(0,0,0,0.9);
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-accent);
+      color: var(--bg-primary);
+      box-shadow: 0 4px 20px rgba(0, 194, 255, 0.25);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(0, 194, 255, 0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+      border: 1px solid var(--border-hover);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-arrow {
+      transition: transform 0.2s;
+    }
+
+    .btn:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section {
+      padding: 7rem 2rem;
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-label::before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    /* ─── BLACKFIRE SECTION ─── */
+    .blackfire {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .blackfire-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .blackfire-visual {
+      position: relative;
+      aspect-ratio: 4/3;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--bg-primary);
+    }
+
+    .blackfire-compare {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: stretch;
+    }
+
+    .compare-side {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.2rem;
+    }
+
+    .compare-img {
+      flex: 1;
+      border-radius: 8px;
+      margin-bottom: 0.8rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .standard-img {
+      background: linear-gradient(135deg, #1a1a3a, #2d2d5e, #1e1e40);
+    }
+
+    .standard-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(80,80,140,0.4) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(60,60,120,0.3) 0%, transparent 40%);
+    }
+
+    .bf-img {
+      background: #000;
+    }
+
+    .bf-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 40%, rgba(0,194,255,0.5) 0%, transparent 30%),
+        radial-gradient(circle at 70% 55%, rgba(123,97,255,0.4) 0%, transparent 25%),
+        radial-gradient(circle at 50% 70%, rgba(255,107,157,0.3) 0%, transparent 20%);
+    }
+
+    .compare-label-bar {
+      margin-bottom: 0.6rem;
+    }
+
+    .compare-badge {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .compare-badge.standard {
+      background: rgba(255,255,255,0.08);
+      color: var(--text-muted);
+    }
+
+    .compare-badge.bf {
+      background: rgba(255,45,45,0.15);
+      color: #ff6b35;
+    }
+
+    .compare-issues, .compare-benefits {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .compare-issues li, .compare-benefits li {
+      font-size: 0.7rem;
+      font-weight: 500;
+    }
+
+    .compare-issues li {
+      color: var(--text-muted);
+    }
+
+    .compare-issues li::before {
+      content: '✕ ';
+      color: #ef4444;
+      font-weight: 700;
+    }
+
+    .compare-benefits li {
+      color: var(--text-secondary);
+    }
+
+    .compare-benefits li::before {
+      content: '✓ ';
+      color: #22c55e;
+      font-weight: 700;
+    }
+
+    .compare-divider {
+      width: 2px;
+      background: var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .compare-vs {
+      position: absolute;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.3rem 0.5rem;
+      font-size: 0.6rem;
+      font-weight: 800;
+      color: var(--text-muted);
+      letter-spacing: 0.1em;
+    }
+
+    .blackfire-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    .blackfire-title span {
+      background: linear-gradient(135deg, #ff6b35, #ff2d2d, #cc0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .blackfire-tagline {
+      font-size: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1.5rem;
+    }
+
+    .blackfire-content p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .blackfire-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+
+    .stat {
+      text-align: center;
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .stat-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
+
+    /* ─── TECH LOGOS ─── */
+    .tech-logo-img {
+      height: 50px;
+      width: auto;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ─── SILKSTREAM TITLE ─── */
+    .silkstream-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      margin-bottom: 0.5rem;
+    }
+
+    .silkstream-title span {
+      background: linear-gradient(135deg, #22d3ee, #06b6d4, #0891b2);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ─── NANOPIX SECTION ─── */
+    .nanopix {
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nanopix-demo {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nano-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(167,139,250,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(167,139,250,0.06) 1px, transparent 1px);
+      background-size: 8px 8px;
+    }
+
+    .nano-zoom-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      border: 2px solid rgba(167,139,250,0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      background: rgba(167,139,250,0.03);
+      box-shadow: 0 0 60px rgba(167,139,250,0.1);
+    }
+
+    .nano-pixels {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      padding: 20px;
+    }
+
+    .nano-pixels span {
+      width: 14px;
+      height: 14px;
+      border-radius: 2px;
+      background: rgba(167,139,250,0.5);
+      animation: nanoPulse 2s ease-in-out infinite;
+    }
+
+    .nano-pixels span:nth-child(2n) { animation-delay: 0.3s; background: rgba(123,97,255,0.6); }
+    .nano-pixels span:nth-child(3n) { animation-delay: 0.6s; background: rgba(139,92,246,0.5); }
+    .nano-pixels span:nth-child(5n) { animation-delay: 0.9s; background: rgba(167,139,250,0.7); }
+
+    @keyframes nanoPulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    .nano-label {
+      position: absolute;
+      bottom: -30px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #a78bfa;
+      letter-spacing: 0.1em;
+    }
+
+    /* ─── SILKSTREAM SECTION ─── */
+    .silkstream {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .silk-demo {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .silk-frames {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      height: 60%;
+      padding: 0 2rem;
+    }
+
+    .silk-frame {
+      flex: 1;
+      height: 100%;
+      border-radius: 4px;
+      animation: silkSlide 3s ease-in-out infinite;
+    }
+
+    .silk-frame.f1 { background: linear-gradient(180deg, #0891b2, #164e63); animation-delay: 0s; }
+    .silk-frame.f2 { background: linear-gradient(180deg, #06b6d4, #0e7490); animation-delay: 0.15s; }
+    .silk-frame.f3 { background: linear-gradient(180deg, #22d3ee, #0891b2); animation-delay: 0.3s; }
+    .silk-frame.f4 { background: linear-gradient(180deg, #67e8f9, #06b6d4); animation-delay: 0.45s; }
+    .silk-frame.f5 { background: linear-gradient(180deg, #a5f3fc, #22d3ee); animation-delay: 0.6s; }
+
+    @keyframes silkSlide {
+      0%, 100% { transform: scaleY(0.7); opacity: 0.4; }
+      50% { transform: scaleY(1); opacity: 1; }
+    }
+
+    .silk-hz-badge {
+      position: absolute;
+      bottom: 2rem;
+      right: 2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: #22d3ee;
+      opacity: 0.2;
+      letter-spacing: 0.05em;
+    }
+
+    /* ─── PRODUCT SERIES ─── */
+    .series {
+      background: var(--bg-primary);
+    }
+
+    .series-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .series-card {
+      padding: 2.5rem 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .series-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .series-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-6px);
+    }
+
+    .series-card:hover::before { opacity: 1; }
+
+    .series-card.crystal::before { background: linear-gradient(90deg, #00c2ff, #7b61ff); }
+    .series-card.boulder::before { background: linear-gradient(90deg, #ff8c42, #e85d26); }
+    .series-card.water::before { background: linear-gradient(90deg, #00d4aa, #00a8cc); }
+
+    .series-icon-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .series-card.crystal .series-icon-wrap { background: rgba(0, 194, 255, 0.1); }
+    .series-card.crystal .icon { stroke: #00c2ff; }
+
+    .series-card.boulder .series-icon-wrap { background: rgba(255, 140, 66, 0.1); }
+    .series-card.boulder .icon { stroke: #ff8c42; }
+
+    .series-card.water .series-icon-wrap { background: rgba(0, 212, 170, 0.1); }
+    .series-card.water .icon { stroke: #00d4aa; }
+
+    .series-card.doublet::before { background: linear-gradient(90deg, #a78bfa, #818cf8); }
+    .series-card.doublet .series-icon-wrap { background: rgba(167, 139, 250, 0.1); }
+    .series-card.doublet .icon { stroke: #a78bfa; }
+    .series-card.doublet .series-tagline { color: #a78bfa; }
+    .series-card.doublet .series-badge { background: rgba(167,139,250,0.1); color: #a78bfa; }
+
+    .series-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .series-tagline {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 1rem;
+    }
+
+    .series-card.crystal .series-tagline { color: #00c2ff; }
+    .series-card.boulder .series-tagline { color: #ff8c42; }
+    .series-card.water .series-tagline { color: #00d4aa; }
+
+    .series-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .series-specs {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .series-specs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+    }
+
+    .series-specs .spec-label {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .series-specs .spec-value {
+      color: var(--text-primary);
+      font-weight: 600;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .series-badge {
+      display: inline-block;
+      padding: 0.2rem 0.6rem;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .series-card.crystal .series-badge { background: rgba(0,194,255,0.1); color: #00c2ff; }
+    .series-card.boulder .series-badge { background: rgba(255,140,66,0.1); color: #ff8c42; }
+    .series-card.water .series-badge { background: rgba(0,212,170,0.1); color: #00d4aa; }
+
+    /* ─── FEATURES ─── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      padding: 2rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--gradient-accent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-4px);
+    }
+
+    .feature-card:hover::before { opacity: 1; }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .feature-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ─── CUSTOM SIZES ─── */
+    .custom {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .custom-visual { position: relative; }
+
+    .aspect-demos {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-end;
+      justify-content: center;
+    }
+
+    .aspect-box {
+      border: 2px solid var(--accent);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 194, 255, 0.03);
+      transition: all 0.3s;
+    }
+
+    .aspect-box:hover {
+      background: rgba(0, 194, 255, 0.08);
+      box-shadow: 0 0 30px rgba(0, 194, 255, 0.15);
+    }
+
+    .aspect-box span {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+    }
+
+    .aspect-16-9 { width: 160px; height: 90px; }
+    .aspect-21-9 { width: 210px; height: 90px; }
+    .aspect-32-9 { width: 280px; height: 79px; }
+    .aspect-custom { width: 120px; height: 120px; border-style: dashed; }
+
+    .custom-content .section-subtitle { margin-bottom: 2rem; }
+
+    .custom-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .custom-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .custom-features li .icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ─── ENVIRONMENTS ─── */
+    .environments-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .env-card {
+      padding: 2.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .env-card:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .env-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      opacity: 0.04;
+      pointer-events: none;
+    }
+
+    .env-card.indoor::after { background: var(--accent); }
+    .env-card.outdoor::after { background: var(--accent-secondary); }
+
+    .env-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .env-card.indoor .env-icon { background: rgba(0, 194, 255, 0.1); }
+    .env-card.outdoor .env-icon { background: rgba(123, 97, 255, 0.1); }
+    .env-card.indoor .env-icon .icon { stroke: var(--accent); }
+    .env-card.outdoor .env-icon .icon { stroke: var(--accent-secondary); }
+
+    .env-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+
+    .env-card p {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .env-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .env-spec {
+      padding: 0.35rem 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ─── DEALER CTA ─── */
+    .dealer-cta {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+    }
+
+    .cta-box {
+      text-align: center;
+      padding: 5rem 3rem;
+      border-radius: var(--radius);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0, 194, 255, 0.06) 0%, transparent 60%);
+      border: 1px solid var(--border);
+    }
+
+    .cta-box .section-title { margin-bottom: 1rem; }
+    .cta-box .section-subtitle { margin: 0 auto 2.5rem; text-align: center; }
+
+    /* ─── CONTACT FORM ─── */
+    .contact {
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 3rem;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+
+    .contact-item-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--accent-glow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-item h4 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-item p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      padding: 0.85rem 1rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group textarea { min-height: 120px; resize: vertical; }
+
+    .form-group select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238888a0' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .contact-form .btn {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 3rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-copy {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─── ANIMATIONS ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fade-in { opacity: 1; transform: none; }
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .blackfire-grid, .custom-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .series-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        backdrop-filter: blur(20px);
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      .mobile-toggle { display: flex; }
+      .features-grid { grid-template-columns: 1fr; }
+      .environments-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-inner { flex-direction: column; gap: 1rem; }
+      .aspect-demos { flex-wrap: wrap; justify-content: center; }
+      .aspect-32-9 { width: 220px; height: 62px; }
+      .blackfire-stats { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+      .stat { padding: 0.8rem; }
+      .stat-value { font-size: 1.4rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      section { padding: 4rem 1.5rem; }
+      .cta-box { padding: 3rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <img src="assets/opal-logo.png" alt="Opal Screens" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#blackfire">Technology</a></li>
+        <li><a href="#series">Products</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#custom">Custom</a></li>
+        <li><a href="#environments">Solutions</a></li>
+        <li><a href="#contact" class="nav-cta">Get a Quote</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-content fade-in">
+      <div class="hero-badge">MicroLED Technology</div>
+      <h1>Seeing is<br><span class="gradient">Believing.</span></h1>
+      <p>Immerse yourself in cinematic grandeur. Our expansive MicroLED screens transport you to other worlds — sit courtside, get lost in the action, or turn any wall into a masterpiece. Where size meets excellence and reality blends with fantasy.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">
+          Find a Dealer
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#blackfire" class="btn btn-secondary">
+          Explore BlackFire
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLACKFIRE -->
+  <section class="blackfire" id="blackfire">
+    <div class="section-inner">
+      <div class="blackfire-grid">
+        <div class="blackfire-visual fade-in">
+          <div class="blackfire-compare">
+            <div class="compare-side compare-standard">
+              <div class="compare-img standard-img"></div>
+              <div class="compare-label-bar">
+                <span class="compare-badge standard">Standard LED</span>
+              </div>
+              <ul class="compare-issues">
+                <li>Washed-out blacks</li>
+                <li>Glow in dark scenes</li>
+                <li>Lost shadow detail</li>
+              </ul>
+            </div>
+            <div class="compare-divider">
+              <span class="compare-vs">VS</span>
+            </div>
+            <div class="compare-side compare-bf">
+              <div class="compare-img bf-img"></div>
+              <div class="compare-label-bar">
+                <span class="compare-badge bf">BlackFire</span>
+              </div>
+              <ul class="compare-benefits">
+                <li>True black — pixel off</li>
+                <li>Infinite contrast</li>
+                <li>Every detail preserved</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="blackfire-content fade-in">
+          <div class="section-label">Proprietary Technology</div>
+          <h2 class="blackfire-title">BLACK<span>FIRE</span></h2>
+          <div class="blackfire-tagline">The Pinnacle of Contrast</div>
+          <p>Discover the brilliance of BlackFire technology — the core of our latest screen innovation. Screens equipped with BlackFire offer the deepest blacks and most radiant whites, setting a new benchmark for contrast. Each pixel is individually controlled for brightness and hue, ensuring true black and outstanding color precision.</p>
+          <p>This is not just a display — it's a window to unparalleled visual experiences.</p>
+          <div class="blackfire-stats">
+            <div class="stat">
+              <div class="stat-value">∞:1</div>
+              <div class="stat-label">Contrast</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">10-bit+</div>
+              <div class="stat-label">Color Depth</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value">HDR</div>
+              <div class="stat-label">Ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NANOPIX -->
+  <section class="nanopix" id="nanopix">
+    <div class="section-inner">
+      <div class="blackfire-grid" style="direction: rtl;">
+        <div class="blackfire-visual fade-in" style="direction: ltr;">
+          <div class="nanopix-demo">
+            <div class="nano-grid-overlay"></div>
+            <div class="nano-zoom-circle">
+              <div class="nano-pixels">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span>
+              </div>
+              <div class="nano-label">0.7mm</div>
+            </div>
+          </div>
+        </div>
+        <div class="blackfire-content fade-in" style="direction: ltr;">
+          <div class="section-label">Precision Engineering</div>
+          <img src="assets/nanopix-logo.png" alt="NanoPix" class="tech-logo-img">
+          <div class="blackfire-tagline" style="color: #a78bfa;">Micro Precision, Macro Impact</div>
+          <p>NanoPix technology heralds a new era in MicroLED screens, providing astonishing detail that withstands the scrutiny of the closest view. Each micro pixel works to create an exceptionally crisp and clear picture, transforming the viewing experience.</p>
+          <p>This is the epitome of precision in display technology — ensuring that even at intimate viewing distances, the image remains impeccably sharp and defined.</p>
+          <div class="blackfire-stats">
+            <div class="stat">
+              <div class="stat-value" style="color: #a78bfa;">0.7mm</div>
+              <div class="stat-label">Pixel Pitch</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #a78bfa;">Ultra</div>
+              <div class="stat-label">Clarity</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #a78bfa;">Close</div>
+              <div class="stat-label">Viewing</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SILKSTREAM -->
+  <section class="silkstream" id="silkstream">
+    <div class="section-inner">
+      <div class="blackfire-grid">
+        <div class="blackfire-visual fade-in">
+          <div class="silk-demo">
+            <div class="silk-frames">
+              <div class="silk-frame f1"></div>
+              <div class="silk-frame f2"></div>
+              <div class="silk-frame f3"></div>
+              <div class="silk-frame f4"></div>
+              <div class="silk-frame f5"></div>
+            </div>
+            <div class="silk-hz-badge">240Hz</div>
+          </div>
+        </div>
+        <div class="blackfire-content fade-in">
+          <div class="section-label">Motion Technology</div>
+          <h2 class="silkstream-title">SILK<span>STREAM</span></h2>
+          <div class="blackfire-tagline" style="color: #22d3ee;">The Smoothest Picture in Motion</div>
+          <p>SilkStream is our proprietary 240Hz refresh rate technology — engineered to deliver the smoothest picture in fast-moving content of any video wall on the market. Every sports play, every action sequence, every fast pan rendered with absolute clarity and zero motion blur.</p>
+          <p>Where other displays stutter and smear, SilkStream keeps every frame razor-sharp. The difference isn't subtle — it's transformative.</p>
+          <div class="blackfire-stats">
+            <div class="stat">
+              <div class="stat-value" style="color: #22d3ee;">240Hz</div>
+              <div class="stat-label">Refresh Rate</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #22d3ee;">Zero</div>
+              <div class="stat-label">Motion Blur</div>
+            </div>
+            <div class="stat">
+              <div class="stat-value" style="color: #22d3ee;">#1</div>
+              <div class="stat-label">Smoothest</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SERIES -->
+  <section class="series" id="series">
+    <div class="section-inner">
+      <div class="fade-in">
+        <div class="section-label">Product Lineup</div>
+        <div class="section-title">Choose Your Series</div>
+        <div class="section-subtitle">Three distinct product lines engineered for different environments and performance requirements. All powered by BlackFire technology.</div>
+      </div>
+      <div class="series-grid">
+
+        <!-- Boulder Series -->
+        <div class="series-card boulder fade-in">
+          <div class="series-icon-wrap">
+            <svg class="icon icon-lg" viewBox="0 0 24 24">
+              <path d="M2 17l3-7 4 2 3-9 4 6 6-3v11H2z"/>
+              <line x1="2" y1="20" x2="22" y2="20"/>
+            </svg>
+          </div>
+          <div class="series-name">Boulder Series</div>
+          <div class="series-tagline">The Ultimate — BlackFire + NanoPix + SilkStream</div>
+          <p class="series-desc">For those who demand the best. The Boulder combines BlackFire, NanoPix, and SilkStream technologies — our proprietary 240Hz refresh rate delivers the smoothest picture in fast-moving content of any video wall on the market. Every sports play, every action sequence, rendered with zero motion blur.</p>
+          <ul class="series-specs">
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7mm & 0.9mm</span></li>
+            <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 240Hz</span></li>
+            <li><span class="spec-label">Brightness</span><span class="spec-value">1,000 nits</span></li>
+            <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
+            <li><span class="spec-label">Color Depth</span><span class="spec-value">10-bit</span></li>
+            <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
+            <li><span class="spec-label">Environment</span><span class="series-badge">Indoor</span></li>
+            <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
+          </ul>
+        </div>
+
+        <!-- Crystal Series -->
+        <div class="series-card crystal fade-in">
+          <div class="series-icon-wrap">
+            <svg class="icon icon-lg" viewBox="0 0 24 24">
+              <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+              <line x1="12" y1="22" x2="12" y2="15.5"/>
+              <line x1="22" y1="8.5" x2="12" y2="15.5"/>
+              <line x1="2" y1="8.5" x2="12" y2="15.5"/>
+            </svg>
+          </div>
+          <div class="series-name">Crystal Series</div>
+          <div class="series-tagline">Premium Indoor — BlackFire Equipped</div>
+          <p class="series-desc">Remarkable contrast and superior picture quality powered by BlackFire technology. An ideal choice for those seeking advanced technology and premium quality — perfect for home theaters, luxury residences, and high-end commercial spaces.</p>
+          <ul class="series-specs">
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm & 1.2mm</span></li>
+            <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
+            <li><span class="spec-label">Brightness</span><span class="spec-value">800 nits</span></li>
+            <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
+            <li><span class="spec-label">Color Depth</span><span class="spec-value">10-bit</span></li>
+            <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
+            <li><span class="spec-label">Environment</span><span class="series-badge">Indoor</span></li>
+            <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
+          </ul>
+        </div>
+
+        <!-- Water Series -->
+        <div class="series-card water fade-in">
+          <div class="series-icon-wrap">
+            <svg class="icon icon-lg" viewBox="0 0 24 24">
+              <path d="M12 2c0 0-8 9.27-8 13a8 8 0 0 0 16 0c0-3.73-8-13-8-13z"/>
+            </svg>
+          </div>
+          <div class="series-name">Water Series</div>
+          <div class="series-tagline">Outdoor — IP65 Rated</div>
+          <p class="series-desc">Expertly crafted for the outdoors with water resistance, 4,000-nit high brightness, and anti-reflection coating. Designed to thrive in any outdoor setting — vibrant and clear even in direct sunlight. IP65 rated front and rear.</p>
+          <ul class="series-specs">
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">1.2 / 1.5 / 1.875mm</span></li>
+            <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
+            <li><span class="spec-label">Brightness</span><span class="spec-value">4,000 nits</span></li>
+            <li><span class="spec-label">Contrast</span><span class="spec-value">10,000:1</span></li>
+            <li><span class="spec-label">Color Depth</span><span class="spec-value">10-bit</span></li>
+            <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
+            <li><span class="spec-label">Weather Rating</span><span class="series-badge">IP65</span></li>
+            <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes, Optional</span></li>
+          </ul>
+        </div>
+
+        <!-- Doublet Series -->
+        <div class="series-card doublet fade-in">
+          <div class="series-icon-wrap">
+            <svg class="icon icon-lg" viewBox="0 0 24 24">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
+          <div class="series-name">Doublet Series</div>
+          <div class="series-tagline">Smart Value — Commercial Grade</div>
+          <p class="series-desc">Premium quality at a smart value. Perfectly suited for commercial settings and environments where viewers engage from a distance. The ideal blend of affordability and excellence for budget-conscious, quality-focused applications.</p>
+          <ul class="series-specs">
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">1.2mm & 1.5mm</span></li>
+            <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
+            <li><span class="spec-label">Brightness</span><span class="spec-value">600 nits</span></li>
+            <li><span class="spec-label">Contrast</span><span class="spec-value">8,000:1</span></li>
+            <li><span class="spec-label">Color Depth</span><span class="spec-value">10-bit</span></li>
+            <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
+            <li><span class="spec-label">Environment</span><span class="series-badge">Indoor</span></li>
+            <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- All sizes note -->
+      <div class="series-sizes-note fade-in" style="text-align:center; margin-top:2.5rem; padding:1.2rem 2rem; background:rgba(255,255,255,0.03); border:1px solid var(--border); border-radius:var(--radius-sm);">
+        <span style="color:var(--text-muted); font-size:0.85rem; font-weight:500;">All series available in 16:9 — </span>
+        <span style="color:var(--text-primary); font-size:0.85rem; font-weight:600;">110" &nbsp;·&nbsp; 137" &nbsp;·&nbsp; 165" &nbsp;·&nbsp; 220" &nbsp;·&nbsp; 270"</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <div class="fade-in">
+        <div class="section-label">Why Opal Screens</div>
+        <div class="section-title">Engineered Without<br>Compromise</div>
+        <div class="section-subtitle">Every detail is designed for the ultimate viewing experience — from pixel-perfect resolution to zero-latency performance.</div>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="12" y1="8" x2="12" y2="16"/></svg>
+          </div>
+          <h3>US Based</h3>
+          <p>Proudly designed and supported in the United States. Local teams, local service, global quality.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/><text x="12" y="12" text-anchor="middle" font-size="5" font-weight="700" fill="none" stroke="var(--accent)" stroke-width="0.5">4K</text></svg>
+          </div>
+          <h3>4K Resolution</h3>
+          <p>Crystal-clear 4K output delivers stunning detail at any size. Every pixel counts at every viewing distance.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17.5 10.5c2 0 3.5 1.5 3.5 3v1h-3"/><circle cx="8.5" cy="6.5" r="2.5"/><path d="M3 14.5c0-1.5 1.5-3 3.5-3h4c2 0 3.5 1.5 3.5 3v1H3v-1z"/><path d="M6 20l2-3h8l2 3"/></svg>
+          </div>
+          <h3>HDR 10-Bit+ Ready</h3>
+          <p>Over a billion colors rendered with precision. HDR content looks the way it was meant to be seen.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3>0-1 FPS Input Lag</h3>
+          <p>Real-time responsiveness for gaming, live events, and interactive displays. Zero compromise on speed.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="12" y1="3" x2="12" y2="17"/><line x1="2" y1="10" x2="22" y2="10"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3>Multiple Simultaneous Inputs</h3>
+          <p>Display content from multiple sources at once. Perfect for command centers, sports bars, and multi-feed setups.</p>
+        </div>
+        <div class="feature-card fade-in">
+          <div class="feature-icon">
+            <svg class="icon" viewBox="0 0 24 24"><path d="M21 3H3v7h18V3z"/><path d="M21 14H3v7h18v-7z"/><line x1="12" y1="3" x2="12" y2="10"/><path d="M3 14l9 7 9-7"/></svg>
+          </div>
+          <h3>Custom Sizes &amp; Ratios</h3>
+          <p>Not limited to standard sizes. Build any dimension to perfectly fit your space and vision.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOM SIZES -->
+  <section class="custom" id="custom">
+    <div class="section-inner">
+      <div class="custom-grid">
+        <div class="custom-content fade-in">
+          <div class="section-label">Unlimited Possibilities</div>
+          <div class="section-title">Break the<br>Boundaries</div>
+          <div class="section-subtitle">Break free from traditional 16:9 confines and tailor displays to any space. Embrace the freedom to craft ultra-wide panoramas that ensure perfect integration into any environment.</div>
+          <ul class="custom-features">
+            <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Standard 16:9 up to ultra-wide 32:9</li>
+            <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Completely custom aspect ratios</li>
+            <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Curved and angled configurations</li>
+            <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Seamless modular panel design</li>
+            <li><svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Any size — from intimate to immersive</li>
+          </ul>
+        </div>
+        <div class="custom-visual fade-in">
+          <div class="aspect-demos">
+            <div class="aspect-box aspect-16-9"><span>16:9</span></div>
+            <div class="aspect-box aspect-21-9"><span>21:9</span></div>
+            <div class="aspect-box aspect-32-9"><span>32:9</span></div>
+            <div class="aspect-box aspect-custom"><span>Custom</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENTS -->
+  <section class="environments" id="environments">
+    <div class="section-inner">
+      <div class="fade-in">
+        <div class="section-label">Built for Any Setting</div>
+        <div class="section-title">Clarity Anywhere</div>
+        <div class="section-subtitle">Robust solutions engineered for exceptional performance — indoors or under the open sky.</div>
+      </div>
+      <div class="environments-grid">
+        <div class="env-card indoor fade-in">
+          <div class="env-icon">
+            <svg class="icon icon-lg" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3>Indoor Environments</h3>
+          <p>Transform living rooms, home theaters, lobbies, boardrooms, and showrooms into immersive visual experiences. Our indoor panels deliver perfect black levels and vibrant color in any controlled lighting environment.</p>
+          <div class="env-specs">
+            <span class="env-spec">Home Theater</span>
+            <span class="env-spec">Corporate</span>
+            <span class="env-spec">Retail</span>
+            <span class="env-spec">Hospitality</span>
+            <span class="env-spec">Houses of Worship</span>
+          </div>
+        </div>
+        <div class="env-card outdoor fade-in">
+          <div class="env-icon">
+            <svg class="icon icon-lg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </div>
+          <h3>Outdoor Environments</h3>
+          <p>Built to withstand the elements with high-brightness outputs that deliver clear, vivid images even in full sunlight. IP-rated enclosures protect against rain, dust, and temperature extremes while maintaining stunning visual quality.</p>
+          <div class="env-specs">
+            <span class="env-spec">High Brightness</span>
+            <span class="env-spec">Weather Resistant</span>
+            <span class="env-spec">UV Protected</span>
+            <span class="env-spec">Full Sunlight</span>
+            <span class="env-spec">IP Rated</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEALER CTA -->
+  <section class="dealer-cta">
+    <div class="section-inner">
+      <div class="cta-box fade-in">
+        <div class="section-label">Dealer Network</div>
+        <div class="section-title">Ready to See<br>the Difference?</div>
+        <div class="section-subtitle">Connect with an authorized Opal Screens dealer for a personalized consultation, live demo, or project quote.</div>
+        <a href="#contact" class="btn btn-primary">
+          Speak to a Dealer
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="fade-in">
+        <div class="section-label">Get in Touch</div>
+        <div class="section-title">Let's Build Something<br>Unforgettable</div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <h4>Based in the USA</h4>
+              <p>Naples, Florida — serving dealers and integrators nationwide.</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div>
+              <h4>Dealer Program</h4>
+              <p>Join our growing network of authorized integrators. Competitive pricing, training, and support.</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="22" y1="12" x2="18" y2="12"/><line x1="6" y1="12" x2="2" y2="12"/><line x1="12" y1="6" x2="12" y2="2"/><line x1="12" y1="22" x2="12" y2="18"/></svg>
+            </div>
+            <div>
+              <h4>Custom Projects</h4>
+              <p>Have something unique in mind? Our team specializes in custom-built MicroLED solutions of any size or configuration.</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="type">I am a...</label>
+              <select id="type" name="type">
+                <option value="">Select one</option>
+                <option value="homeowner">Homeowner</option>
+                <option value="business">Business Owner</option>
+                <option value="integrator">Integrator / Dealer</option>
+                <option value="architect">Architect / Designer</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            Send Message
+            <span class="btn-arrow">→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-copy">© 2026 Opal Screens. All rights reserved.</div>
+      <ul class="footer-links">
+        <li><a href="#blackfire">BlackFire</a></li>
+        <li><a href="#series">Products</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#environments">Solutions</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    setTimeout(() => {
+      document.querySelectorAll('.fade-in').forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible');
+      });
+    }, 100);
+
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'));
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.textContent = 'Message Sent ✓';
+      btn.style.background = '#22c55e';
+      setTimeout(() => {
+        btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+
+</body>
+</html>
