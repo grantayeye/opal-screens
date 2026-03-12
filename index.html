@@ -701,49 +701,146 @@
     .silk-demo {
       position: absolute;
       inset: 0;
-      background: var(--bg-primary);
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      padding: 1.5rem;
     }
 
-    .silk-frames {
-      display: flex;
-      gap: 4px;
-      align-items: center;
-      height: 60%;
-      padding: 0 2rem;
-    }
-
-    .silk-frame {
-      flex: 1;
-      height: 100%;
-      border-radius: 4px;
-      animation: silkSlide 3s ease-in-out infinite;
-    }
-
-    .silk-frame.f1 { background: linear-gradient(180deg, #0891b2, #164e63); animation-delay: 0s; }
-    .silk-frame.f2 { background: linear-gradient(180deg, #06b6d4, #0e7490); animation-delay: 0.15s; }
-    .silk-frame.f3 { background: linear-gradient(180deg, #22d3ee, #0891b2); animation-delay: 0.3s; }
-    .silk-frame.f4 { background: linear-gradient(180deg, #67e8f9, #06b6d4); animation-delay: 0.45s; }
-    .silk-frame.f5 { background: linear-gradient(180deg, #a5f3fc, #22d3ee); animation-delay: 0.6s; }
-
-    @keyframes silkSlide {
-      0%, 100% { transform: scaleY(0.7); opacity: 0.4; }
-      50% { transform: scaleY(1); opacity: 1; }
-    }
-
-    .silk-hz-badge {
+    .silk-demo::before {
+      content: '';
       position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 800;
-      color: #22d3ee;
-      opacity: 0.2;
-      letter-spacing: 0.05em;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 194, 255, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .silk-demo-inner {
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .silk-hz-counter {
+      text-align: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .silk-hz-number {
+      font-size: 4rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+
+    .silk-hz-suffix {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      margin-left: 4px;
+    }
+
+    .silk-hz-label {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.3rem;
+      text-align: center;
+      transition: color 0.3s;
+    }
+
+    .silk-steps {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin: 1rem 0;
+    }
+
+    .silk-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.3rem;
+      opacity: 0.25;
+      transition: opacity 0.5s, transform 0.3s;
+    }
+
+    .silk-step.active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+
+    .silk-step-hz {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .silk-step-bar {
+      width: 36px;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.5s;
+    }
+
+    .silk-step.active .silk-step-bar {
+      background: #00c2ff;
+    }
+
+    .silk-step-label {
+      font-size: 0.55rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .silk-motion-track {
+      position: relative;
+      height: 50px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .silk-motion-ball {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+
+    /* Phase styles */
+    .silk-phase-60 .silk-hz-number { color: rgba(255,255,255,0.35); }
+    .silk-phase-120 .silk-hz-number { color: rgba(255,255,255,0.6); }
+    .silk-phase-240 .silk-hz-number {
+      background: linear-gradient(135deg, #fff 0%, #00c2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .silk-phase-60 .silk-motion-ball {
+      background: radial-gradient(circle at 35% 35%, #888, #555);
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    .silk-phase-120 .silk-motion-ball {
+      background: radial-gradient(circle at 35% 35%, #aaf, #77c);
+      box-shadow: 0 0 15px rgba(100,100,255,0.3);
+    }
+    .silk-phase-240 .silk-motion-ball {
+      background: radial-gradient(circle at 35% 35%, #66d9ff, #00c2ff);
+      box-shadow: 0 0 25px rgba(0, 194, 255, 0.6), 0 0 50px rgba(0, 194, 255, 0.2);
     }
 
     /* ─── PRODUCT SERIES ─── */
@@ -1439,15 +1536,33 @@
     <div class="section-inner">
       <div class="blackfire-grid">
         <div class="blackfire-visual fade-in">
-          <div class="silk-demo">
-            <div class="silk-frames">
-              <div class="silk-frame f1"></div>
-              <div class="silk-frame f2"></div>
-              <div class="silk-frame f3"></div>
-              <div class="silk-frame f4"></div>
-              <div class="silk-frame f5"></div>
+          <div class="silk-demo" id="silkDemo">
+            <div class="silk-demo-inner">
+              <div class="silk-hz-counter">
+                <span class="silk-hz-number" id="silkHzNumber">60</span><span class="silk-hz-suffix">Hz</span>
+                <div class="silk-hz-label" id="silkHzLabel">Standard refresh rate</div>
+              </div>
+              <div class="silk-steps">
+                <div class="silk-step active" id="silkStep60">
+                  <span class="silk-step-hz">60</span>
+                  <div class="silk-step-bar"></div>
+                  <span class="silk-step-label">Standard</span>
+                </div>
+                <div class="silk-step" id="silkStep120">
+                  <span class="silk-step-hz">120</span>
+                  <div class="silk-step-bar"></div>
+                  <span class="silk-step-label">High</span>
+                </div>
+                <div class="silk-step" id="silkStep240">
+                  <span class="silk-step-hz">240</span>
+                  <div class="silk-step-bar"></div>
+                  <span class="silk-step-label">SilkStream</span>
+                </div>
+              </div>
+              <div class="silk-motion-track">
+                <div class="silk-motion-ball" id="silkBall"></div>
+              </div>
             </div>
-            <div class="silk-hz-badge">240Hz</div>
           </div>
         </div>
         <div class="blackfire-content fade-in">
@@ -1858,6 +1973,112 @@
         e.target.reset();
       }, 3000);
     }
+  </script>
+
+  <!-- SilkStream 240Hz Demo Animation -->
+  <script>
+  (function() {
+    const demo = document.getElementById('silkDemo');
+    const hzNumber = document.getElementById('silkHzNumber');
+    const hzLabel = document.getElementById('silkHzLabel');
+    const ball = document.getElementById('silkBall');
+    const steps = { 60: document.getElementById('silkStep60'), 120: document.getElementById('silkStep120'), 240: document.getElementById('silkStep240') };
+
+    if (!demo || !ball) return;
+
+    const phases = [
+      { hz: 60, label: 'Standard refresh rate', className: 'silk-phase-60', duration: 3000 },
+      { hz: 120, label: 'High refresh rate', className: 'silk-phase-120', duration: 3000 },
+      { hz: 240, label: 'Pure cinema. Zero motion blur.', className: 'silk-phase-240', duration: 4000 }
+    ];
+
+    let currentPhase = 0;
+    let intervalId = null;
+    let rafId = null;
+
+    function stopBall() {
+      if (intervalId) { clearInterval(intervalId); intervalId = null; }
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    }
+
+    function animateCounter(from, to, duration) {
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        hzNumber.textContent = Math.round(from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+
+    function animateBall60() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 20;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      intervalId = setInterval(() => {
+        pos += dir * (maxX / 14);
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+      }, 55);
+    }
+
+    function animateBall120() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 20;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      intervalId = setInterval(() => {
+        pos += dir * (maxX / 30);
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+      }, 25);
+    }
+
+    function animateBall240() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 20;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      let lastTime = performance.now();
+      function frame(now) {
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+        pos += dir * maxX * 0.7 * dt;
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+        rafId = requestAnimationFrame(frame);
+      }
+      rafId = requestAnimationFrame(frame);
+    }
+
+    const ballAnimators = { 60: animateBall60, 120: animateBall120, 240: animateBall240 };
+
+    function runPhase(index) {
+      const phase = phases[index];
+      const prevPhase = phases[(index - 1 + phases.length) % phases.length];
+      demo.className = 'silk-demo ' + phase.className;
+      Object.values(steps).forEach(s => s.classList.remove('active'));
+      steps[phase.hz].classList.add('active');
+      animateCounter(prevPhase.hz, phase.hz, 800);
+      setTimeout(() => { hzLabel.textContent = phase.label; }, 400);
+      stopBall();
+      ballAnimators[phase.hz]();
+    }
+
+    function cycle() {
+      runPhase(currentPhase);
+      const duration = phases[currentPhase].duration;
+      currentPhase = (currentPhase + 1) % phases.length;
+      setTimeout(cycle, duration);
+    }
+
+    cycle();
+  })();
   </script>
 
 </body>

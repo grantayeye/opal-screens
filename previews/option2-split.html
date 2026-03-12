@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 2 — Split Comparison</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0a; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, sans-serif; }
+    
+    .demo-container {
+      width: 100%;
+      max-width: 700px;
+      padding: 2rem;
+    }
+    
+    .silkstream-demo {
+      position: relative;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    
+    .silkstream-demo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 194, 255, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    .demo-header h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #00c2ff;
+      margin-bottom: 0.5rem;
+    }
+    
+    .demo-header .hz-value {
+      font-size: 3.5rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff 0%, #00c2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1;
+    }
+    
+    .demo-header p {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+    
+    /* Split comparison track */
+    .split-track {
+      position: relative;
+      height: 200px;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      margin-bottom: 1.5rem;
+    }
+    
+    .split-side {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .split-side:first-child {
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    
+    .split-side .label {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: rgba(255,255,255,0.4);
+      z-index: 5;
+      white-space: nowrap;
+    }
+    
+    .split-side .hz-label {
+      position: absolute;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      font-weight: 700;
+      z-index: 5;
+    }
+    
+    .split-side:first-child .hz-label { color: rgba(255,255,255,0.3); }
+    .split-side:last-child .hz-label { color: #00c2ff; }
+    
+    .split-side:first-child { background: rgba(255,255,255,0.02); }
+    .split-side:last-child { background: rgba(0, 194, 255, 0.03); }
+    
+    /* The moving ball */
+    .ball {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -28px;
+    }
+    
+    /* Smooth ball (240Hz side) */
+    .split-side:last-child .ball {
+      background: radial-gradient(circle at 35% 35%, #66d9ff, #00c2ff, #0088cc);
+      box-shadow: 0 0 20px rgba(0, 194, 255, 0.6), 0 0 40px rgba(0, 194, 255, 0.2);
+      animation: moveBallSmooth 2s ease-in-out infinite;
+    }
+    
+    /* Choppy ball (60Hz side) */
+    .split-side:first-child .ball {
+      background: radial-gradient(circle at 35% 35%, #999, #666, #444);
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.15);
+      animation: moveBallChoppy 2s ease-in-out infinite;
+    }
+    
+    /* Ghost trails for choppy side */
+    .ghost {
+      position: absolute;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(150, 150, 150, 0.12);
+      pointer-events: none;
+    }
+    
+    @keyframes moveBallSmooth {
+      0% { left: -28px; }
+      45% { left: calc(100% + 0px); }
+      50% { left: calc(100% + 0px); }
+      95% { left: -28px; }
+      100% { left: -28px; }
+    }
+    
+    /* Step-based animation to simulate low frame rate */
+    @keyframes moveBallChoppy {
+      0% { left: -28px; }
+      4% { left: -28px; }
+      4.1% { left: 10%; }
+      10% { left: 10%; }
+      10.1% { left: 22%; }
+      16% { left: 22%; }
+      16.1% { left: 36%; }
+      22% { left: 36%; }
+      22.1% { left: 50%; }
+      28% { left: 50%; }
+      28.1% { left: 64%; }
+      34% { left: 64%; }
+      34.1% { left: 78%; }
+      40% { left: 78%; }
+      40.1% { left: 92%; }
+      45% { left: 92%; }
+      50% { left: 92%; }
+      54% { left: 92%; }
+      54.1% { left: 78%; }
+      60% { left: 78%; }
+      60.1% { left: 64%; }
+      66% { left: 64%; }
+      66.1% { left: 50%; }
+      72% { left: 50%; }
+      72.1% { left: 36%; }
+      78% { left: 36%; }
+      78.1% { left: 22%; }
+      84% { left: 22%; }
+      84.1% { left: 10%; }
+      90% { left: 10%; }
+      90.1% { left: -28px; }
+      100% { left: -28px; }
+    }
+    
+    /* Scan lines on choppy side for extra effect */
+    .split-side:first-child::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 3px,
+        rgba(0,0,0,0.05) 3px,
+        rgba(0,0,0,0.05) 4px
+      );
+      pointer-events: none;
+    }
+    
+    .divider-label {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      z-index: 10;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .tagline {
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="silkstream-demo">
+      <div class="demo-header">
+        <h3>SilkStream Technology</h3>
+        <div class="hz-value">240Hz</div>
+        <p>Every frame razor-sharp. Every motion silk-smooth.</p>
+      </div>
+      
+      <div class="split-track">
+        <div class="split-side">
+          <div class="label">Standard Display</div>
+          <div class="ball"></div>
+          <div class="hz-label">60Hz</div>
+        </div>
+        <div class="split-side">
+          <div class="label">Opal SilkStream</div>
+          <div class="ball"></div>
+          <div class="hz-label">240Hz</div>
+        </div>
+        <div class="divider-label">VS</div>
+      </div>
+      
+      <div class="tagline">Zero input lag · Zero motion blur · Pure cinema</div>
+    </div>
+  </div>
+</body>
+</html>

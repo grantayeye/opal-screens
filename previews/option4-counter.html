@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Option 4 — Hz Counter</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0a0a; display: flex; align-items: center; justify-content: center; min-height: 100vh; font-family: -apple-system, sans-serif; }
+    
+    .demo-container {
+      width: 100%;
+      max-width: 700px;
+      padding: 2rem;
+    }
+    
+    .silkstream-demo {
+      position: relative;
+      background: linear-gradient(135deg, #0d0d0d 0%, #1a1a2e 100%);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    
+    .silkstream-demo::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle at 30% 50%, rgba(0, 194, 255, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .demo-header {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    
+    .demo-header h3 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #00c2ff;
+      margin-bottom: 0.5rem;
+    }
+    
+    /* Hz counter display */
+    .hz-counter {
+      text-align: center;
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .hz-number {
+      font-size: 6rem;
+      font-weight: 900;
+      font-variant-numeric: tabular-nums;
+      line-height: 1;
+      transition: color 0.3s;
+    }
+    
+    .hz-suffix {
+      font-size: 2rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      margin-left: 4px;
+    }
+    
+    .hz-label-text {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.35);
+      margin-top: 0.5rem;
+      transition: color 0.3s;
+    }
+    
+    /* Motion track below counter */
+    .motion-track {
+      position: relative;
+      height: 80px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 2rem 0 1.5rem;
+      border: 1px solid rgba(255,255,255,0.04);
+    }
+    
+    .motion-ball {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      transition: background 0.5s, box-shadow 0.5s;
+    }
+    
+    /* Step indicators */
+    .steps {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.4rem;
+      opacity: 0.25;
+      transition: opacity 0.5s, transform 0.3s;
+    }
+    
+    .step.active {
+      opacity: 1;
+      transform: scale(1.05);
+    }
+    
+    .step-hz {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+    
+    .step-bar {
+      width: 40px;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.5s;
+    }
+    
+    .step.active .step-bar {
+      background: #00c2ff;
+    }
+    
+    .step-label {
+      font-size: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255,255,255,0.4);
+    }
+    
+    .tagline {
+      text-align: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+      font-style: italic;
+    }
+    
+    /* Phases */
+    .phase-60 .hz-number { color: rgba(255,255,255,0.35); }
+    .phase-120 .hz-number { color: rgba(255,255,255,0.6); }
+    .phase-240 .hz-number { 
+      background: linear-gradient(135deg, #fff 0%, #00c2ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .phase-60 .motion-ball { 
+      background: radial-gradient(circle at 35% 35%, #888, #555);
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+    }
+    .phase-120 .motion-ball {
+      background: radial-gradient(circle at 35% 35%, #aaf, #77c);
+      box-shadow: 0 0 15px rgba(100,100,255,0.3);
+    }
+    .phase-240 .motion-ball {
+      background: radial-gradient(circle at 35% 35%, #66d9ff, #00c2ff);
+      box-shadow: 0 0 25px rgba(0, 194, 255, 0.6), 0 0 50px rgba(0, 194, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <div class="silkstream-demo" id="demo">
+      <div class="demo-header">
+        <h3>SilkStream Technology</h3>
+      </div>
+      
+      <div class="hz-counter">
+        <span class="hz-number" id="hzNumber">60</span><span class="hz-suffix">Hz</span>
+        <div class="hz-label-text" id="hzLabel">Standard refresh rate</div>
+      </div>
+      
+      <div class="steps">
+        <div class="step active" id="step60">
+          <span class="step-hz">60</span>
+          <div class="step-bar"></div>
+          <span class="step-label">Standard</span>
+        </div>
+        <div class="step" id="step120">
+          <span class="step-hz">120</span>
+          <div class="step-bar"></div>
+          <span class="step-label">High</span>
+        </div>
+        <div class="step" id="step240">
+          <span class="step-hz">240</span>
+          <div class="step-bar"></div>
+          <span class="step-label">SilkStream</span>
+        </div>
+      </div>
+      
+      <div class="motion-track">
+        <div class="motion-ball" id="ball"></div>
+      </div>
+      
+      <div class="tagline">Every frame razor-sharp · Every motion silk-smooth</div>
+    </div>
+  </div>
+
+  <script>
+    const demo = document.getElementById('demo');
+    const hzNumber = document.getElementById('hzNumber');
+    const hzLabel = document.getElementById('hzLabel');
+    const ball = document.getElementById('ball');
+    const steps = { 60: document.getElementById('step60'), 120: document.getElementById('step120'), 240: document.getElementById('step240') };
+    
+    const phases = [
+      { hz: 60, label: 'Standard refresh rate', className: 'phase-60', duration: 3000 },
+      { hz: 120, label: 'High refresh rate', className: 'phase-120', duration: 3000 },
+      { hz: 240, label: 'Pure cinema. Zero motion blur.', className: 'phase-240', duration: 4000 }
+    ];
+    
+    let currentPhase = 0;
+    let intervalId = null;
+    let rafId = null;
+    
+    function stopBall() {
+      if (intervalId) { clearInterval(intervalId); intervalId = null; }
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    }
+    
+    function animateCounter(from, to, duration) {
+      const start = performance.now();
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        hzNumber.textContent = Math.round(from + (to - from) * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    
+    // 60Hz: slightly stuttery — updates every ~55ms with discrete steps
+    // Not crazy choppy, just noticeably not smooth
+    function animateBall60() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 28;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      
+      intervalId = setInterval(() => {
+        pos += dir * (maxX / 14);
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+      }, 55);
+    }
+    
+    // 120Hz: smoother but still interval-based, slight stepping visible
+    function animateBall120() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 28;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      
+      intervalId = setInterval(() => {
+        pos += dir * (maxX / 30);
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+      }, 25);
+    }
+    
+    // 240Hz: buttery smooth RAF-based animation
+    function animateBall240() {
+      const track = ball.parentElement;
+      const maxX = track.clientWidth - 28;
+      let pos = parseFloat(ball.style.left) || 0;
+      let dir = 1;
+      let lastTime = performance.now();
+      
+      function frame(now) {
+        const dt = (now - lastTime) / 1000;
+        lastTime = now;
+        pos += dir * maxX * 0.7 * dt;
+        if (pos >= maxX) { pos = maxX; dir = -1; }
+        if (pos <= 0) { pos = 0; dir = 1; }
+        ball.style.left = pos + 'px';
+        rafId = requestAnimationFrame(frame);
+      }
+      rafId = requestAnimationFrame(frame);
+    }
+    
+    const ballAnimators = {
+      60: animateBall60,
+      120: animateBall120,
+      240: animateBall240
+    };
+    
+    function runPhase(index) {
+      const phase = phases[index];
+      const prevPhase = phases[(index - 1 + phases.length) % phases.length];
+      
+      // Update class
+      demo.className = 'silkstream-demo ' + phase.className;
+      
+      // Update steps
+      Object.values(steps).forEach(s => s.classList.remove('active'));
+      steps[phase.hz].classList.add('active');
+      
+      // Animate counter from previous hz to current
+      animateCounter(prevPhase.hz, phase.hz, 800);
+      
+      // Update label
+      setTimeout(() => { hzLabel.textContent = phase.label; }, 400);
+      
+      // Stop previous ball animation and start new one
+      stopBall();
+      ballAnimators[phase.hz]();
+    }
+    
+    function cycle() {
+      runPhase(currentPhase);
+      const duration = phases[currentPhase].duration;
+      currentPhase = (currentPhase + 1) % phases.length;
+      setTimeout(cycle, duration);
+    }
+    
+    cycle();
+  </script>
+</body>
+</html>
