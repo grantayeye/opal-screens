@@ -1919,9 +1919,6 @@
           </div>
         </div>
         <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
-          <input type="hidden" name="_subject" value="New Opal Screens Inquiry">
-          <input type="hidden" name="_captcha" value="true">
-          <input type="hidden" name="_next" value="https://opalscreens.com/thanks.html">
           <input type="text" name="_honey" style="display:none">
           <div class="form-row">
             <div class="form-group">
@@ -2012,11 +2009,34 @@
       btn.disabled = true;
 
       const data = new FormData(form);
-      // Submit as regular form post — FormSubmit handles captcha on their page
-      const action = 'https://formsubmit.co/sales@gamma.tech';
-      form.action = action;
-      form.method = 'POST';
-      form.submit();
+      const data = Object.fromEntries(new FormData(form));
+
+      fetch('https://atools-api.gamma.tech/functions/opalContact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(result => {
+        if (result.error) throw new Error(result.error);
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#22c55e';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+          form.reset();
+        }, 3000);
+      })
+      .catch(err => {
+        btn.textContent = err.message || 'Error — Try Again';
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+        }, 3000);
+      });
     }
   </script>
 
