@@ -1919,6 +1919,9 @@
           </div>
         </div>
         <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="_subject" value="New Opal Screens Inquiry">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
@@ -2002,14 +2005,36 @@
 
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('button[type="submit"]');
-      btn.textContent = 'Message Sent ✓';
-      btn.style.background = '#22c55e';
-      setTimeout(() => {
-        btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-        btn.style.background = '';
-        e.target.reset();
-      }, 3000);
+      const form = e.target;
+      const btn = form.querySelector('button[type="submit"]');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = new FormData(form);
+      fetch('https://formsubmit.co/ajax/sales@gamma.tech', {
+        method: 'POST',
+        body: data
+      })
+      .then(r => r.json())
+      .then(data => {
+        btn.textContent = 'Message Sent ✓';
+        btn.style.background = '#22c55e';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+          form.reset();
+        }, 3000);
+      })
+      .catch(() => {
+        btn.textContent = 'Error — Try Again';
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+        }, 3000);
+      });
     }
   </script>
 
