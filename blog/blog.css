@@ -362,6 +362,19 @@ nav {
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(10,10,10,0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem 2rem 1.5rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
   .mobile-toggle { display: flex; }
   .blog-hero h1 { font-size: 2rem; }
   .article-header h1 { font-size: 1.8rem; }
