@@ -2226,8 +2226,8 @@
             </div>
           </div>
         </div>
-        <form class="contact-form fade-in" onsubmit="handleSubmit(event)">
-          <input type="text" name="_honey" style="display:none">
+        <form class="contact-form fade-in" onsubmit="handleSubmit(event)" data-loaded-at="">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Name</label>
@@ -2259,6 +2259,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
+          <div class="cf-turnstile" data-sitekey="TURNSTILE_SITE_KEY" data-theme="dark"></div>
           <button type="submit" class="btn btn-primary">
             Send Message
             <span class="btn-arrow">→</span>
@@ -2282,7 +2283,11 @@
     </div>
   </footer>
 
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
+    // Record page load time for timing-based bot detection
+    document.querySelector('.contact-form').dataset.loadedAt = Date.now();
+
     // Make all above-fold content visible immediately
     function revealVisible() {
       document.querySelectorAll('.fade-in:not(.visible)').forEach(el => {
@@ -2324,10 +2329,25 @@
       e.preventDefault();
       const form = e.target;
       const btn = form.querySelector('button[type="submit"]');
+
+      // Get Turnstile token
+      const turnstileResponse = form.querySelector('[name="cf-turnstile-response"]');
+      if (!turnstileResponse || !turnstileResponse.value) {
+        btn.textContent = 'Please complete the verification';
+        btn.style.background = '#ef4444';
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+        }, 3000);
+        return;
+      }
+
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
       const data = Object.fromEntries(new FormData(form));
+      // Add timing data (bots submit instantly)
+      data._elapsed = Date.now() - parseInt(form.dataset.loadedAt || '0');
 
       fetch('https://atools-api.gamma.tech/functions/opalContact', {
         method: 'POST',
