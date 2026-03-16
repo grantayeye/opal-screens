@@ -2259,7 +2259,7 @@
             <label for="message">Message</label>
             <textarea id="message" name="message" placeholder="Tell us about your project..."></textarea>
           </div>
-          <div id="recaptcha-container"></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAACrv1aEHwg0l1gPY" data-theme="dark"></div>
           <button type="submit" class="btn btn-primary">
             Send Message
             <span class="btn-arrow">→</span>
@@ -2283,7 +2283,7 @@
     </div>
   </footer>
 
-  <script src="https://www.google.com/recaptcha/api.js?render=6LfYd_kqAAAAAHIGU2v3RqOFiD3YEHBKVQfhHQqw" async defer></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
     // Record page load time for timing-based bot detection
     document.querySelector('.contact-form').dataset.loadedAt = Date.now();
@@ -2329,48 +2329,54 @@
       e.preventDefault();
       const form = e.target;
       const btn = form.querySelector('button[type="submit"]');
+      const turnstile = form.querySelector('.cf-turnstile');
 
       btn.textContent = 'Verifying...';
       btn.disabled = true;
 
-      // Execute reCAPTCHA
-      grecaptcha.ready(function() {
-        grecaptcha.execute('6LfYd_kqAAAAAHIGU2v3RqOFiD3YEHBKVQfhHQqw', {action: 'contact'}).then(function(token) {
-          // Add reCAPTCHA token to form data
-          const data = Object.fromEntries(new FormData(form));
-          data['g-recaptcha-response'] = token;
-          data._elapsed = Date.now() - parseInt(form.dataset.loadedAt || '0');
+      // Get Turnstile token
+      const token = turnstile ? turnstile.querySelector('input[name="cf-turnstile-response"]')?.value : null;
+      
+      if (!token) {
+        btn.textContent = 'Please complete verification';
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+        }, 3000);
+        return;
+      }
 
-          btn.textContent = 'Sending...';
+      // Add Turnstile token to form data
+      const data = Object.fromEntries(new FormData(form));
+      data['cf-turnstile-response'] = token;
+      data._elapsed = Date.now() - parseInt(form.dataset.loadedAt || '0');
 
-          fetch('https://atools-api.gamma.tech/functions/opalContact', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(data)
-          })
-          .then(r => r.json())
-          .then(result => {
-            if (result.error) throw new Error(result.error);
-            window.location.href = '/thanks.html';
-          })
-          .catch(err => {
-            btn.textContent = err.message || 'Error — Try Again';
-            btn.style.background = '#ef4444';
-            btn.disabled = false;
-            setTimeout(() => {
-              btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-              btn.style.background = '';
-            }, 3000);
-          });
-        }).catch(function(err) {
-          btn.textContent = 'Verification Failed — Try Again';
-          btn.style.background = '#ef4444';
-          btn.disabled = false;
-          setTimeout(() => {
-            btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-            btn.style.background = '';
-          }, 3000);
-        });
+      btn.textContent = 'Sending...';
+
+      fetch('https://atools-api.gamma.tech/functions/opalContact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(r => r.json())
+      .then(result => {
+        if (result.error) throw new Error(result.error);
+        window.location.href = '/thanks.html';
+      })
+      .catch(err => {
+        btn.textContent = err.message || 'Error — Try Again';
+        btn.style.background = '#ef4444';
+        btn.disabled = false;
+        // Reset Turnstile widget on error
+        if (window.turnstile && turnstile.dataset.widgetId) {
+          window.turnstile.reset(turnstile.dataset.widgetId);
+        }
+        setTimeout(() => {
+          btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
+          btn.style.background = '';
+        }, 3000);
       });
     }
   </script>
