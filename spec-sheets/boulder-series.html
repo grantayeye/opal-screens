@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    position: relative;
+    overflow: hidden;
+    padding: 0.4in 0.5in 0.35in 0.5in;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Warm gradient overlay for Boulder */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba(255,140,66,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(255,140,66,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page > * { position: relative; z-index: 1; }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.15in;
+    border-bottom: 2px solid #ff8c42;
+    margin-bottom: 0.2in;
+  }
+
+  .header-logo img {
+    height: 42px;
+  }
+
+  .header-title {
+    text-align: right;
+  }
+
+  .header-title h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #ff8c42;
+  }
+
+  .header-title .subtitle {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* Description */
+  .description {
+    margin-bottom: 0.15in;
+  }
+
+  .description p {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+
+  /* SilkStream hero banner */
+  .silkstream-banner {
+    background: linear-gradient(135deg, rgba(0,194,255,0.1) 0%, rgba(0,230,200,0.08) 50%, rgba(0,194,255,0.05) 100%);
+    border: 1px solid rgba(0,194,255,0.2);
+    border-radius: 10px;
+    padding: 12px 18px;
+    margin-bottom: 0.18in;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .silkstream-logo {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, #00c2ff 0%, #00e6c8 40%, #00c2ff 80%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .silkstream-desc {
+    font-size: 9px;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+    border-left: 1px solid rgba(0,194,255,0.2);
+    padding-left: 16px;
+  }
+
+  .silkstream-desc strong {
+    color: #00c2ff;
+    font-weight: 600;
+  }
+
+  /* Pixel pitch highlight */
+  .pitch-highlight {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0.18in;
+  }
+
+  .pitch-main {
+    background: rgba(255,140,66,0.06);
+    border: 1px solid rgba(255,140,66,0.15);
+    border-radius: 8px;
+    padding: 10px 20px;
+    text-align: center;
+    flex: 0 0 auto;
+  }
+
+  .pitch-main .pitch-value {
+    font-size: 32px;
+    font-weight: 800;
+    color: #ff8c42;
+    line-height: 1;
+  }
+
+  .pitch-main .pitch-unit {
+    font-size: 9px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .pitch-main .pitch-res {
+    font-size: 8.5px;
+    color: rgba(255,255,255,0.6);
+    margin-top: 3px;
+  }
+
+  /* Tech badges */
+  .tech-badges {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex: 1;
+    flex-wrap: wrap;
+  }
+
+  .tech-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+
+  .tech-badge img {
+    height: 20px;
+  }
+
+  .tech-badge.blackfire {
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .tech-badge.blackfire img {
+    height: 16px;
+  }
+
+  .tech-badge.silkstream-badge {
+    background: rgba(0,194,255,0.08);
+    border: 1px solid rgba(0,194,255,0.2);
+  }
+
+  .tech-badge-label {
+    font-size: 7.5px;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  .tech-badge.blackfire .tech-badge-label {
+    color: rgba(0,0,0,0.45);
+  }
+
+  .silkstream-badge-text {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    background: linear-gradient(135deg, #00c2ff, #00e6c8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #ff8c42;
+    margin-bottom: 0.08in;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255,140,66,0.2);
+  }
+
+  /* Key stats row */
+  .key-stats {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 0.16in;
+  }
+
+  .key-stat {
+    flex: 1;
+    text-align: center;
+    padding: 7px 4px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .key-stat .stat-value {
+    font-size: 15px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .key-stat .stat-value .stat-accent {
+    color: #ff8c42;
+  }
+
+  .key-stat .stat-value .stat-accent-cyan {
+    color: #00c2ff;
+  }
+
+  .key-stat .stat-label {
+    font-size: 6.5px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    margin-top: 3px;
+  }
+
+  /* Specs table */
+  .specs-section {
+    margin-bottom: 0.15in;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5px;
+  }
+
+  .specs-table thead th {
+    background: rgba(255,140,66,0.12);
+    color: #ff8c42;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 8px;
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,140,66,0.3);
+  }
+
+  .specs-table thead th:first-child {
+    border-radius: 4px 0 0 0;
+  }
+
+  .specs-table thead th:last-child {
+    border-radius: 0 4px 0 0;
+  }
+
+  .specs-table tbody td {
+    padding: 4.5px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  .specs-table tbody td:first-child {
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 40%;
+  }
+
+  .specs-table tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .specs-table .highlight-row td {
+    background: rgba(0,194,255,0.05);
+    color: #00c2ff;
+  }
+
+  .specs-table .highlight-row td:first-child {
+    color: rgba(0,194,255,0.7);
+  }
+
+  /* Features grid */
+  .features-section {
+    margin-bottom: 0.15in;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 16px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 8.5px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .feature-item::before {
+    content: '◆';
+    color: #ff8c42;
+    font-size: 5px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Use cases */
+  .use-cases {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.06in;
+  }
+
+  .use-case-tag {
+    background: rgba(255,140,66,0.08);
+    border: 1px solid rgba(255,140,66,0.2);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    padding-top: 0.1in;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    font-size: 8px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  .certs {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .cert-badge {
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 7px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-right .contact {
+    font-size: 9px;
+    color: #ff8c42;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-right .legal {
+    font-size: 7px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo">
+      <img src="../assets/opal-logo.png" alt="Opal Screens">
+    </div>
+    <div class="header-title">
+      <h1>Boulder Series</h1>
+      <div class="subtitle">MicroLED Video Wall System — 240Hz</div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="description">
+    <p>The Boulder Series pairs BlackFire contrast with SilkStream — our proprietary 240Hz refresh rate technology. With a 15,360Hz panel refresh rate (4× industry standard), Boulder delivers the smoothest, sharpest motion in fast-moving content of any video wall on the market. Built for sports, cinema, and live action.</p>
+  </div>
+
+  <!-- SilkStream Hero Banner -->
+  <div class="silkstream-banner">
+    <div class="silkstream-logo">SilkStream</div>
+    <div class="silkstream-desc">
+      <strong>240Hz video refresh</strong> with <strong>15,360Hz panel refresh rate</strong> — 4× industry standard.<br>
+      Eliminates flicker, banding, and motion blur for true 240fps content playback.
+    </div>
+  </div>
+
+  <!-- Pitch + Tech Badges Row -->
+  <div class="pitch-highlight">
+    <div class="pitch-main">
+      <div class="pitch-value">P0.9</div>
+      <div class="pitch-unit">0.9375mm pixel pitch</div>
+      <div class="pitch-res">640 × 360 per cabinet</div>
+    </div>
+    <div class="tech-badges">
+      <div class="tech-badge silkstream-badge">
+        <span class="silkstream-badge-text">SILKSTREAM</span>
+        <span class="tech-badge-label" style="color: rgba(0,194,255,0.6);">240Hz</span>
+      </div>
+      <div class="tech-badge blackfire">
+        <img src="../assets/blackfire-logo.png" alt="BlackFire">
+        <span class="tech-badge-label" style="color: rgba(0,0,0,0.45);">Anti-Glare</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Stats -->
+  <div class="key-stats">
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent-cyan">240</span>Hz</div>
+      <div class="stat-label">Video Refresh</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent-cyan">15,360</span>Hz</div>
+      <div class="stat-label">Panel Refresh</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">1,000</span></div>
+      <div class="stat-label">Nits Brightness</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value" style="font-size:13px"><span class="stat-accent">Extended</span></div>
+      <div class="stat-label">Grayscale</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">10K</span>:1</div>
+      <div class="stat-label">Contrast Ratio</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">4</span>kg</div>
+      <div class="stat-label">Per Panel</div>
+    </div>
+  </div>
+
+  <!-- Specifications Table -->
+  <div class="specs-section">
+    <div class="section-title">Technical Specifications</div>
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>Boulder P0.9</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Pixel Pitch</td><td>0.9375mm</td></tr>
+        <tr><td>Cabinet Size</td><td>600 × 337.5 × 39.75mm</td></tr>
+        <tr><td>Cabinet Resolution</td><td>640 × 360 dots</td></tr>
+        <tr><td>Module Size</td><td>150 × 168.75mm (8 modules/cabinet)</td></tr>
+        <tr><td>Brightness</td><td>1,000 nits</td></tr>
+        <tr><td>Max Power Consumption</td><td>75W / panel</td></tr>
+        <tr class="highlight-row"><td>Panel Refresh Rate</td><td>15,360Hz (SilkStream — 4× standard)</td></tr>
+        <tr class="highlight-row"><td>Video Refresh Rate</td><td>240Hz (SilkStream)</td></tr>
+        <tr><td>Contrast Ratio</td><td>10,000:1</td></tr>
+        <tr><td>Grayscale</td><td>Extended</td></tr>
+        <tr><td>LED Technology</td><td>Flip-chip COB (BlackFire + SilkStream)</td></tr>
+        <tr><td>Power Supply</td><td>3.8V / 30A</td></tr>
+        <tr><td>Maintenance</td><td>100% Front Access — Magnetic Modules</td></tr>
+        <tr><td>Surface Protection</td><td>Dustproof, moisture-proof, 4H hardness, scrubbable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features -->
+  <div class="features-section">
+    <div class="section-title">Key Features</div>
+    <div class="features-grid">
+      <div class="feature-item">SilkStream 240Hz — true 240fps playback for sports and fast action</div>
+      <div class="feature-item">15,360Hz panel refresh eliminates flicker, banding, and motion blur</div>
+      <div class="feature-item">1,000 nits brightness for vibrant, high-impact visuals</div>
+      <div class="feature-item">BlackFire anti-glare COB for deep blacks and zero reflections</div>
+      <div class="feature-item">Multi-level calibration for pixel-perfect uniformity</div>
+      <div class="feature-item">Front-serviceable magnetic modules for tool-free maintenance</div>
+    </div>
+  </div>
+
+  <!-- Use Cases -->
+  <div>
+    <div class="section-title">Applications</div>
+    <div class="use-cases">
+      <span class="use-case-tag">Sports Viewing</span>
+      <span class="use-case-tag">Home Cinema</span>
+      <span class="use-case-tag">Live Events</span>
+      <span class="use-case-tag">Broadcast</span>
+      <span class="use-case-tag">Premium Residential</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <div>Opal Screens — Premium MicroLED Video Walls</div>
+      <div class="certs">
+        <span class="cert-badge">CE</span>
+        <span class="cert-badge">CB</span>
+        <span class="cert-badge">FCC</span>
+        <span class="cert-badge">ETL</span>
+        <span class="cert-badge">ROHS</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="contact">info@opalscreens.com &nbsp;|&nbsp; opalscreens.com</div>
+      <div class="legal">© 2026 Opal Screens. All rights reserved. Specifications subject to change without notice.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  @page {
+    size: Letter;
+    margin: 0;
+  }
+  
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #0a0a0a;
+    color: #ffffff;
+    width: 8.5in;
+    height: 11in;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .page {
+    width: 8.5in;
+    height: 11in;
+    position: relative;
+    overflow: hidden;
+    padding: 0.4in 0.5in 0.35in 0.5in;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Subtle gradient overlay */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at top right, rgba(148,163,184,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(100,116,139,0.03) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .page > * { position: relative; z-index: 1; }
+
+  /* Header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 0.15in;
+    border-bottom: 2px solid #94a3b8;
+    margin-bottom: 0.2in;
+  }
+
+  .header-logo img {
+    height: 42px;
+  }
+
+  .header-title {
+    text-align: right;
+  }
+
+  .header-title h1 {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #94a3b8;
+  }
+
+  .header-title .subtitle {
+    font-size: 10px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* Description section */
+  .description {
+    margin-bottom: 0.18in;
+  }
+
+  .description p {
+    font-size: 10.5px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.8);
+    font-weight: 300;
+  }
+
+  /* Tech badges row */
+  .tech-badges {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0.2in;
+    align-items: center;
+  }
+
+  .tech-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 6px;
+    padding: 6px 12px;
+  }
+
+  .tech-badge img {
+    height: 22px;
+  }
+
+  .tech-badge.blackfire {
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .tech-badge.blackfire img {
+    height: 18px;
+  }
+
+  .tech-badge-label {
+    font-size: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+  }
+
+  .tech-badge.blackfire .tech-badge-label {
+    color: rgba(0,0,0,0.5);
+  }
+
+  /* Section titles */
+  .section-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #94a3b8;
+    margin-bottom: 0.1in;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(148,163,184,0.2);
+  }
+
+  /* Specs table */
+  .specs-section {
+    margin-bottom: 0.18in;
+  }
+
+  .specs-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 9.5px;
+  }
+
+  .specs-table thead th {
+    background: rgba(148,163,184,0.12);
+    color: #94a3b8;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 8px;
+    padding: 6px 10px;
+    text-align: left;
+    border-bottom: 1px solid rgba(148,163,184,0.3);
+  }
+
+  .specs-table thead th:first-child {
+    border-radius: 4px 0 0 0;
+  }
+
+  .specs-table thead th:last-child {
+    border-radius: 0 4px 0 0;
+  }
+
+  .specs-table tbody td {
+    padding: 5px 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.85);
+    font-weight: 400;
+  }
+
+  .specs-table tbody td:first-child {
+    color: rgba(255,255,255,0.5);
+    font-weight: 500;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    width: 35%;
+  }
+
+  .specs-table tbody tr:nth-child(even) {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Features grid */
+  .features-section {
+    margin-bottom: 0.18in;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 16px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 9px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .feature-item::before {
+    content: '◆';
+    color: #94a3b8;
+    font-size: 6px;
+    margin-top: 2px;
+    flex-shrink: 0;
+  }
+
+  /* Use cases */
+  .use-cases {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 0.08in;
+  }
+
+  .use-case-tag {
+    background: rgba(148,163,184,0.08);
+    border: 1px solid rgba(148,163,184,0.2);
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 8px;
+    color: rgba(255,255,255,0.7);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+  /* Pixel pitch highlight boxes */
+  .pitch-boxes {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 0.18in;
+  }
+
+  .pitch-box {
+    flex: 1;
+    background: rgba(148,163,184,0.06);
+    border: 1px solid rgba(148,163,184,0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    text-align: center;
+  }
+
+  .pitch-box .pitch-value {
+    font-size: 26px;
+    font-weight: 800;
+    color: #94a3b8;
+    line-height: 1;
+  }
+
+  .pitch-box .pitch-unit {
+    font-size: 10px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .pitch-box .pitch-label {
+    font-size: 8px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+  }
+
+  .pitch-box .pitch-res {
+    font-size: 8.5px;
+    color: rgba(255,255,255,0.7);
+    margin-top: 2px;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: auto;
+    padding-top: 0.12in;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-left {
+    font-size: 8px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+
+  .footer-right {
+    text-align: right;
+  }
+
+  .footer-right .contact {
+    font-size: 9px;
+    color: #94a3b8;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-right .legal {
+    font-size: 7px;
+    color: rgba(255,255,255,0.3);
+    margin-top: 2px;
+  }
+
+  /* Certifications */
+  .certs {
+    display: flex;
+    gap: 6px;
+    margin-top: 4px;
+  }
+
+  .cert-badge {
+    background: rgba(255,255,255,0.08);
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 7px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+
+  /* Key stats row */
+  .key-stats {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 0.18in;
+  }
+
+  .key-stat {
+    flex: 1;
+    text-align: center;
+    padding: 8px 4px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .key-stat .stat-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1;
+  }
+
+  .key-stat .stat-value .stat-accent {
+    color: #94a3b8;
+  }
+
+  .key-stat .stat-label {
+    font-size: 7px;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 3px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <!-- Header -->
+  <div class="header">
+    <div class="header-logo">
+      <img src="../assets/opal-logo.png" alt="Opal Screens">
+    </div>
+    <div class="header-title">
+      <h1>Doublet Series</h1>
+      <div class="subtitle">MicroLED Video Wall System</div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <div class="description">
+    <p>The Doublet Series delivers reliable MicroLED performance for large-format commercial installations where viewing distances are greater and value matters. At 1.5mm pixel pitch, Doublet is built for corporate lobbies, retail displays, houses of worship, and any space where impact and reliability come first.</p>
+  </div>
+
+  <!-- Pixel Pitch Box -->
+  <div class="pitch-boxes">
+    <div class="pitch-box">
+      <div class="pitch-value">P1.5</div>
+      <div class="pitch-unit">1.56mm pixel pitch</div>
+      <div class="pitch-res">384 × 216 per cabinet</div>
+      <div class="pitch-label">Value at Scale</div>
+    </div>
+  </div>
+
+  <!-- Tech Badges -->
+  <div class="tech-badges">
+    <div class="tech-badge">
+      <span class="tech-badge-label" style="font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.7);">FLIP-CHIP COB</span>
+    </div>
+    <div class="tech-badge">
+      <span class="tech-badge-label" style="font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.7);">FRONT ACCESS</span>
+    </div>
+  </div>
+
+  <!-- Key Stats -->
+  <div class="key-stats">
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">600</span></div>
+      <div class="stat-label">Nits Brightness</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">Extended</span></div>
+      <div class="stat-label">Grayscale</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">3,840</span>Hz</div>
+      <div class="stat-label">Refresh Rate</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">10K</span>:1</div>
+      <div class="stat-label">Contrast Ratio</div>
+    </div>
+    <div class="key-stat">
+      <div class="stat-value"><span class="stat-accent">4</span>kg</div>
+      <div class="stat-label">Per Panel</div>
+    </div>
+  </div>
+
+  <!-- Specifications Table -->
+  <div class="specs-section">
+    <div class="section-title">Technical Specifications</div>
+    <table class="specs-table">
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th>P1.5 (1.56mm)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Cabinet Size</td><td>600 × 337.5 × 39.75mm</td></tr>
+        <tr><td>Cabinet Resolution</td><td>384 × 216 dots</td></tr>
+        <tr><td>Module Size</td><td>150 × 168.75mm (8 modules/cabinet)</td></tr>
+        <tr><td>Brightness</td><td>600 nits</td></tr>
+        <tr><td>Max Power Consumption</td><td>70W / panel</td></tr>
+        <tr><td>Panel Refresh Rate</td><td>3,840Hz</td></tr>
+        <tr><td>Video Refresh Rate</td><td>60Hz</td></tr>
+        <tr><td>Contrast Ratio</td><td>10,000:1</td></tr>
+        <tr><td>Grayscale</td><td>Extended</td></tr>
+        <tr><td>LED Technology</td><td>Flip-chip COB</td></tr>
+        <tr><td>Power Supply</td><td>3.8V / 30A</td></tr>
+        <tr><td>Maintenance</td><td>100% Front Access — Magnetic Modules</td></tr>
+        <tr><td>Surface Protection</td><td>Dustproof, moisture-proof, 4H hardness, scrubbable</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Features -->
+  <div class="features-section">
+    <div class="section-title">Key Features</div>
+    <div class="features-grid">
+      <div class="feature-item">Flip-chip COB technology for deep blacks and excellent contrast</div>
+      <div class="feature-item">Multi-level calibration ensures pixel-perfect color uniformity</div>
+      <div class="feature-item">Golden 16:9 ratio — seamlessly build 2K or 4K configurations</div>
+      <div class="feature-item">Front-serviceable magnetic modules for tool-free maintenance</div>
+      <div class="feature-item">Ultra-lightweight 4kg panels for flexible installation</div>
+      <div class="feature-item">Value-optimized for large format commercial installations</div>
+    </div>
+  </div>
+
+  <!-- Use Cases -->
+  <div>
+    <div class="section-title">Applications</div>
+    <div class="use-cases">
+      <span class="use-case-tag">Corporate Lobbies</span>
+      <span class="use-case-tag">Retail</span>
+      <span class="use-case-tag">Houses of Worship</span>
+      <span class="use-case-tag">Hospitality</span>
+      <span class="use-case-tag">Education</span>
+      <span class="use-case-tag">Digital Signage</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-left">
+      <div>Opal Screens — Premium MicroLED Video Walls</div>
+      <div class="certs">
+        <span class="cert-badge">CE</span>
+        <span class="cert-badge">CB</span>
+        <span class="cert-badge">FCC</span>
+        <span class="cert-badge">ETL</span>
+        <span class="cert-badge">ROHS</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <div class="contact">info@opalscreens.com &nbsp;|&nbsp; opalscreens.com</div>
+      <div class="legal">© 2026 Opal Screens. All rights reserved. Specifications subject to change without notice.</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
