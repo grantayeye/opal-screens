@@ -1,0 +1,15 @@
+Here's the thing about AI that nobody really talks about — it gets about 95% right.
+
+That sounds great until you actually think about what it means. Because 95% is the worst kind of wrong. It's close enough that you stop checking, close enough that everything looks correct at a glance. And the problem is AI doesn't flag the 5% it missed. It presents everything with the same confidence whether it nailed something or completely made it up.
+
+I had it draft a client email for me last month. I read through it and everything sounded fine — professional tone, covered all the right points, even matched how I normally write. Then I caught it referencing a conversation that never happened and quoting a number I never gave it. Just casually dropped in there between two perfectly accurate paragraphs like it belonged.
+
+If I'd hit send without catching that, I would've confused the client and looked like I didn't have my own project straight.
+
+That's the real trap with AI. If it got everything wrong, you'd notice immediately and fix it. But when 95% of the output is solid, your brain starts filling in the gaps. You skim instead of read. You trust the output because the last ten things it gave you were fine, and you start assuming this one is too.
+
+What I do now is give it real context about whatever I'm working on upfront, tell it exactly what I need, and then read every line before it goes anywhere. That last part is non-negotiable — not because AI is bad at what it does, but because it's almost good enough to fool you into thinking you don't need to check.
+
+The danger with AI isn't that it'll replace people who know their stuff. The danger is that it'll convince people they don't need to know their stuff anymore.
+
+I'm not buying that.

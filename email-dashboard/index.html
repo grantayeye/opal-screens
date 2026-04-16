@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opal Screens — Email Approvals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0f0f0f;
+  color: #e0e0e0;
+  min-height: 100vh;
+  padding: 0 0 80px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  background: #0f0f0f;
+  z-index: 100;
+}
+.header img {
+  height: 36px;
+  width: auto;
+}
+.header h1 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+}
+.header h1 span { color: #00c2ff; }
+
+/* Info bar */
+.info-bar {
+  padding: 12px 20px;
+  font-size: 0.8rem;
+  color: #666;
+  border-bottom: 1px solid #1a1a1a;
+  line-height: 1.5;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.counter {
+  font-size: 0.9rem;
+  color: #888;
+}
+.counter strong { color: #00c2ff; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn:active { transform: scale(0.96); }
+
+.btn-approve-all {
+  background: #00c2ff;
+  color: #000;
+}
+.btn-approve-all:hover { background: #33cfff; }
+
+.btn-copy {
+  background: #2a2a2a;
+  color: #ccc;
+  border: 1px solid #333;
+}
+.btn-copy:hover { background: #333; }
+
+/* Banner */
+.banner {
+  display: none;
+  margin: 0 20px 16px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #003d4d, #004d5e);
+  border: 1px solid #00c2ff44;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #00c2ff;
+  font-size: 0.95rem;
+  animation: bannerPulse 2s ease-in-out infinite;
+}
+.banner.visible { display: block; }
+
+@keyframes bannerPulse {
+  0%, 100% { box-shadow: 0 0 0 0 #00c2ff33; }
+  50% { box-shadow: 0 0 20px 4px #00c2ff22; }
+}
+
+/* Cards */
+.cards { padding: 0 20px; display: flex; flex-direction: column; gap: 16px; }
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 20px;
+  position: relative;
+  transition: border-color 0.3s;
+}
+.card.status-approved { border-color: #2d6b3f; }
+.card.status-rejected { border-color: #6b2d2d; }
+
+/* Status badge */
+.badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
+}
+.badge-pending   { background: #3d3520; color: #f0c040; }
+.badge-approved  { background: #1a3d24; color: #4ade80; }
+.badge-rejected  { background: #3d1a1a; color: #f87171; }
+.badge-sent      { background: #1a2d3d; color: #60a5fa; }
+
+/* Card content */
+.card-to {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 6px;
+  padding-right: 80px;
+}
+.card-to strong { color: #ccc; }
+
+.card-subject {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 8px;
+  padding-right: 80px;
+}
+
+.card-context {
+  font-size: 0.82rem;
+  color: #777;
+  font-style: italic;
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+/* Email preview */
+.email-preview {
+  background: #fafafa;
+  color: #333;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 18px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  max-height: 350px;
+  overflow-y: auto;
+  transition: border-color 0.3s;
+}
+.email-preview.editing {
+  border-color: #00c2ff;
+  outline: none;
+  box-shadow: 0 0 0 3px #00c2ff33;
+}
+
+/* Action row */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.btn-action {
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+.btn-action:active { transform: scale(0.96); }
+
+.btn-action.approve {
+  background: #1a3d24;
+  color: #4ade80;
+  border-color: #2d6b3f;
+}
+.btn-action.approve:hover { background: #224d2e; }
+
+.btn-action.edit {
+  background: #1a2d3d;
+  color: #60a5fa;
+  border-color: #2d4d6b;
+}
+.btn-action.edit:hover { background: #223d4d; }
+
+.btn-action.reject {
+  background: #3d1a1a;
+  color: #f87171;
+  border-color: #6b2d2d;
+}
+.btn-action.reject:hover { background: #4d2222; }
+
+.btn-action.save {
+  background: #00c2ff;
+  color: #000;
+  font-weight: 600;
+}
+
+.btn-action.cancel {
+  background: #2a2a2a;
+  color: #999;
+}
+
+.btn-action:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Animations */
+@keyframes statusChange {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.badge.pop { animation: statusChange 0.3s ease; }
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #222;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  border: 1px solid #333;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+.toast.show { transform: translateX(-50%) translateY(0); }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .header { padding: 16px; }
+  .header h1 { font-size: 1rem; }
+  .cards { padding: 0 12px; }
+  .card { padding: 16px; }
+  .controls { padding: 12px; }
+  .email-preview { padding: 14px; font-size: 0.85rem; }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <img src="../../assets/opal-logo.png" alt="Opal" onerror="this.style.display='none'">
+  <h1><span>Opal Screens</span> — Email Approvals</h1>
+</div>
+
+<div class="info-bar">
+  Served locally · Approvals saved to browser storage · Use "Copy JSON" to export decisions
+</div>
+
+<div class="controls">
+  <div class="counter" id="counter">Loading...</div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn btn-copy" id="copyBtn" onclick="copyJSON()">📋 Copy JSON</button>
+    <button class="btn btn-approve-all" id="approveAllBtn" onclick="approveAll()">✅ Approve All</button>
+  </div>
+</div>
+
+<div class="banner" id="banner">🎉 All approved — ready to send!</div>
+
+<div class="cards" id="cards"></div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+let drafts = [];
+const STORAGE_KEY = 'opal-email-drafts';
+
+async function init() {
+  // Try localStorage first
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try { drafts = JSON.parse(saved); } catch(e) { /* fall through */ }
+  }
+  // Always try to load fresh from file, merge statuses
+  try {
+    const resp = await fetch('drafts.json?_=' + Date.now());
+    if (resp.ok) {
+      const fresh = await resp.json();
+      if (drafts.length) {
+        // Merge: keep saved statuses & edits, pick up new drafts
+        const savedMap = Object.fromEntries(drafts.map(d => [d.id, d]));
+        drafts = fresh.map(f => {
+          const s = savedMap[f.id];
+          const merged = s ? { ...f, status: s.status } : f;
+          if (!merged.status) merged.status = 'pending';
+          return merged;
+        });
+        // Add any saved drafts not in fresh (shouldn't happen but safe)
+        const freshIds = new Set(fresh.map(f => f.id));
+        drafts.push(...drafts.filter(d => !freshIds.has(d.id)));
+      } else {
+        drafts = fresh;
+      }
+    }
+  } catch(e) {
+    console.log('Could not load drafts.json, using localStorage only');
+  }
+  if (!drafts.length) {
+    document.getElementById('cards').innerHTML = '<p style="text-align:center;color:#666;padding:40px;">No drafts found. Place a drafts.json file in this directory.</p>';
+    return;
+  }
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
+  render();
+}
+
+function save() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(drafts));
+  // Also persist to server if available
+  fetch('/api/opal-drafts/update', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(drafts)
+  }).catch(() => {}); // Fail silently — localStorage is the fallback
+}
+
+function render() {
+  const container = document.getElementById('cards');
+  container.innerHTML = drafts.map((d, i) => `
+    <div class="card status-${d.status}" id="card-${i}">
+      <div class="badge badge-${d.status}" id="badge-${i}">${d.status}</div>
+      <div class="card-to">To: <strong>${esc(d.toName || d.to_name || '')}</strong> &lt;${esc(d.to || d.to_email || '')}&gt;${d.cc ? `<br><span style="color:#888">CC: ${esc(d.cc)}</span>` : ''}</div>
+      <div class="card-subject">${esc(d.subject)}</div>
+      <div class="card-context">${esc(d.context)}</div>
+      <div class="email-preview" id="preview-${i}">${d.body}</div>
+      <div class="actions" id="actions-${i}">
+        ${d.status === 'pending' ? `
+          <button class="btn-action approve" onclick="setStatus(${i},'approved')">✅ Approve</button>
+          <button class="btn-action edit" onclick="startEdit(${i})">✏️ Edit</button>
+          <button class="btn-action reject" onclick="setStatus(${i},'rejected')">❌ Reject</button>
+        ` : d.status === 'approved' ? `
+          <button class="btn-action reject" onclick="setStatus(${i},'pending')">↩️ Undo</button>
+        ` : d.status === 'rejected' ? `
+          <button class="btn-action approve" onclick="setStatus(${i},'pending')">↩️ Undo</button>
+        ` : ''}
+      </div>
+    </div>
+  `).join('');
+  updateCounter();
+}
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function setStatus(i, status) {
+  drafts[i].status = status;
+  save();
+  render();
+  // Badge pop animation
+  const badge = document.getElementById(`badge-${i}`);
+  if (badge) { badge.classList.add('pop'); setTimeout(() => badge.classList.remove('pop'), 300); }
+  toast(status === 'approved' ? '✅ Approved' : status === 'rejected' ? '❌ Rejected' : '↩️ Reset to pending');
+}
+
+function startEdit(i) {
+  const preview = document.getElementById(`preview-${i}`);
+  const actions = document.getElementById(`actions-${i}`);
+  preview.contentEditable = true;
+  preview.classList.add('editing');
+  preview.focus();
+  actions.innerHTML = `
+    <button class="btn-action save" onclick="saveEdit(${i})">💾 Save Changes</button>
+    <button class="btn-action cancel" onclick="cancelEdit(${i})">Cancel</button>
+  `;
+}
+
+function saveEdit(i) {
+  const preview = document.getElementById(`preview-${i}`);
+  drafts[i].body = preview.innerHTML;
+  preview.contentEditable = false;
+  preview.classList.remove('editing');
+  save();
+  render();
+  toast('✏️ Changes saved');
+}
+
+function cancelEdit(i) {
+  const preview = document.getElementById(`preview-${i}`);
+  preview.innerHTML = drafts[i].body;
+  preview.contentEditable = false;
+  preview.classList.remove('editing');
+  render();
+}
+
+function approveAll() {
+  let changed = 0;
+  drafts.forEach(d => { if (d.status === 'pending') { d.status = 'approved'; changed++; } });
+  if (!changed) { toast('Nothing to approve'); return; }
+  save();
+  render();
+  toast(`✅ Approved ${changed} email${changed > 1 ? 's' : ''}`);
+}
+
+function updateCounter() {
+  const total = drafts.length;
+  const approved = drafts.filter(d => d.status === 'approved').length;
+  document.getElementById('counter').innerHTML = `<strong>${approved}</strong> of <strong>${total}</strong> approved`;
+  const banner = document.getElementById('banner');
+  const allDone = drafts.length > 0 && drafts.every(d => d.status === 'approved');
+  banner.classList.toggle('visible', allDone);
+}
+
+async function copyJSON() {
+  try {
+    await navigator.clipboard.writeText(JSON.stringify(drafts, null, 2));
+    toast('📋 Copied to clipboard');
+  } catch(e) {
+    // Fallback
+    const ta = document.createElement('textarea');
+    ta.value = JSON.stringify(drafts, null, 2);
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    toast('📋 Copied to clipboard');
+  }
+}
+
+function toast(msg) {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(() => el.classList.remove('show'), 2000);
+}
+
+init();
+</script>
+</body>
+</html>

@@ -58,7 +58,7 @@ Opal Screens is a MicroLED video wall brand. The manufacturer is M-Shine (Shenzh
 
 - Cabinet: 600×337.5×39.75mm, 4kg/panel
 - Module: 150×168.75mm (8 modules/cabinet)
-- Contrast: 10,000:1, 100% front access, magnetic modules
+- Contrast: 100,000:1, 100% front access, magnetic modules
 - Surface: Dustproof, moisture-proof, 4H hardness, scrubbable
 - Certs: CE/CB/FCC/ETL/ROHS
 - Technology: Flip-chip COB

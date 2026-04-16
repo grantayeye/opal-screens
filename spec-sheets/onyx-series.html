@@ -37,8 +37,8 @@
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background: radial-gradient(ellipse at top right, rgba(148,163,184,0.06) 0%, transparent 60%),
-                radial-gradient(ellipse at bottom left, rgba(100,116,139,0.03) 0%, transparent 50%);
+    background: radial-gradient(ellipse at top right, rgba(167,139,250,0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(124,58,237,0.03) 0%, transparent 50%);
     pointer-events: none;
     z-index: 0;
   }
@@ -51,7 +51,7 @@
     justify-content: space-between;
     align-items: center;
     padding-bottom: 0.15in;
-    border-bottom: 2px solid #94a3b8;
+    border-bottom: 2px solid #a78bfa;
     margin-bottom: 0.2in;
   }
 
@@ -68,7 +68,7 @@
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: #94a3b8;
+    color: #a78bfa;
   }
 
   .header-title .subtitle {
@@ -141,10 +141,10 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    color: #94a3b8;
+    color: #a78bfa;
     margin-bottom: 0.1in;
     padding-bottom: 4px;
-    border-bottom: 1px solid rgba(148,163,184,0.2);
+    border-bottom: 1px solid rgba(167,139,250,0.2);
   }
 
   /* Specs table */
@@ -159,15 +159,15 @@
   }
 
   .specs-table thead th {
-    background: rgba(148,163,184,0.12);
-    color: #94a3b8;
+    background: rgba(167,139,250,0.12);
+    color: #a78bfa;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 1.5px;
     font-size: 8px;
     padding: 6px 10px;
     text-align: left;
-    border-bottom: 1px solid rgba(148,163,184,0.3);
+    border-bottom: 1px solid rgba(167,139,250,0.3);
   }
 
   .specs-table thead th:first-child {
@@ -220,7 +220,7 @@
 
   .feature-item::before {
     content: '◆';
-    color: #94a3b8;
+    color: #a78bfa;
     font-size: 6px;
     margin-top: 2px;
     flex-shrink: 0;
@@ -235,8 +235,8 @@
   }
 
   .use-case-tag {
-    background: rgba(148,163,184,0.08);
-    border: 1px solid rgba(148,163,184,0.2);
+    background: rgba(167,139,250,0.08);
+    border: 1px solid rgba(167,139,250,0.2);
     border-radius: 20px;
     padding: 3px 10px;
     font-size: 8px;
@@ -251,12 +251,13 @@
     display: flex;
     gap: 12px;
     margin-bottom: 0.18in;
+    justify-content: center;
   }
 
   .pitch-box {
-    flex: 1;
-    background: rgba(148,163,184,0.06);
-    border: 1px solid rgba(148,163,184,0.15);
+    flex: 0 1 280px;
+    background: rgba(167,139,250,0.06);
+    border: 1px solid rgba(167,139,250,0.15);
     border-radius: 8px;
     padding: 10px 14px;
     text-align: center;
@@ -265,7 +266,7 @@
   .pitch-box .pitch-value {
     font-size: 26px;
     font-weight: 800;
-    color: #94a3b8;
+    color: #a78bfa;
     line-height: 1;
   }
 
@@ -312,7 +313,7 @@
 
   .footer-right .contact {
     font-size: 9px;
-    color: #94a3b8;
+    color: #a78bfa;
     font-weight: 500;
     letter-spacing: 0.5px;
   }
@@ -364,7 +365,7 @@
   }
 
   .key-stat .stat-value .stat-accent {
-    color: #94a3b8;
+    color: #a78bfa;
   }
 
   .key-stat .stat-label {
@@ -384,33 +385,35 @@
       <img src="../assets/opal-logo.png" alt="Opal Screens">
     </div>
     <div class="header-title">
-      <h1>Doublet Series</h1>
+      <h1>Onyx Series</h1>
       <div class="subtitle">MicroLED Video Wall System</div>
     </div>
   </div>
 
   <!-- Description -->
   <div class="description">
-    <p>The Doublet Series delivers reliable MicroLED performance for large-format commercial installations where viewing distances are greater and value matters. At 1.5mm pixel pitch, Doublet is built for corporate lobbies, retail displays, houses of worship, and any space where impact and reliability come first.</p>
+    <p>The Onyx Series is the pinnacle of close-viewing clarity — delivering the finest pixel pitch in the Opal Screens lineup at just 0.625mm. Powered by both BlackFire anti-glare technology and NanoPix precision calibration, Onyx produces flawless images even at arm's length. Built for dedicated home theaters, executive boardrooms, and any environment where picture quality is everything.</p>
   </div>
 
   <!-- Pixel Pitch Box -->
   <div class="pitch-boxes">
     <div class="pitch-box">
-      <div class="pitch-value">P1.5</div>
-      <div class="pitch-unit">1.56mm pixel pitch</div>
-      <div class="pitch-res">384 × 216 per cabinet</div>
-      <div class="pitch-label">Value at Scale</div>
+      <div class="pitch-value">P0.7</div>
+      <div class="pitch-unit">0.625mm pixel pitch</div>
+      <div class="pitch-res">960 × 540 per cabinet</div>
+      <div class="pitch-label">Ultra-Fine Precision</div>
     </div>
   </div>
 
   <!-- Tech Badges -->
   <div class="tech-badges">
-    <div class="tech-badge">
-      <span class="tech-badge-label" style="font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.7);">FLIP-CHIP COB</span>
+    <div class="tech-badge blackfire">
+      <img src="../assets/blackfire-logo.png" alt="BlackFire">
+      <span class="tech-badge-label" style="color: rgba(0,0,0,0.45);">Anti-Glare</span>
     </div>
     <div class="tech-badge">
-      <span class="tech-badge-label" style="font-size: 9px; letter-spacing: 2px; color: rgba(255,255,255,0.7);">FRONT ACCESS</span>
+      <img src="../assets/nanopix-logo.png" alt="NanoPix">
+      <span class="tech-badge-label">Precision Cal</span>
     </div>
   </div>
 
@@ -421,7 +424,7 @@
       <div class="stat-label">Nits Brightness</div>
     </div>
     <div class="key-stat">
-      <div class="stat-value"><span class="stat-accent">Extended</span></div>
+      <div class="stat-value" style="font-size:13px"><span class="stat-accent">Extended</span></div>
       <div class="stat-label">Grayscale</div>
     </div>
     <div class="key-stat">
@@ -445,20 +448,21 @@
       <thead>
         <tr>
           <th>Parameter</th>
-          <th>P1.5 (1.56mm)</th>
+          <th>P0.7 (0.625mm)</th>
         </tr>
       </thead>
       <tbody>
         <tr><td>Cabinet Size</td><td>600 × 337.5 × 39.75mm</td></tr>
-        <tr><td>Cabinet Resolution</td><td>384 × 216 dots</td></tr>
+        <tr><td>Cabinet Resolution</td><td>960 × 540 dots</td></tr>
         <tr><td>Module Size</td><td>150 × 168.75mm (8 modules/cabinet)</td></tr>
+        <tr><td>Weight</td><td>4kg / panel</td></tr>
         <tr><td>Brightness</td><td>600 nits</td></tr>
-        <tr><td>Max Power Consumption</td><td>70W / panel</td></tr>
+        <tr><td>Max Power Consumption</td><td>92W / panel</td></tr>
         <tr><td>Panel Refresh Rate</td><td>3,840Hz</td></tr>
         <tr><td>Video Refresh Rate</td><td>60Hz</td></tr>
         <tr><td>Contrast Ratio</td><td>100,000:1</td></tr>
         <tr><td>Grayscale</td><td>Extended</td></tr>
-        <tr><td>LED Technology</td><td>Flip-chip COB</td></tr>
+        <tr><td>LED Technology</td><td>Flip-chip COB (BlackFire + NanoPix)</td></tr>
         <tr><td>Power Supply</td><td>3.8V / 30A</td></tr>
         <tr><td>Maintenance</td><td>100% Front Access — Magnetic Modules</td></tr>
         <tr><td>Surface Protection</td><td>Dustproof, moisture-proof, 4H hardness, scrubbable</td></tr>
@@ -470,12 +474,12 @@
   <div class="features-section">
     <div class="section-title">Key Features</div>
     <div class="features-grid">
-      <div class="feature-item">Flip-chip COB technology for deep blacks and excellent contrast</div>
-      <div class="feature-item">Multi-level calibration ensures pixel-perfect color uniformity</div>
-      <div class="feature-item">Golden 16:9 ratio — seamlessly build 2K or 4K configurations</div>
+      <div class="feature-item">BlackFire anti-glare COB technology for deep blacks and zero glare</div>
+      <div class="feature-item">NanoPix multi-level calibration for pixel-perfect color uniformity</div>
+      <div class="feature-item">Ultra-fine 0.625mm pixel pitch — flawless at any viewing distance</div>
+      <div class="feature-item">960×540 dots per cabinet — highest density in the lineup</div>
       <div class="feature-item">Front-serviceable magnetic modules for tool-free maintenance</div>
-      <div class="feature-item">Ultra-lightweight 4kg panels for flexible installation</div>
-      <div class="feature-item">Value-optimized for large format commercial installations</div>
+      <div class="feature-item">Golden 16:9 ratio for seamless 4K and 8K configurations</div>
     </div>
   </div>
 
@@ -483,12 +487,12 @@
   <div>
     <div class="section-title">Applications</div>
     <div class="use-cases">
-      <span class="use-case-tag">Corporate Lobbies</span>
-      <span class="use-case-tag">Retail</span>
-      <span class="use-case-tag">Houses of Worship</span>
-      <span class="use-case-tag">Hospitality</span>
-      <span class="use-case-tag">Education</span>
-      <span class="use-case-tag">Digital Signage</span>
+      <span class="use-case-tag">Dedicated Home Theaters</span>
+      <span class="use-case-tag">Executive Boardrooms</span>
+      <span class="use-case-tag">Private Cinemas</span>
+      <span class="use-case-tag">Luxury Residential</span>
+      <span class="use-case-tag">Museums & Galleries</span>
+      <span class="use-case-tag">Control Rooms</span>
     </div>
   </div>
 

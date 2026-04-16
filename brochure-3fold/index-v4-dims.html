@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Opal Screens — 3-Fold Brochure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   OPAL SCREENS — 3-FOLD BROCHURE
+   VistaPrint Tri-Fold: 11.25" × 8.75" flat with bleed (LANDSCAPE)
+   Page 1 — FRONT/OUTSIDE: Panel A (back) | Panel B (BlackFire) | Panel C (cover)
+   Page 2 — BACK/INSIDE:   Panel D (apps) | Panel E (comparison) | Panel F (series)
+   ============================================================ */
+
+:root {
+  --bg-primary: #0a0a0f;
+  --bg-secondary: #111118;
+  --bg-card: #16161f;
+  --text-primary: #f0f0f5;
+  --text-secondary: #8888a0;
+  --text-muted: #55556a;
+  --accent: #00c2ff;
+  --accent-secondary: #7b61ff;
+  --gradient-accent: linear-gradient(135deg, #00c2ff, #7b61ff);
+  --border: rgba(255, 255, 255, 0.06);
+  --onyx: #a78bfa;
+  --boulder: #ff8c42;
+  --crystal: #00c2ff;
+  --doublet: #94a3b8;
+  --water: #22c55e;
+
+  /* Layout dimensions */
+  --sheet-w: 11.25in;
+  --sheet-h: 8.75in;
+  --panel-w: 3.75in;
+  --bleed: 0.125in;
+  --safe: 0.25in;
+  --inset: 0.375in; /* bleed + safe */
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+@page { size: 11.25in 8.75in; margin: 0; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-size: 7pt;
+  line-height: 1.4;
+  background: #111118;
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 24px;
+  gap: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Print instructions (screen only) ── */
+.print-note {
+  max-width: 640px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 24px;
+}
+.print-note strong { color: var(--text-primary); font-weight: 600; }
+.print-note .accent { color: var(--accent); }
+
+/* ── Sheet (one flat landscape side) ── */
+.sheet {
+  width: var(--sheet-w);
+  height: var(--sheet-h);
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.5);
+  flex-shrink: 0;
+  page-break-after: always;
+}
+
+.sheet::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 15%, rgba(0,194,255,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 85%, rgba(123,97,255,0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Panel ── */
+.panel {
+  width: var(--panel-w);
+  height: var(--sheet-h);
+  padding: var(--inset);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-divider {
+  width: 1px;
+  height: var(--sheet-h);
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; }
+
+.headline {
+  font-size: 16pt;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 6pt;
+}
+
+.subheadline {
+  font-size: 9pt;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 4pt;
+}
+
+.body-text {
+  font-size: 7pt;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}
+
+.label {
+  font-size: 5.5pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--text-muted);
+}
+
+/* ── Cards ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6pt 8pt;
+  margin-bottom: 5pt;
+}
+
+.card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9pt;
+  font-weight: 700;
+  margin-bottom: 2pt;
+}
+
+.card-detail {
+  font-size: 6.5pt;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ── Accent line ── */
+.accent-line {
+  width: 28pt;
+  height: 2px;
+  background: var(--gradient-accent);
+  margin-bottom: 6pt;
+  border-radius: 1px;
+}
+
+/* ── Series dot ── */
+.series-dot {
+  display: inline-block;
+  width: 5pt;
+  height: 5pt;
+  border-radius: 50%;
+  margin-right: 3pt;
+  vertical-align: middle;
+}
+
+/* ── Cover panel ── */
+.cover-panel {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(0,194,255,0.04) 0%, var(--bg-primary) 50%, rgba(123,97,255,0.04) 100%);
+}
+
+.cover-logo {
+  width: 120pt;
+  margin-bottom: 14pt;
+  filter: brightness(1.1);
+}
+
+.cover-tagline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11pt;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 10pt;
+}
+
+.cover-headline {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14pt;
+  font-weight: 700;
+  line-height: 1.2;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 14pt;
+}
+
+.cover-features {
+  list-style: none;
+  font-size: 6.5pt;
+  color: var(--text-secondary);
+  line-height: 2;
+}
+.cover-features li::before {
+  content: '◆ ';
+  color: var(--accent);
+  font-size: 5pt;
+}
+
+/* ── BlackFire panel ── */
+.bf-comparison-img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 6pt 0;
+  border: 1px solid var(--border);
+}
+
+.bf-feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5pt;
+  margin-top: 6pt;
+}
+
+.bf-feature {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 5pt 6pt;
+}
+
+.bf-feature .stat {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.bf-feature .stat-label {
+  font-size: 5.5pt;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Dealer panel ── */
+.dealer-panel {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.dealer-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11pt;
+  font-weight: 700;
+  margin-bottom: 2pt;
+}
+
+.dealer-title {
+  font-size: 7pt;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 10pt;
+}
+
+.dealer-info {
+  font-size: 7pt;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.dealer-info a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.dealer-tagline {
+  font-size: 6.5pt;
+  font-style: italic;
+  color: var(--text-muted);
+  margin-top: 12pt;
+}
+
+/* ── Comparison table ── */
+.comp-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 6pt;
+  margin-top: 6pt;
+}
+
+.comp-table th {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 6pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  text-align: left;
+  padding: 3pt 4pt;
+  border-bottom: 1px solid var(--border);
+}
+
+.comp-table td {
+  padding: 3.5pt 4pt;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 6pt;
+  vertical-align: top;
+}
+
+.comp-table tr:last-child td { border-bottom: none; }
+
+.comp-table .series-name {
+  font-weight: 700;
+  font-size: 6.5pt;
+}
+
+/* ── Application cards ── */
+.app-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6pt 8pt;
+  margin-bottom: 5pt;
+}
+
+.app-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 8pt;
+  font-weight: 700;
+  margin-bottom: 2pt;
+}
+
+.app-card-body {
+  font-size: 6.5pt;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.app-card-rec {
+  font-size: 5.5pt;
+  font-weight: 600;
+  margin-top: 3pt;
+}
+
+/* ── Series overview cards ── */
+.series-card {
+  background: var(--bg-card);
+  border-radius: 6px;
+  padding: 5pt 7pt;
+  margin-bottom: 4pt;
+  border-left: 3px solid;
+}
+
+.series-card-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 700;
+}
+
+.series-card-pitch {
+  font-size: 6pt;
+  color: var(--text-muted);
+  margin-bottom: 2pt;
+}
+
+.series-card-desc {
+  font-size: 6.5pt;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
+.series-card-tech {
+  font-size: 5.5pt;
+  font-weight: 600;
+  margin-top: 2pt;
+}
+
+/* ── Hero image ── */
+.hero-img {
+  width: 100%;
+  border-radius: 6px;
+  margin: 6pt 0;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  max-height: 100pt;
+}
+
+/* ── QR code placeholder ── */
+.qr-placeholder {
+  width: 54pt;
+  height: 54pt;
+  background: #fff;
+  border-radius: 4px;
+  margin: 8pt auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5pt;
+  color: #333;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* ── Print styles ── */
+@media print {
+  body {
+    padding: 0;
+    gap: 0;
+    background: none;
+  }
+  .print-note { display: none; }
+  .sheet {
+    box-shadow: none;
+    page-break-after: always;
+    break-after: page;
+  }
+  .sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Screen-only print instructions ── -->
+<div class="print-note">
+  <strong>Opal Screens — Tri-Fold Brochure</strong><br>
+  Print to PDF: <span class="accent">11.25" × 8.75"</span> landscape, no margins, background graphics ON.<br>
+  Page 1 = front/outside &nbsp;|&nbsp; Page 2 = back/inside. Designed for VistaPrint tri-fold specs.
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 1 — FRONT / OUTSIDE
+     Left=Panel A (back/dealer) | Center=Panel B (BlackFire) | Right=Panel C (cover)
+     ════════════════════════════════════════════════════════════ -->
+<div class="sheet" id="front">
+
+  <!-- ── Panel A: Dealer / Back of brochure ── -->
+  <div class="panel dealer-panel">
+    <img src="../assets/opal-logo.png" alt="Opal Screens" style="width:80pt; margin-bottom:14pt; filter:brightness(1.1);">
+    <div class="accent-line" style="margin:0 auto 10pt;"></div>
+
+    <div class="dealer-name">Gamma Tech Services</div>
+    <div class="dealer-title">Authorized Opal Screens Dealer &amp; Integrator</div>
+
+    <div class="dealer-info">
+      Naples, FL<br>
+      <a href="https://gammatechservices.com">gammatechservices.com</a><br>
+      <a href="mailto:bradd@gammatechservices.com">bradd@gammatechservices.com</a><br>
+      (239) 330-4939
+    </div>
+
+    <div class="qr-placeholder">
+      opalscreens.com
+    </div>
+
+    <div class="dealer-tagline">"Naples, FL's trusted AV integrator since 2004"</div>
+
+    <div style="margin-top:18pt; font-size:6pt; color:var(--text-muted); line-height:1.6;">
+      Design consultation &bull; Professional installation<br>
+      Calibration &amp; commissioning &bull; Ongoing support
+    </div>
+  </div>
+
+  <div class="panel-divider"></div>
+
+  <!-- ── Panel B: BlackFire Technology ── -->
+  <div class="panel">
+    <div class="label" style="margin-bottom:4pt;">Proprietary Technology</div>
+    <div class="accent-line"></div>
+
+    <!-- BlackFire text logo -->
+    <div style="margin-bottom:6pt;">
+      <span style="font-family:Space Grotesk,sans-serif;font-size:20pt;font-weight:800;color:#f0f0f5;letter-spacing:0.05em;">BLACK</span><span style="font-family:Space Grotesk,sans-serif;font-size:20pt;font-weight:800;background:linear-gradient(135deg,#ff8c42,#ff4500);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:0.05em;">FIRE</span>
+      <div style="font-size:6pt;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.4);margin-top:2px;">Technology</div>
+    </div>
+
+    <div class="body-text" style="margin-bottom:4pt;">
+      Anti-glare matte nano-coating that eliminates reflections while preserving deep blacks and vivid color accuracy. Standard on Onyx, Boulder, and Crystal series.
+    </div>
+
+    <img src="../assets/blackfire-comparison.jpg" alt="BlackFire vs Traditional LED" class="bf-comparison-img">
+
+    <div class="bf-feature-grid">
+      <div class="bf-feature">
+        <div class="stat">100,000:1</div>
+        <div class="stat-label">Contrast Ratio</div>
+      </div>
+      <div class="bf-feature">
+        <div class="stat">4H</div>
+        <div class="stat-label">Surface Hardness</div>
+      </div>
+      <div class="bf-feature">
+        <div class="stat">178°</div>
+        <div class="stat-label">Viewing Angle</div>
+      </div>
+      <div class="bf-feature">
+        <div class="stat">100%</div>
+        <div class="stat-label">Front Access</div>
+      </div>
+    </div>
+
+    <div style="margin-top:8pt;">
+      <div class="label" style="margin-bottom:4pt;">Also Featured</div>
+      <div class="card" style="margin-bottom:4pt;">
+        <div style="display:flex;align-items:center;gap:5pt;margin-bottom:2pt;">
+          <img src="../assets/nanopix-logo.png" alt="NanoPix" style="height:12pt;">
+          <span class="card-title" style="color:var(--onyx);">NanoPix</span>
+        </div>
+        <div class="card-detail">Pixel-level calibration ensuring perfect uniformity across every panel. Onyx Series exclusive.</div>
+      </div>
+      <div class="card">
+        <div class="card-title" style="color:var(--boulder);">SilkStream</div>
+        <div class="card-detail">15,360Hz panel refresh enabling native 240Hz source input for ultra-smooth motion. Available first in Boulder Series.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-divider"></div>
+
+  <!-- ── Panel C: Cover ── -->
+  <div class="panel cover-panel">
+    <img src="../assets/opal-logo.png" alt="Opal Screens" class="cover-logo">
+
+    <div class="cover-tagline">Seeing is Believing</div>
+
+    <div class="cover-headline">Premium MicroLED<br>Video Walls</div>
+
+    <img src="../assets/hero-theater.png" alt="Home Theater" class="hero-img" style="max-height:120pt;">
+
+    <ul class="cover-features" style="margin-top:10pt;">
+      <li>Flip-chip MicroLED technology</li>
+      <li>0.7mm to 1.875mm pixel pitch</li>
+      <li>Up to 4,000 nits brightness</li>
+      <li>Seamless, bezel-free displays</li>
+      <li>Dustproof &amp; scrubbable surface</li>
+      <li>Residential, commercial &amp; outdoor</li>
+    </ul>
+
+    <div style="margin-top:14pt; font-size:6pt; color:var(--text-muted);">opalscreens.com</div>
+  </div>
+
+</div>
+
+<!-- ════════════════════════════════════════════════════════════
+     PAGE 2 — BACK / INSIDE
+     Left=Panel D (applications) | Center=Panel E (comparison) | Right=Panel F (series)
+     ════════════════════════════════════════════════════════════ -->
+<div class="sheet" id="inside">
+
+  <!-- ── Panel D: Applications / Use Cases ── -->
+  <div class="panel">
+    <div class="label" style="margin-bottom:4pt;">Applications</div>
+    <div class="accent-line"></div>
+    <div class="headline" style="font-size:13pt;">Where Opal<br>Screens Shine</div>
+
+    <div class="app-card">
+      <div class="app-card-title">Home Theater</div>
+      <div class="app-card-body">Transform any room into a cinematic experience with seamless, bezel-free displays that disappear into the wall. Perfect blacks, zero burn-in, unlimited screen size.</div>
+      <div class="app-card-rec" style="color:var(--boulder);">Recommended: Boulder Series</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-card-title">Executive Boardroom</div>
+      <div class="app-card-body">Ultra-fine pixel pitch for close-viewing presentations and video calls. Art-mode transforms the display into a gallery piece between meetings.</div>
+      <div class="app-card-rec" style="color:var(--onyx);">Recommended: Onyx Series</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-card-title">Houses of Worship</div>
+      <div class="app-card-body">High brightness and wide viewing angles ensure every seat has a clear view. Scalable to any wall size with seamless panel-to-panel uniformity.</div>
+      <div class="app-card-rec" style="color:var(--crystal);">Recommended: Crystal Series</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-card-title">Retail &amp; Hospitality</div>
+      <div class="app-card-body">Eye-catching digital signage for lobbies, storefronts, and restaurant menus. Commercial-grade durability at an accessible price point.</div>
+      <div class="app-card-rec" style="color:var(--doublet);">Recommended: Doublet Series</div>
+    </div>
+
+    <div class="app-card">
+      <div class="app-card-title">Outdoor Venues</div>
+      <div class="app-card-body">IP65 weatherproof displays with 4,000 nits of brightness cut through direct sunlight. Built for stadiums, pools, patios, and event spaces.</div>
+      <div class="app-card-rec" style="color:var(--water);">Recommended: Water Series</div>
+    </div>
+  </div>
+
+  <div class="panel-divider"></div>
+
+  <!-- ── Panel E: Series Comparison Table ── -->
+  <div class="panel">
+    <div class="label" style="margin-bottom:4pt;">At a Glance</div>
+    <div class="accent-line"></div>
+    <div class="headline" style="font-size:13pt;">Series<br>Comparison</div>
+
+    <table class="comp-table">
+      <thead>
+        <tr>
+          <th>Series</th>
+          <th>Pitch</th>
+          <th>Brightness</th>
+          <th>Refresh</th>
+          <th>Tech</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="series-name" style="color:var(--onyx);"><span class="series-dot" style="background:var(--onyx);"></span>Onyx</span></td>
+          <td>0.7mm</td>
+          <td>600 nits</td>
+          <td>4K@60Hz</td>
+          <td>BlackFire, NanoPix</td>
+        </tr>
+        <tr>
+          <td><span class="series-name" style="color:var(--boulder);"><span class="series-dot" style="background:var(--boulder);"></span>Boulder</span></td>
+          <td>0.9mm</td>
+          <td>1,000 nits</td>
+          <td>4K@240Hz</td>
+          <td>BlackFire, SilkStream</td>
+        </tr>
+        <tr>
+          <td><span class="series-name" style="color:var(--crystal);"><span class="series-dot" style="background:var(--crystal);"></span>Crystal</span></td>
+          <td>0.9–1.2mm</td>
+          <td>600 nits</td>
+          <td>4K@60Hz</td>
+          <td>BlackFire</td>
+        </tr>
+        <tr>
+          <td><span class="series-name" style="color:var(--doublet);"><span class="series-dot" style="background:var(--doublet);"></span>Doublet</span></td>
+          <td>1.2–1.5mm</td>
+          <td>600 nits</td>
+          <td>4K@60Hz</td>
+          <td>—</td>
+        </tr>
+        <tr>
+          <td><span class="series-name" style="color:var(--water);"><span class="series-dot" style="background:var(--water);"></span>Water</span></td>
+          <td>1.2–1.875mm</td>
+          <td>4,000 nits</td>
+          <td>TBD</td>
+          <td>IP65 Outdoor</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top:10pt;">
+      <div class="label" style="margin-bottom:4pt;">Common Specs (Indoor)</div>
+      <div class="card">
+        <div class="card-detail" style="line-height:1.7;">
+          <strong style="color:var(--text-primary);">Cabinet:</strong> 600 × 337.5 × 39.75mm, 4kg<br>
+          <strong style="color:var(--text-primary);">Module:</strong> 150 × 168.75mm (8/cabinet)<br>
+          <strong style="color:var(--text-primary);">Contrast:</strong> ≤100,000:1<br>
+          <strong style="color:var(--text-primary);">Access:</strong> 100% front, magnetic modules<br>
+          <strong style="color:var(--text-primary);">Surface:</strong> Dustproof, moisture-proof, 4H hardness<br>
+          <strong style="color:var(--text-primary);">Certifications:</strong> CE / CB / FCC / ETL / RoHS
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:8pt;">
+      <div class="label" style="margin-bottom:3pt;">Why MicroLED?</div>
+      <div class="body-text" style="font-size:6.5pt;">
+        Unlike OLED, MicroLED has zero burn-in risk, higher peak brightness, and unlimited lifespan. Unlike traditional LED, Opal's flip-chip technology delivers true pixel-level blacks with no visible grid lines.
+      </div>
+    </div>
+  </div>
+
+  <div class="panel-divider"></div>
+
+  <!-- ── Panel F: Series Overview (all 5 cards) ── -->
+  <div class="panel">
+    <div class="label" style="margin-bottom:4pt;">Product Lineup</div>
+    <div class="accent-line"></div>
+    <div class="headline" style="font-size:13pt;">The Opal<br>Collection</div>
+
+    <div class="series-card" style="border-left-color:var(--onyx);">
+      <div class="series-card-name" style="color:var(--onyx);">Onyx Series</div>
+      <div class="series-card-pitch">0.7mm pixel pitch &bull; 600 nits &bull; Indoor</div>
+      <div class="series-card-desc">The finest pixel pitch in the lineup for ultra-close viewing distances. Perfect for executive offices, art displays, and intimate home theaters where every detail matters.</div>
+      <div class="series-card-tech" style="color:var(--onyx);">BlackFire + NanoPix</div>
+    </div>
+
+    <div class="series-card" style="border-left-color:var(--boulder);">
+      <div class="series-card-name" style="color:var(--boulder);">Boulder Series</div>
+      <div class="series-card-pitch">0.9mm pixel pitch &bull; 1,000 nits &bull; Indoor</div>
+      <div class="series-card-desc">The go-to home theater display. SilkStream 240Hz refresh delivers buttery-smooth sports, gaming, and action content with class-leading brightness.</div>
+      <div class="series-card-tech" style="color:var(--boulder);">BlackFire + SilkStream</div>
+    </div>
+
+    <div class="series-card" style="border-left-color:var(--crystal);">
+      <div class="series-card-name" style="color:var(--crystal);">Crystal Series</div>
+      <div class="series-card-pitch">0.9–1.2mm pixel pitch &bull; 600 nits &bull; Indoor</div>
+      <div class="series-card-desc">Premium all-around performer for media rooms, living rooms, and commercial spaces. BlackFire coating ensures rich contrast in any lighting condition.</div>
+      <div class="series-card-tech" style="color:var(--crystal);">BlackFire</div>
+    </div>
+
+    <div class="series-card" style="border-left-color:var(--doublet);">
+      <div class="series-card-name" style="color:var(--doublet);">Doublet Series</div>
+      <div class="series-card-pitch">1.2–1.5mm pixel pitch &bull; 600 nits &bull; Indoor</div>
+      <div class="series-card-desc">Budget-friendly option for large-format installations. Ideal for lobbies, retail environments, and commercial signage where viewing distance allows a wider pixel pitch.</div>
+    </div>
+
+    <div class="series-card" style="border-left-color:var(--water);">
+      <div class="series-card-name" style="color:var(--water);">Water Series</div>
+      <div class="series-card-pitch">1.2–1.875mm pixel pitch &bull; 4,000 nits &bull; Outdoor</div>
+      <div class="series-card-desc">IP65 weatherproof displays built to perform in direct sunlight. Anti-reflection coating and extreme brightness for stadiums, patios, and outdoor entertainment.</div>
+      <div class="series-card-tech" style="color:var(--water);">IP65 Outdoor Rated</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
