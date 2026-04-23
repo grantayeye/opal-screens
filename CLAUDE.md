@@ -152,6 +152,10 @@ SilkStream 240Hz does NOT exist at 0.7mm pixel pitch (Onyx). The technology curr
 
 BlackFire anti-glare coating is NOT on the Doublet series. Don't include it in Doublet specs or marketing.
 
+### No Ball-Impact Applications
+
+NEVER write content positioning MicroLED for applications where the screen takes direct physical impact: golf simulators, batting cages, pitching machines, tennis ball machines, or any projectile-based sport sim. MicroLED panels are rigid and cannot absorb 150+ mph ball impact the way a projection impact screen does. Projection dominates those categories for a physical reason. Do NOT propose these as blog topics. Do NOT include them in marketing or solutions pages.
+
 ### Manufacturer Confidentiality
 
 Never publicly mention: M-Shine, Molly, MTC, Novastar ICs, COB (say "BlackFire" instead), scan ratios, or any manufacturer-level details. These are confidential.
