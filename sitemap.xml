@@ -31,6 +31,12 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://opalscreens.com/blog/silkstream-motion-without-fatigue-microled/</loc>
+    <lastmod>2026-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://opalscreens.com/blog/microled-private-bars-wine-rooms-cigar-lounges/</loc>
     <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -110,7 +116,7 @@
   </url>
   <url>
     <loc>https://opalscreens.com/blog/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
