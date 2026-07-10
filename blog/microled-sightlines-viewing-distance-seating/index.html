@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Designer's Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating | Opal Screens Blog</title>
+  <meta name="description" content="How architects, designers, and AV professionals align MicroLED pixel pitch, viewing distance, wall scale, seating, and service access using Opal series as specification reference points.">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="The Designer's Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating">
+  <meta property="og:description" content="A practical guide to MicroLED sightlines, pixel pitch, viewing distance, wall scale, seating depth, and service access for architectural rooms.">
+  <meta property="og:url" content="https://opalscreens.com/blog/microled-sightlines-viewing-distance-seating/">
+  <meta property="og:site_name" content="Opal Screens">
+  <meta property="article:published_time" content="2026-07-09">
+  <meta property="article:section" content="Design">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Designer's Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating">
+  <meta name="twitter:description" content="How your AV professional aligns MicroLED pitch, seating distance, wall scale, and service access before the room is finalized.">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "The Designer's Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating",
+    "description": "How architects, designers, and AV professionals align MicroLED pixel pitch, viewing distance, wall scale, seating, and service access using Opal series as specification reference points.",
+    "author": {
+      "@type": "Brand",
+      "name": "Opal Screens"
+    },
+    "publisher": {
+      "@type": "Brand",
+      "name": "Opal Screens"
+    },
+    "datePublished": "2026-07-09",
+    "dateModified": "2026-07-09",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://opalscreens.com/blog/microled-sightlines-viewing-distance-seating/"
+    },
+    "url": "https://opalscreens.com/blog/microled-sightlines-viewing-distance-seating/",
+    "articleSection": "Design",
+    "keywords": "MicroLED viewing distance, video wall sightlines, pixel pitch seating distance, MicroLED room design, Opal Screens pixel pitch"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../blog.css">
+  <style>
+    .sightline-plan {
+      margin: 3rem 0;
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.88), rgba(10, 10, 15, 0.95));
+    }
+
+    .sightline-plan h2 {
+      margin-top: 0;
+    }
+
+    .plan-shell {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 1.25rem;
+      align-items: stretch;
+      margin-top: 1.5rem;
+    }
+
+    .floor-diagram {
+      position: relative;
+      min-height: 360px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 14px;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(0deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.03);
+      background-size: 28px 28px;
+      overflow: hidden;
+    }
+
+    .wall-plane {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 24px;
+      height: 24px;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+      box-shadow: 0 0 24px rgba(0, 194, 255, 0.35);
+    }
+
+    .view-zone {
+      position: absolute;
+      left: 18%;
+      right: 18%;
+      border: 1px solid rgba(0, 194, 255, 0.42);
+      background: rgba(0, 194, 255, 0.07);
+      border-radius: 18px;
+      text-align: center;
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.75rem;
+    }
+
+    .primary-zone {
+      top: 92px;
+      height: 92px;
+    }
+
+    .secondary-zone {
+      top: 212px;
+      height: 76px;
+      left: 10%;
+      right: 10%;
+      border-color: rgba(123, 97, 255, 0.42);
+      background: rgba(123, 97, 255, 0.08);
+    }
+
+    .service-band {
+      position: absolute;
+      left: 12%;
+      right: 12%;
+      top: 58px;
+      height: 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .side-view {
+      position: absolute;
+      width: 18%;
+      bottom: 28px;
+      padding: 0.6rem;
+      border: 1px dashed rgba(255, 255, 255, 0.25);
+      border-radius: 12px;
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    .side-view.left {
+      left: 8%;
+    }
+
+    .side-view.right {
+      right: 8%;
+    }
+
+    .plan-notes {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .plan-note {
+      padding: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .plan-note strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--accent);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pitch-reference {
+      margin: 2.5rem 0;
+      padding: 1.35rem;
+      border-left: 3px solid var(--accent);
+      background: rgba(0, 194, 255, 0.08);
+      border-radius: 0 12px 12px 0;
+    }
+
+    .pitch-reference h2 {
+      margin-top: 0;
+    }
+
+    .pitch-reference ul {
+      padding-left: 1.25rem;
+    }
+
+    @media (max-width: 760px) {
+      .plan-shell {
+        grid-template-columns: 1fr;
+      }
+
+      .floor-diagram {
+        min-height: 330px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img src="../../assets/opal-logo.png" alt="Opal Screens" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#blackfire">Technology</a></li>
+        <li><a href="/#series">Products</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#custom">Custom</a></li>
+        <li><a href="/#environments">Solutions</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact" class="nav-cta">Find a Dealer</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ARTICLE HEADER -->
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-category">Design</span>
+      <time class="article-date" datetime="2026-07-09">July 9, 2026</time>
+      <span class="read-time">9 min read</span>
+    </div>
+    <h1>The Designer's Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating</h1>
+  </header>
+
+  <!-- ARTICLE BODY -->
+  <article class="article-body">
+
+    <!-- MEDIA PLAN
+      Hero image recommendation: Real showroom or approved finished-room photo showing a MicroLED wall viewed from the primary seating position.
+      Inline visual 1: Floor-plan sightline diagram included in this article with wall plane, primary zone, secondary zone, side views, and service band.
+      Inline visual 2: Future pixel-pitch reference graphic showing Opal series pitch options by typical viewing condition.
+      Diagram/callout idea: Integrator Decisions callout for wall width, pixel pitch, seating depth, side views, and service access.
+      Alt text: "Floor-plan diagram showing MicroLED wall sightlines, primary seating, secondary viewing zones, side views, and service access."
+      Placement notes: Keep the floor-plan diagram before the Opal series pitch reference so the specification logic starts with the room.
+    -->
+
+    <p>A MicroLED wall can be technically excellent and still feel wrong in the room. The wall may be bright, seamless, and precisely built, but if the primary seats are too close, the side views are ignored, the wall is scaled around a catalog size instead of the architecture, or service access is treated as an afterthought, the experience will never feel fully resolved.</p>
+
+    <p>That is why sightlines should be part of the earliest design conversation. Pixel pitch, viewing distance, wall size, seating depth, content type, and millwork are not separate decisions. They shape one another.</p>
+
+    <p>Opal Screens offers multiple series and pitch options because rooms are not all asking the same question. A study with close seating, a private cinema, a sun-filled living room, an outdoor terrace, and a commercial presentation space each need a different specification logic. Your authorized Opal dealer and AV professional align those choices with the design team before the wall becomes part of the architecture.</p>
+
+    <h2>Start with the Primary View</h2>
+
+    <p>The first sightline question is simple: where should the image feel best? In a dedicated cinema, the answer may be the main row of seating. In a living room, it may be the sofa and a pair of lounge chairs. In a gallery, showroom, or hospitality space, it may be a standing zone where people move through the room rather than sit still.</p>
+
+    <p>That primary view determines the first layer of the specification. It informs pixel pitch, wall width, height, image scale, mounting plane, and how the wall relates to furniture. When the primary view is defined clearly, the rest of the room can be designed around a known visual anchor.</p>
+
+    <p>The mistake is starting with the largest possible wall and solving the room later. MicroLED gives architects and designers enormous freedom, but scale still needs discipline. A wall should feel intentional from the place people actually experience it.</p>
+
+    <section class="sightline-plan" aria-label="MicroLED sightline floor-plan diagram">
+      <h2>Sightline Planning Diagram</h2>
+      <p>A simplified floor-plan view shows the decisions your integrator and design team coordinate before finalizing wall size, pitch, seating, and service access.</p>
+      <div class="plan-shell">
+        <div class="floor-diagram">
+          <div class="wall-plane">MicroLED Wall Plane</div>
+          <div class="service-band">service access / wall depth coordination</div>
+          <div class="view-zone primary-zone">Primary Viewing Zone</div>
+          <div class="view-zone secondary-zone">Secondary Seating / Circulation View</div>
+          <div class="side-view left">Side lounge angle</div>
+          <div class="side-view right">Standing or bar view</div>
+        </div>
+        <div class="plan-notes">
+          <div class="plan-note">
+            <strong>Pitch</strong>
+            <span>Chosen around the closest meaningful viewing position, not just the wall size.</span>
+          </div>
+          <div class="plan-note">
+            <strong>Scale</strong>
+            <span>Wall width should match the architecture, seating depth, and content use.</span>
+          </div>
+          <div class="plan-note">
+            <strong>Side Views</strong>
+            <span>Secondary angles matter in lounges, kitchens, showrooms, and open-plan rooms.</span>
+          </div>
+          <div class="plan-note">
+            <strong>Service</strong>
+            <span>Access strategy belongs in the millwork and wall-depth conversation early.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <h2>Pixel Pitch Is About Distance, Not Status</h2>
+
+    <p>Pixel pitch is the distance between individual pixels. A finer pitch allows closer viewing before the pixel structure becomes perceptible. A wider pitch can be entirely appropriate when the primary viewing distance is longer, the wall is larger, or the room is designed for social viewing rather than close inspection.</p>
+
+    <p>This is not a ranking of good, better, and best. It is a room-design decision. The right pitch is the one that makes the image feel continuous from the intended viewing positions while preserving the scale and use of the room.</p>
+
+    <p>Your AV professional will usually begin with the closest important seat or standing position. If the closest meaningful view is very near the wall, finer pitch becomes more important. If the primary viewing zone is farther back, the wall may be able to use a different pitch while still appearing smooth and architectural.</p>
+
+    <section class="pitch-reference">
+      <h2>Opal Series as Pitch Reference Points</h2>
+      <p>These references help frame the conversation. Your authorized dealer will still specify around the actual room, seating, content, lighting, and wall size.</p>
+      <ul>
+        <li><strong>Onyx Series, 0.7mm:</strong> Ultra-close viewing, art-forward spaces, studies, and rooms where fine detail needs to hold up from short distances.</li>
+        <li><strong>Boulder Series, 0.9mm:</strong> Private cinema and live-action rooms where 0.9mm pitch pairs with SilkStream 240Hz performance for motion-focused viewing.</li>
+        <li><strong>Crystal Series, 0.9mm and 1.2mm:</strong> Premium indoor media rooms, living rooms, and residential spaces where the primary seating distance guides the pitch choice.</li>
+        <li><strong>Water Series, 1.2mm, 1.5mm, and 1.875mm:</strong> Outdoor terraces, pool areas, covered loggias, and open-air environments where brightness, weather exposure, and longer viewing distances shape the specification.</li>
+        <li><strong>Doublet Series, 1.5mm:</strong> Commercial rooms and longer-viewing applications where the wall is read from greater distance and integrated into a broader presentation environment.</li>
+      </ul>
+    </section>
+
+    <h2>Wall Size Changes the Way Pitch Feels</h2>
+
+    <p>Viewing distance cannot be separated from wall size. A large wall changes the physical relationship between the viewer and the image. It affects eye movement, seating comfort, content legibility, and how the wall sits inside the room.</p>
+
+    <p>For cinema and sports, the wall may be intentionally immersive. For art, wellness, hospitality, or presentation use, the same physical scale may need to feel calmer. A designer may want the wall to read as an architectural surface from across the room rather than as a visual object demanding constant attention.</p>
+
+    <p>This is where MicroLED's modularity matters. The wall can be sized around the space instead of forcing the room around a fixed display format. Your integrator can help the design team understand which wall dimensions support the intended viewing positions and which dimensions begin to fight the room.</p>
+
+    <h2>Seating Is Part of the Display Specification</h2>
+
+    <p>Furniture plans often get treated as an interior design decision and display specification gets treated as an AV decision. In a MicroLED room, those two decisions are connected.</p>
+
+    <p>The depth of the main sofa, the height of the seat back, the position of lounge chairs, the location of a bar, and the circulation path through the room all affect how the wall is experienced. If seating moves too close, the pitch decision changes. If side seating becomes important, the content and wall size may need to support more than one viewing angle.</p>
+
+    <p>A good AV professional will not specify the wall in isolation. The integrator will study the furniture plan, the architectural elevations, the ceiling conditions, the audio layout, and the lighting plan so the display feels natural from the places people actually sit and stand.</p>
+
+    <h2>Secondary Views Still Matter</h2>
+
+    <p>Many luxury rooms are not single-row theaters. They are living spaces, lounges, entertaining rooms, outdoor rooms, or product environments. People look at the wall from an angle while entering the room, standing near a bar, sitting at a dining table, or moving between zones.</p>
+
+    <p>Those views do not always need the same level of detail as the primary seat, but they should not feel accidental. The wall should remain visually coherent as people move through the room. That may affect wall width, content layout, brightness, and the way the wall is positioned relative to openings, furniture, and lighting.</p>
+
+    <p>Across dealer-led projects, this is one of the places early coordination pays off. The integrator can flag sightline conflicts before millwork, furniture, or stone details make them difficult to solve.</p>
+
+    <h2>Service Access Is a Design Issue</h2>
+
+    <p>MicroLED is a long-term architectural element, so the service strategy belongs in the design conversation. Front-access modules, wall depth, power and signal paths, ventilation, and clearances all need to be coordinated with millwork and surrounding finishes.</p>
+
+    <p>Service access is not only a technical requirement. It affects the reveal, the mounting plane, the surrounding wall detail, and the long-term ownership experience. A beautiful wall that is difficult to service was not fully designed.</p>
+
+    <p>Your authorized Opal dealer and integrator will coordinate these requirements with the design team so the wall can be both refined and practical. The best time to solve that is before the wall assembly and finish details are locked.</p>
+
+    <h2>The Integrator Turns Measurements Into Experience</h2>
+
+    <p>The role of the integrator is to translate room dimensions into a finished viewing experience. That includes pitch, wall size, mounting height, source routing, processor settings, control scenes, seating relationships, service access, and the way the wall behaves in different lighting conditions.</p>
+
+    <p>For architects and designers, the practical takeaway is straightforward. Bring the AV professional into the sightline conversation early. Let the room depth, furniture plan, wall elevation, and content goals inform the display specification together.</p>
+
+    <p>When those decisions are aligned, MicroLED stops feeling like equipment placed in a room. It becomes part of the architecture, scaled for the people who live, gather, present, and watch there.</p>
+
+    <!-- CTA -->
+    <section class="article-cta">
+      <h3>Plan the Wall Around the Room</h3>
+      <p>Connect with your authorized Opal dealer to align MicroLED pitch, viewing distance, wall scale, seating, and service access before the design is finalized.</p>
+      <a href="https://opalscreens.com/#contact" class="cta-btn">Find Your Integrator</a>
+    </section>
+
+  </article>
+
+  <!-- RELATED ARTICLES -->
+  <section class="related-articles">
+    <h3>Related Articles</h3>
+    <div class="related-grid">
+      <a href="/blog/pixel-pitch-explained/" class="related-card">
+        <span class="article-category">Guide</span>
+        <h4>Pixel Pitch Explained: The Complete Guide to LED Video Wall Resolution</h4>
+      </a>
+      <a href="/blog/specifying-microled-architects-designers/" class="related-card">
+        <span class="article-category">Design</span>
+        <h4>Specifying MicroLED Early: A Guide for Architects and Interior Designers</h4>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="blog-footer">
+    <p>© 2026 Opal Screens. All rights reserved. | <a href="/blog/">Back to Blog</a> | <a href="/">Main Site</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'));
+    });
+  </script>
+
+</body>
+</html>
