@@ -148,7 +148,7 @@ nav {
   color: var(--accent);
   background: rgba(0, 194, 255, 0.08);
   padding: 0.25rem 0.75rem;
-  border-radius: 20px;
+  border-radius: 6px;
 }
 
 .article-date {
