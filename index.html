@@ -1033,6 +1033,8 @@
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .series-card::before {
@@ -1138,6 +1140,35 @@
       color: var(--text-primary);
       font-weight: 600;
       font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .series-download {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      gap: 0.45rem;
+      margin-top: auto;
+      padding-top: 1.35rem;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .series-download:hover,
+    .series-download:focus-visible {
+      color: var(--text-primary);
+    }
+
+    .series-download svg {
+      width: 16px;
+      height: 16px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .series-badge {
@@ -1874,6 +1905,10 @@
             <li><span class="spec-label">Environment</span><span class="series-badge">Indoor · IP43</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
           </ul>
+          <a class="series-download" href="/spec-sheets/opal-onyx-series-spec-sheet.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Download Spec Sheet
+          </a>
         </div>
 
         <!-- Boulder Series -->
@@ -1898,6 +1933,10 @@
             <li><span class="spec-label">Environment</span><span class="series-badge">Indoor · IP43</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
           </ul>
+          <a class="series-download" href="/spec-sheets/opal-boulder-series-spec-sheet.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Download Spec Sheet
+          </a>
         </div>
 
         <!-- Crystal Series -->
@@ -1923,6 +1962,10 @@
             <li><span class="spec-label">Environment</span><span class="series-badge">Indoor · IP43</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes w/ Scaling</span></li>
           </ul>
+          <a class="series-download" href="/spec-sheets/opal-crystal-series-spec-sheet.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Download Spec Sheet
+          </a>
         </div>
 
         <!-- Water Series -->
@@ -1945,6 +1988,10 @@
             <li><span class="spec-label">Weather Rating</span><span class="series-badge">IP65</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes, Optional</span></li>
           </ul>
+          <a class="series-download" href="/spec-sheets/opal-water-series-spec-sheet.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Download Spec Sheet
+          </a>
         </div>
 
         <!-- Doublet Series -->
@@ -1969,6 +2016,10 @@
             <li><span class="spec-label">Environment</span><span class="series-badge">Indoor · IP43</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes</span></li>
           </ul>
+          <a class="series-download" href="/spec-sheets/opal-doublet-series-spec-sheet.pdf" download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
+            Download Spec Sheet
+          </a>
         </div>
 
       </div>
