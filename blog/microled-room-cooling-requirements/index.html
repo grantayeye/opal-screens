@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MicroLED Room Cooling Requirements: HVAC and Heat Load</title>
+  <meta name="description" content="Plan residential MicroLED cooling with cabinet-level BTU calculations, separate rack loads, quiet air distribution, controls, and commissioning guidance.">
+  <link rel="canonical" href="https://opalscreens.com/blog/microled-room-cooling-requirements/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="MicroLED Room Cooling Requirements: How to Plan HVAC and Heat Load">
+  <meta property="og:description" content="A practical residential guide to display heat calculations, rack loads, quiet HVAC coordination, and thermal commissioning.">
+  <meta property="og:url" content="https://opalscreens.com/blog/microled-room-cooling-requirements/">
+  <meta property="og:site_name" content="Opal Screens">
+  <meta property="og:image" content="https://opalscreens.com/blog/microled-room-cooling-requirements/microled-room-cooling-hvac-concept.png">
+  <meta property="og:image:alt" content="Conceptual residential media room with a bezel-free MicroLED wall, ceiling air distribution, thermal commissioning, and a separate equipment rack">
+  <meta property="article:published_time" content="2026-09-03">
+  <meta property="article:modified_time" content="2026-09-03">
+  <meta property="article:section" content="Residential Specification Guide">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MicroLED Room Cooling Requirements: HVAC and Heat Load">
+  <meta name="twitter:description" content="Calculate display and rack heat separately, then coordinate quiet residential HVAC before construction decisions close.">
+  <meta name="twitter:image" content="https://opalscreens.com/blog/microled-room-cooling-requirements/microled-room-cooling-hvac-concept.png">
+  <meta name="twitter:image:alt" content="Conceptual residential media room with a bezel-free MicroLED wall, ceiling air distribution, thermal commissioning, and a separate equipment rack">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "MicroLED Room Cooling Requirements: How to Plan HVAC and Heat Load",
+    "description": "Plan residential MicroLED cooling with cabinet-level BTU calculations, separate rack loads, quiet air distribution, controls, and commissioning guidance.",
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://opalscreens.com/blog/microled-room-cooling-requirements/microled-room-cooling-hvac-concept.png",
+      "width": 1672,
+      "height": 941,
+      "caption": "Conceptual visualization of a residential media room with coordinated MicroLED and equipment-rack cooling."
+    },
+    "author": {
+      "@type": "Brand",
+      "name": "Opal Screens"
+    },
+    "publisher": {
+      "@type": "Brand",
+      "name": "Opal Screens"
+    },
+    "datePublished": "2026-09-03",
+    "dateModified": "2026-09-03",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://opalscreens.com/blog/microled-room-cooling-requirements/"
+    },
+    "url": "https://opalscreens.com/blog/microled-room-cooling-requirements/",
+    "articleSection": "Residential Specification Guide",
+    "keywords": "MicroLED room cooling requirements, video wall heat load, MicroLED BTU calculation, home theater HVAC design, video wall ventilation"
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../blog.css">
+  <style>
+    .article-header { padding-bottom: 1.25rem; }
+    .article-body { max-width: 840px; padding-top: 1rem; }
+    .article-body a:not(.cta-btn) { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .article-hero-media { position: relative; margin: 0 0 2.5rem; overflow: hidden; border: 1px solid var(--border); border-radius: 8px; background: #090909; }
+    .article-hero-media::after { content: ""; position: absolute; inset: 0 0 3.4rem; background: linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.48) 38%, rgba(0,0,0,0.02) 68%); pointer-events: none; }
+    .article-hero-media img { display: block; width: 100%; height: auto; }
+    .hero-copy { position: absolute; z-index: 1; top: 50%; left: 5%; width: min(500px, 54%); transform: translateY(-50%); text-shadow: 0 2px 16px rgba(0,0,0,0.95); }
+    .hero-copy h1 { margin: 0 0 0.7rem; color: #fff; font-family: 'Space Grotesk', sans-serif; font-size: clamp(1.9rem, 4vw, 3.35rem); line-height: 1.05; letter-spacing: 0; }
+    .hero-copy p { margin: 0; max-width: 460px; color: rgba(255,255,255,0.9); font-size: 0.98rem; line-height: 1.5; }
+    .article-hero-media figcaption { position: relative; z-index: 2; padding: 0.8rem 1rem; background: var(--bg-secondary); color: var(--text-muted); font-size: 0.78rem; line-height: 1.6; }
+    .direct-answer { color: var(--text-primary) !important; font-size: 1.08rem !important; }
+    .formula { margin: 1.5rem 0 2.5rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .formula-row { display: grid; grid-template-columns: 170px 1fr; gap: 1.25rem; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .formula-row:last-child { border-bottom: 0; }
+    .formula-row strong { color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem; }
+    .formula-row span { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.55; }
+    .calc-visual { margin: 1.75rem 0 2.5rem; padding: 1.4rem; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-secondary); }
+    .calc-equation { display: grid; grid-template-columns: repeat(7, auto); align-items: center; justify-content: center; gap: 0.7rem; color: var(--text-secondary); font-family: 'Space Grotesk', sans-serif; font-size: 0.94rem; }
+    .calc-equation strong { color: var(--accent); font-size: 1.1rem; }
+    .calc-results { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+    .calc-result { padding: 0 1rem; text-align: center; border-right: 1px solid var(--border); }
+    .calc-result:last-child { border-right: 0; }
+    .calc-result strong { display: block; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; font-size: 1.25rem; }
+    .calc-result span { display: block; margin-top: 0.25rem; color: var(--text-muted); font-size: 0.72rem; line-height: 1.4; text-transform: uppercase; }
+    .airflow-plan { margin: 1.75rem 0 2.5rem; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--bg-secondary); }
+    .airflow-grid { display: grid; grid-template-columns: 1.7fr 1fr; }
+    .air-zone { min-width: 0; padding: 1.4rem; }
+    .air-zone + .air-zone { border-left: 1px solid var(--border); }
+    .zone-title { margin-bottom: 1rem; color: var(--text-primary); font-family: 'Space Grotesk', sans-serif; font-size: 1rem; font-weight: 600; }
+    .air-path { display: grid; grid-template-columns: 32px 1fr; gap: 0.8rem; align-items: start; padding: 0.8rem 0; border-top: 1px solid var(--border); }
+    .air-path:first-of-type { border-top: 0; }
+    .air-path b { color: var(--accent); font-size: 1.15rem; font-weight: 500; line-height: 1.2; }
+    .air-path strong { display: block; color: var(--text-primary); font-size: 0.86rem; }
+    .air-path span { display: block; margin-top: 0.2rem; color: var(--text-secondary); font-size: 0.8rem; line-height: 1.5; }
+    .airflow-caption { padding: 0.9rem 1.4rem; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.76rem; line-height: 1.55; }
+    .specifier-note { margin: 1.75rem 0; padding: 1.25rem 1.35rem; border-left: 3px solid var(--accent); background: rgba(0, 194, 255, 0.04); }
+    .specifier-note h3 { margin-bottom: 0.6rem; font-size: 1rem; }
+    .specifier-note p:last-child { margin-bottom: 0; }
+    .decision-table-wrap { overflow-x: auto; margin: 1.5rem 0 2.5rem; border: 1px solid var(--border); border-radius: 8px; }
+    .decision-table { width: 100%; min-width: 700px; border-collapse: collapse; }
+    .decision-table th, .decision-table td { padding: 0.9rem 1rem; text-align: left; vertical-align: top; border-bottom: 1px solid var(--border); font-size: 0.84rem; line-height: 1.55; }
+    .decision-table th { background: var(--bg-card); color: var(--text-primary); font-weight: 600; }
+    .decision-table td { color: var(--text-secondary); }
+    .decision-table tr:last-child td { border-bottom: 0; }
+    .checklist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin: 1.5rem 0 2.5rem; list-style: none; }
+    .checklist li { min-width: 0; margin: 0; padding: 0.9rem 1rem; border: 1px solid var(--border); background: var(--bg-secondary); color: var(--text-secondary); font-size: 0.88rem; line-height: 1.55; }
+    .checklist li strong { display: block; margin-bottom: 0.25rem; color: var(--text-primary); }
+    .reference-list { font-size: 0.88rem; }
+    .article-body .article-cta { border-radius: 8px; }
+    @media (max-width: 720px) {
+      .article-body { padding-top: 0.5rem; }
+      .article-header .article-meta { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 0.45rem 1rem; }
+      .article-header .article-category { grid-column: 1 / -1; justify-self: center; }
+      .article-header .article-date, .article-header .read-time { white-space: nowrap; }
+      .article-hero-media { margin-left: -1.25rem; margin-right: -1.25rem; border-right: 0; border-left: 0; border-radius: 0; }
+      .article-hero-media::after { bottom: 4.7rem; background: linear-gradient(90deg, rgba(0,0,0,0.84) 0%, rgba(0,0,0,0.38) 72%, rgba(0,0,0,0.04) 100%); }
+      .hero-copy { top: 1rem; left: 1.25rem; width: 68%; transform: none; }
+      .hero-copy h1 { margin-bottom: 0.35rem; font-size: 1.35rem; line-height: 1.06; }
+      .hero-copy p { font-size: 0.68rem; line-height: 1.35; }
+      .article-hero-media figcaption { padding: 0.75rem 1.25rem; }
+      .formula-row { grid-template-columns: 1fr; gap: 0.35rem; }
+      .calc-equation { grid-template-columns: 1fr; justify-items: center; gap: 0.25rem; }
+      .calc-equation .operator { transform: rotate(90deg); }
+      .calc-results { grid-template-columns: 1fr; gap: 0.9rem; }
+      .calc-result { padding: 0.8rem 0; border-right: 0; border-bottom: 1px solid var(--border); }
+      .calc-result:last-child { border-bottom: 0; }
+      .airflow-grid { grid-template-columns: 1fr; }
+      .air-zone + .air-zone { border-top: 1px solid var(--border); border-left: 0; }
+      .checklist { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="/" class="logo">
+        <img src="../../assets/opal-logo.png" alt="Opal Screens" class="logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#blackfire">Technology</a></li>
+        <li><a href="/#series">Products</a></li>
+        <li><a href="/#features">Features</a></li>
+        <li><a href="/#custom">Custom</a></li>
+        <li><a href="/#environments">Solutions</a></li>
+        <li><a href="/blog/">Blog</a></li>
+        <li><a href="/#contact" class="nav-cta">Contact a Dealer</a></li>
+      </ul>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="article-meta">
+      <span class="article-category">Residential Specification Guide</span>
+      <time class="article-date" datetime="2026-09-03">September 3, 2026</time>
+      <span class="read-time">8 min read</span>
+    </div>
+  </header>
+
+  <article class="article-body">
+    <figure class="article-hero-media">
+      <img src="microled-room-cooling-hvac-concept.png" width="1672" height="941" alt="Conceptual residential media room with a bezel-free MicroLED wall, ceiling air distribution, thermal commissioning, and a separate equipment rack">
+      <div class="hero-copy">
+        <h1>MicroLED Room Cooling Requirements</h1>
+        <p>How to calculate display heat, separate rack loads, and coordinate quiet residential HVAC.</p>
+      </div>
+      <figcaption><strong>Conceptual visualization.</strong> A residential media room showing a bezel-free MicroLED wall, commissioning activity, ceiling air distribution, and a separately conditioned equipment area. It does not depict a completed Opal installation.</figcaption>
+    </figure>
+
+    <p class="direct-answer"><strong>MicroLED room cooling should be designed from the final cabinet count, maximum rated cabinet power, and the separately calculated equipment-rack load.</strong> Convert display watts to BTU per hour, assign each heat source to the zone where it is physically located, and let the mechanical engineer size quiet supply, return, and control capacity for the maximum design condition. Typical operating estimates help predict everyday behavior, but they should not replace the maximum load unless project-specific measurements and operating assumptions are formally approved.</p>
+
+    <p>A premium media room can have a comfortable cooling load before the display is turned on and an entirely different load during a long movie, sports event, or gaming session. The wall is only one part of that change. Video processing, source devices, network equipment, control hardware, and amplification may sit in a remote rack, a nearby closet, or the room itself. The drawings need to show where each watt becomes heat.</p>
+
+    <h2>Calculate the Display Heat from Cabinet Count</h2>
+
+    <p>The most reliable early calculation uses the final cabinet schedule rather than a generic allowance for a large screen. NIST conversion factors support the standard relationship of approximately 3.412 BTU/h for each watt of heat flow. The project calculation is therefore straightforward:</p>
+
+    <div class="formula" aria-label="Formulas for calculating maximum MicroLED display thermal load">
+      <div class="formula-row"><strong>Cabinet load</strong><span>Maximum cabinet watts × 3.412 = maximum BTU/h per cabinet</span></div>
+      <div class="formula-row"><strong>Complete wall</strong><span>Cabinet count × maximum cabinet watts × 3.412 = maximum display BTU/h</span></div>
+      <div class="formula-row"><strong>Cooling tons</strong><span>Maximum display BTU/h ÷ 12,000 = equivalent cooling tons for the display load</span></div>
+    </div>
+
+    <p>The result is the display contribution, not the complete room load. Occupants, lighting, solar gain, envelope conditions, fresh-air requirements, and every local electronic device remain part of the mechanical engineer's room calculation. ASHRAE guidance for residential space conditioning emphasizes calculating the loads of each conditioned room before selecting capacity and distribution.</p>
+
+    <h2>Worked Example: A 36-Cabinet Boulder Wall</h2>
+
+    <p>A typical 4K Boulder configuration uses 36 cabinets. Each cabinet is rated at 75 watts maximum and occupies approximately 2.18 square feet. The maximum display load is 256 BTU/h per cabinet, or 117 BTU/h per square foot.</p>
+
+    <div class="calc-visual" role="img" aria-label="Boulder example: 36 cabinets multiplied by 75 watts and 3.412 equals 9,213 BTU per hour maximum display load">
+      <div class="calc-equation">
+        <span>36 cabinets</span><span class="operator">×</span><span>75 W</span><span class="operator">×</span><span>3.412</span><span class="operator">=</span><strong>9,213 BTU/h</strong>
+      </div>
+      <div class="calc-results">
+        <div class="calc-result"><strong>256 BTU/h</strong><span>Maximum per cabinet</span></div>
+        <div class="calc-result"><strong>117 BTU/h/ft²</strong><span>Maximum display density</span></div>
+        <div class="calc-result"><strong>0.77 ton</strong><span>Maximum display load only</span></div>
+      </div>
+    </div>
+
+    <p>The estimated typical range on the <a href="/spec-sheets/opal-boulder-series-spec-sheet.pdf">Boulder Series specification sheet</a> is 102–128 BTU/h per cabinet. Across 36 cabinets, that equals approximately 3,672–4,608 BTU/h during representative operation. It is useful context, but it is not the value the mechanical engineer should automatically use to reduce system capacity.</p>
+
+    <div class="specifier-note">
+      <h3>Why typical load is a range</h3>
+      <p>Direct-view display power changes with brightness, image content, black-level electronics, calibration, and room presets. Industry technical guidance distinguishes maximum, black-level, standby, and content-dependent typical power. A fixed “base BTU” number would imply certainty that the operating conditions do not support.</p>
+    </div>
+
+    <h2>Separate the Display Zone from the Equipment Zone</h2>
+
+    <p>If the video processor and source equipment are in a rack outside the media room, their heat belongs to that rack zone. If the rack sits inside the room or shares its return-air path, the room system must carry that load. Amplifiers can be especially important during sustained listening, and their thermal contribution should come from the actual equipment schedule rather than the branch-circuit rating.</p>
+
+    <figure class="airflow-plan" role="img" aria-label="Cooling coordination diagram separating the media-room display load from the equipment-rack load and showing independent supply, return, sensing, and control decisions">
+      <div class="airflow-grid">
+        <div class="air-zone">
+          <div class="zone-title">Media-room zone</div>
+          <div class="air-path"><b>↓</b><div><strong>Quiet supply distribution</strong><span>Condition the occupied zone without creating drafts, noise, condensation risk, or a short path directly to the return.</span></div></div>
+          <div class="air-path"><b>□</b><div><strong>Bezel-free MicroLED wall</strong><span>Use cabinet count and maximum rated cabinet power to calculate the local display load.</span></div></div>
+          <div class="air-path"><b>↑</b><div><strong>Return-air path</strong><span>Remove accumulated room heat through a return location selected by the mechanical engineer for the actual architecture.</span></div></div>
+          <div class="air-path"><b>◇</b><div><strong>Room sensing</strong><span>Place sensing where it represents occupied conditions and is not distorted by supply air, sunlight, or a concentrated heat source.</span></div></div>
+        </div>
+        <div class="air-zone">
+          <div class="zone-title">Equipment zone</div>
+          <div class="air-path"><b>+</b><div><strong>Rack heat schedule</strong><span>Add processors, sources, network hardware, control equipment, and amplification from the final rack elevation.</span></div></div>
+          <div class="air-path"><b>↕</b><div><strong>Rack airflow</strong><span>Preserve cool-air intake and warm-air exhaust paths without recirculation inside cabinetry.</span></div></div>
+          <div class="air-path"><b>⌁</b><div><strong>Independent control</strong><span>Provide cooling whenever the rack requires it, even when the media room is unoccupied or the main zone is satisfied.</span></div></div>
+        </div>
+      </div>
+      <figcaption class="airflow-caption">The design team should assign each heat source to its physical zone. The final diffuser, return, transfer-air, exhaust, and control strategy remains the mechanical engineer's responsibility.</figcaption>
+    </figure>
+
+    <h2>Ventilation Is Not the Same as Cooling Capacity</h2>
+
+    <p>An open grille or a larger wall cavity does not prove that heat will leave the room. Air needs a complete path, and the HVAC system needs enough sensible capacity at the hours when the wall and equipment are operating. A supply without an effective return can leave a warm layer near the ceiling. A rack fan without conditioned makeup air can recirculate the same warm air. A return placed too close to a supply can bypass the occupied zone.</p>
+
+    <p>The wall construction also affects the decision. Front-service access does not mean the area behind the wall should become an uncontrolled plenum. The integrator must communicate display depth, support structure, cabinet layout, service method, cable routes, and allowable temperature conditions. The architect and mechanical engineer can then decide whether the display load is handled through the room, a coordinated cavity path, or another engineered approach.</p>
+
+    <h2>Quiet Operation Has to Be Designed with the Load</h2>
+
+    <p>A private cinema or media room can meet its temperature target and still fail acoustically. High air velocity, undersized grilles, abrupt duct transitions, equipment fans, and cycling compressors can become audible during quiet scenes. The mechanical design should establish both thermal and acoustic criteria before duct sizes and equipment locations are fixed.</p>
+
+    <p>That often favors lower-velocity distribution, appropriately sized returns, vibration isolation, thoughtful zoning, and controls that can sustain a long viewing session without aggressive temperature swings. The right solution depends on the residence and local mechanical design; it should not be reduced to a universal grille size or airflow number.</p>
+
+    <h2>What the Integrator Is Actually Deciding</h2>
+
+    <p>The authorized dealer does not size the home's HVAC equipment. The dealer supplies the inputs that make an accurate mechanical design possible and verifies the installed technology under realistic operating conditions.</p>
+
+    <div class="decision-table-wrap">
+      <table class="decision-table">
+        <thead>
+          <tr>
+            <th>Project input</th>
+            <th>Integrator responsibility</th>
+            <th>Mechanical coordination</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Display geometry</strong></td>
+            <td>Final active dimensions, cabinet count, mounting depth, and service approach.</td>
+            <td>Assign display heat to the correct room or cavity and preserve access.</td>
+          </tr>
+          <tr>
+            <td><strong>Display power</strong></td>
+            <td>Maximum watts per cabinet, maximum wall load, and labeled typical planning range.</td>
+            <td>Use the approved design load and document any accepted diversity assumption.</td>
+          </tr>
+          <tr>
+            <td><strong>Equipment rack</strong></td>
+            <td>Final rack elevation, device power data, operating schedules, and airflow requirements.</td>
+            <td>Size and control the rack zone separately when its load or schedule requires it.</td>
+          </tr>
+          <tr>
+            <td><strong>Room use</strong></td>
+            <td>Expected session length, occupancy, calibrated modes, lighting scenes, and audio system.</td>
+            <td>Model simultaneous internal loads and maintain the project's acoustic criteria.</td>
+          </tr>
+          <tr>
+            <td><strong>Commissioning</strong></td>
+            <td>Operate the wall, sources, processing, and audio in representative modes.</td>
+            <td>Verify room temperature, rack inlet conditions, airflow, noise, and control response.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Commission the Thermal Design After the System Is Complete</h2>
+
+    <p>Final verification should happen with the doors, millwork, acoustic treatments, seating, lighting, display, and rack in their finished condition. Temporary construction airflow does not represent the completed room. The wall should run long enough in a demanding calibrated mode for temperatures to stabilize, and the rack should be tested under a representative simultaneous load.</p>
+
+    <ul class="checklist">
+      <li><strong>Confirm the installed cabinet count</strong>Reconcile the final wall against the approved thermal calculation and electrical schedule.</li>
+      <li><strong>Run a sustained operating test</strong>Use representative bright content, processing, audio, lighting, and occupancy assumptions.</li>
+      <li><strong>Measure both zones</strong>Record occupied-room temperature plus rack inlet and exhaust conditions where applicable.</li>
+      <li><strong>Check airflow paths</strong>Verify that finished doors, grilles, filters, millwork, and acoustic materials do not block the intended path.</li>
+      <li><strong>Listen at the seats</strong>Confirm that air distribution and equipment cooling meet the project's acoustic expectations.</li>
+      <li><strong>Document the baseline</strong>Record settings, measurements, test duration, and seasonal control assumptions for future service.</li>
+    </ul>
+
+    <p>Cooling belongs in the same early coordination process as structure, electrical service, signal pathways, audio, lighting, and finish transitions. Our guides to <a href="/blog/specifying-microled-architects-designers/">specifying MicroLED with architects and designers</a> and <a href="/blog/microled-video-processing-signal-chain/">planning the MicroLED signal chain and equipment rack</a> cover those related decisions in more detail.</p>
+
+    <h2>Primary Technical References</h2>
+
+    <ul class="reference-list">
+      <li><a href="https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9" rel="noopener noreferrer">NIST: Guide to SI conversion factors for heat flow and power</a></li>
+      <li><a href="https://handbook.ashrae.org/Handbooks/A23/SI/a23_ch01/a23_ch01_si.aspx" rel="noopener noreferrer">ASHRAE Handbook: Residential Space Conditioning</a></li>
+      <li><a href="https://www.barco.com/en/news/news-insights/2020-04-15-ledtalks-truth-about-power-consumption" rel="noopener noreferrer">Technical explanation of maximum, black-level, standby, and content-dependent LED display power</a></li>
+    </ul>
+
+    <section class="article-cta">
+      <h3>Give the Mechanical Engineer Real Project Inputs</h3>
+      <p>Your authorized Opal dealer can provide the final cabinet schedule, display thermal load, rack equipment data, service geometry, and operating assumptions needed for coordinated residential HVAC design.</p>
+      <a href="https://opalscreens.com/#contact" class="cta-btn">Contact an Authorized Dealer</a>
+    </section>
+  </article>
+
+  <section class="related-articles">
+    <h3>Related Articles</h3>
+    <div class="related-grid">
+      <a href="/blog/specifying-microled-architects-designers/" class="related-card">
+        <span class="article-category">Architectural Planning</span>
+        <h4>Specifying MicroLED: A Guide for Architects and Designers</h4>
+      </a>
+      <a href="/blog/microled-video-processing-signal-chain/" class="related-card">
+        <span class="article-category">System Planning</span>
+        <h4>MicroLED Video Processing: What Happens Before the Image Reaches the Wall</h4>
+      </a>
+    </div>
+  </section>
+
+  <footer class="blog-footer">
+    <p>© 2026 Opal Screens. All rights reserved. | <a href="/blog/">Back to Blog</a> | <a href="/">Main Site</a></p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.getElementById('mobileToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('active');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('active'));
+    });
+  </script>
+</body>
+</html>
