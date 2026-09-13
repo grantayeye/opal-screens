@@ -38,8 +38,18 @@ const output = process.env.QA_OUTPUT;
         for (const term of ['0.9 / 1.2 / 1.5mm', 'BlackFire', '60Hz']) assert(data.doublet.includes(term), route + ': Doublet ' + term);
         assert(!data.doublet.includes('SilkStream'));
       }
+      const marks = await page.$$eval('.series-card', cards => cards.map(card => ({
+        model: ['boulder','onyx','crystal','water','doublet'].find(name => card.classList.contains(name)),
+        logos: [...card.querySelectorAll('.model-mark')].map(n => n.getAttribute('aria-label')),
+        pitch: card.classList.contains('onyx') ? card.innerText : null
+      })));
+      const expected = {boulder:['BlackFire','SilkStream'], onyx:['BlackFire','NanoPix'], crystal:['BlackFire','SilkStream'], water:[], doublet:['BlackFire']};
+      for (const card of marks) {
+        assert.deepEqual(card.logos, expected[card.model], route + ': technology marks');
+        if (card.pitch) assert(card.pitch.includes('0.7 / 0.6mm') && !card.pitch.includes('0.625'));
+      }
       assert(!data.content.includes('2027'));
-      for (const width of [1440, 390]) {
+      for (const width of [1440, 390, 320]) {
         await page.setViewport({width, height:900});
         await page.$eval('.series-card.crystal', n => n.scrollIntoView({behavior:'instant', block:'center'}));
         await new Promise(resolve => setTimeout(resolve, 350));
@@ -48,6 +58,13 @@ const output = process.env.QA_OUTPUT;
           return label && value && label.getBoundingClientRect().right > value.getBoundingClientRect().left + 1;
         }).map(n => n.textContent));
         assert.deepEqual(bad, [], `${route} ${width}: spec text collision`);
+        const overflow = await page.evaluate(() => document.documentElement.scrollWidth > innerWidth
+          ? [...document.querySelectorAll('body *')].filter(n => n.getBoundingClientRect().right > innerWidth + 1).map(n => n.className) : []);
+        assert.deepEqual(overflow, [], `${route} ${width}: overflow`);
+        assert(await page.$$eval('.model-mark', nodes => nodes.every(n => {
+          const a=n.getBoundingClientRect(), b=n.closest('.series-card').getBoundingClientRect();
+          return a.width > 0 && a.left >= b.left && a.right <= b.right;
+        })), `${route} ${width}: wordmark fit`);
         if (output) await page.screenshot({path:path.join(output, `${route.replaceAll('/', '_')}-${width}.png`)});
       }
     }
@@ -61,6 +78,16 @@ const output = process.env.QA_OUTPUT;
     assert(!sheet.includes('70W') && !sheet.includes('239 BTU'));
     assert(await page.$eval('.page', n => n.contains(document.querySelector('.footer'))));
     assert(await page.$eval('.page', n => document.querySelector('.footer').getBoundingClientRect().bottom <= n.getBoundingClientRect().bottom));
-    console.log('PASS: lineup facts/order, Doublet pitch options and sheet, structured data, mobile/desktop text fit, original 60/120/384 animation.');
+    await page.goto('https://opalscreens.com/spec-sheets/onyx-series.html');
+    assert.deepEqual(await page.$$eval('.pitch-value', nodes => nodes.map(n => n.textContent)), ['P0.7', 'P0.6']);
+    const onyx = await page.$eval('.specs-table', n => n.innerText);
+    assert(onyx.includes('0.7mm or 0.6mm') && onyx.includes('Confirmation pending per pitch'));
+    assert(!onyx.includes('0.625') && !onyx.includes('0.78') && !onyx.includes('SilkStream'));
+    for (const model of ['boulder','crystal','onyx','doublet']) {
+      await page.goto(`https://opalscreens.com/spec-sheets/${model}-series.html`);
+      assert(await page.$eval('.page', n => document.querySelector('.footer').getBoundingClientRect().bottom <= n.getBoundingClientRect().bottom), model + ': sheet overflow');
+      assert.equal(await page.$eval('.model-mark', n => getComputedStyle(n).fontSize), '17px');
+    }
+    console.log('PASS: lineup/order, Onyx/Doublet pitches, technology logos and eligibility, PDF-source fit, structured data, 320/390/1440 layout, original animation.');
   } finally { await browser.close(); }
 })().catch(error => {console.error(error); process.exitCode = 1;});

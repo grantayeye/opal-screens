@@ -169,7 +169,7 @@
     footer { padding: 3rem 2rem; border-top: 1px solid var(--border); }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links { flex-wrap: wrap; justify-content: center; display: flex; gap: 2rem; list-style: none; }
     .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
@@ -186,6 +186,7 @@
       .footer-inner { flex-direction: column; gap: 1rem; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/model-tech.css">
 </head>
 <body>
 
@@ -268,14 +269,14 @@
       <div class="series-grid">
         <div class="series-card crystal">
           <div class="series-name">Crystal Series</div>
-          <div class="series-tagline">Premium — BlackFire + SilkStream</div>
+          <div class="series-tagline">Premium</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--silkstream" role="img" aria-label="SilkStream">SILK<span>STREAM</span></span></div>
           <p class="series-desc">Crystal combines BlackFire contrast, SilkStream 384 Hz full-panel refresh and 1,000-nit brightness, with video input at 4K60 or 1080p120.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm & 1.2mm</span></li>
             <li><span class="spec-label">Best For</span><span class="spec-value">Premium sanctuaries</span></li>
             <li><span class="spec-label">Video Input</span><span class="spec-value">4K60 / 1080p120</span></li>
             <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
-            <li><span class="spec-label">Technology</span><span class="series-badge">BlackFire + SilkStream</span></li>
             <li><span class="spec-label">Panel Refresh</span><span class="spec-value">384Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">1,000 nits</span></li>
           </ul>
@@ -283,7 +284,8 @@
 
         <div class="series-card doublet">
           <div class="series-name">Doublet Series</div>
-          <div class="series-tagline">BlackFire MicroLED</div>
+          <div class="series-tagline">Indoor MicroLED</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span></div>
           <p class="series-desc">Doublet combines BlackFire technology with 0.9mm, 1.2mm and 1.5mm pixel-pitch options. Select the pitch to suit the display size and seating distance, with video input up to 60Hz.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9 / 1.2 / 1.5mm</span></li>
@@ -291,7 +293,6 @@
             <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">600 nits</span></li>
             <li><span class="spec-label">Value</span><span class="series-badge">Best Price/Performance</span></li>
-            <li><span class="spec-label">Technology</span><span class="spec-value">BlackFire</span></li>
           </ul>
         </div>
       </div>

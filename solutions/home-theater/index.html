@@ -56,7 +56,7 @@
         "name": "Which Opal Screens series is best for a home theater?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "It depends on your priorities. The Onyx Series (0.7mm) is designed for close viewing distances. The Boulder Series (0.9mm) adds SilkStream 384 Hz full-panel refresh for motion-focused rooms. The Crystal Series pairs SilkStream 384 Hz full-panel refresh with 1,000-nit brightness and 4K60 or 1080p120 input."
+          "text": "It depends on your priorities. The Onyx Series (0.7mm or 0.6mm) is designed for close viewing distances. The Boulder Series (0.9mm) adds SilkStream 384 Hz full-panel refresh for motion-focused rooms. The Crystal Series pairs SilkStream 384 Hz full-panel refresh with 1,000-nit brightness and 4K60 or 1080p120 input."
         }
       },
       {
@@ -204,7 +204,7 @@
     footer { padding: 3rem 2rem; border-top: 1px solid var(--border); }
     .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
     .footer-copy { font-size: 0.85rem; color: var(--text-muted); }
-    .footer-links { display: flex; gap: 2rem; list-style: none; }
+    .footer-links { flex-wrap: wrap; justify-content: center; display: flex; gap: 2rem; list-style: none; }
     .footer-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent); }
 
@@ -222,6 +222,7 @@
       .related-links { grid-template-columns: 1fr; }
     }
   </style>
+  <link rel="stylesheet" href="/assets/model-tech.css">
 </head>
 <body>
 
@@ -297,7 +298,8 @@
       <div class="series-grid">
         <div class="series-card boulder">
           <div class="series-name">Boulder Series</div>
-          <div class="series-tagline">Sports & Action — BlackFire + SilkStream 384Hz</div>
+          <div class="series-tagline">Sports & Action</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--silkstream" role="img" aria-label="SilkStream">SILK<span>STREAM</span></span></div>
           <p class="series-desc">If your theater is built for game day, live events, or action cinema, the Boulder's SilkStream architecture combines video input up to 120 Hz with 384 Hz full-panel refresh for additional panel-side timing headroom.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm</span></li>
@@ -305,33 +307,32 @@
             <li><span class="spec-label">Video Input</span><span class="spec-value">4K up to 120Hz</span></li>
             <li><span class="spec-label">Panel Refresh</span><span class="spec-value">384Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">1,000 nits</span></li>
-            <li><span class="spec-label">Technology</span><span class="series-badge">BlackFire + SilkStream</span></li>
           </ul>
         </div>
 
         <div class="series-card onyx">
           <div class="series-name">Onyx Series</div>
-          <div class="series-tagline">Ultra-Close Viewing — BlackFire + NanoPix</div>
-          <p class="series-desc">Purpose-built for dedicated theaters where viewers sit 4–8 feet from the screen. At 0.7mm pixel pitch, individual pixels are invisible even at arm's length. NanoPix color precision ensures every frame is rendered with studio-grade accuracy.</p>
+          <div class="series-tagline">Ultra-Close Viewing</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--nanopix" role="img" aria-label="NanoPix">NANO<span>PIX</span></span></div>
+          <p class="series-desc">Onyx offers 0.7mm and 0.6mm pixel-pitch options for dedicated theaters and close-viewing spaces, with BlackFire contrast and NanoPix color precision.</p>
           <ul class="series-specs">
-            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7mm</span></li>
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7 / 0.6mm</span></li>
             <li><span class="spec-label">Best For</span><span class="spec-value">Close viewing, detail</span></li>
             <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
             <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
-            <li><span class="spec-label">Technology</span><span class="series-badge">BlackFire + NanoPix</span></li>
           </ul>
         </div>
 
         <div class="series-card crystal">
           <div class="series-name">Crystal Series</div>
-          <div class="series-tagline">Premium All-Around — BlackFire + SilkStream</div>
+          <div class="series-tagline">Premium All-Around</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--silkstream" role="img" aria-label="SilkStream">SILK<span>STREAM</span></span></div>
           <p class="series-desc">Crystal combines BlackFire contrast, SilkStream 384 Hz full-panel refresh and 1,000-nit brightness, with video input at 4K60 or 1080p120.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm & 1.2mm</span></li>
             <li><span class="spec-label">Best For</span><span class="spec-value">All-around excellence</span></li>
             <li><span class="spec-label">Video Input</span><span class="spec-value">4K60 / 1080p120</span></li>
             <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
-            <li><span class="spec-label">Technology</span><span class="series-badge">BlackFire + SilkStream</span></li>
             <li><span class="spec-label">Panel Refresh</span><span class="spec-value">384Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">1,000 nits</span></li>
           </ul>
@@ -357,7 +358,7 @@
         </div>
         <div class="feature-highlight">
           <h3>Pixel Pitch Guide</h3>
-          <p><strong>Sitting 4–8 feet away?</strong> Go with 0.7mm (Onyx) for invisible pixels at arm's length.</p>
+          <p><strong>Sitting 4–8 feet away?</strong> Consider Onyx in 0.7mm or 0.6mm, with the final pitch selected around your seating distance and display size.</p>
           <p style="margin-top:0.75rem;"><strong>Sitting 6–12 feet away?</strong> 0.9mm (Boulder or Crystal) is the sweet spot for most home theaters.</p>
           <p style="margin-top:0.75rem;"><strong>Sitting 10+ feet away?</strong> 1.2mm (Crystal) delivers excellent quality at a compelling value.</p>
           <a href="/blog/pixel-pitch-explained/" style="display:inline-flex;align-items:center;gap:0.4rem;margin-top:1rem;color:var(--accent);font-size:0.85rem;font-weight:500;text-decoration:none;">Full pixel pitch guide →</a>
@@ -384,7 +385,7 @@
             <span>Which series is best for a home theater?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
-          <div class="faq-answer"><p>It depends on your priorities. The Onyx Series (0.7mm) is designed for close viewing distances. The Boulder Series (0.9mm) adds SilkStream 384 Hz full-panel refresh for motion-focused rooms. The Crystal Series pairs SilkStream 384 Hz full-panel refresh with 1,000-nit brightness and 4K60 or 1080p120 input.</p></div>
+          <div class="faq-answer"><p>It depends on your priorities. The Onyx Series (0.7mm or 0.6mm) is designed for close viewing distances. The Boulder Series (0.9mm) adds SilkStream 384 Hz full-panel refresh for motion-focused rooms. The Crystal Series pairs SilkStream 384 Hz full-panel refresh with 1,000-nit brightness and 4K60 or 1080p120 input.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">

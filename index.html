@@ -62,7 +62,7 @@
         "name": "What is a MicroLED video wall?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A MicroLED video wall is a seamless, bezel-free LED display built from modular panels that tile together to create one continuous image surface. Unlike traditional TVs or projectors, MicroLED walls have no visible grid lines or panel gaps. Opal Screens offers MicroLED video walls in standard 16:9 sizes ranging from 110 to 270 inches, with 4K resolution, custom aspect ratios, and pixel pitches as fine as 0.7mm for exceptional close-viewing clarity."
+          "text": "A MicroLED video wall is a seamless, bezel-free LED display built from modular panels that tile together to create one continuous image surface. Unlike traditional TVs or projectors, MicroLED walls have no visible grid lines or panel gaps. Opal Screens offers MicroLED video walls in standard 16:9 sizes ranging from 110 to 270 inches, with 4K resolution, custom aspect ratios, and pixel pitches as fine as 0.6mm for exceptional close-viewing clarity."
         }
       },
       {
@@ -86,7 +86,7 @@
         "name": "What pixel pitch do I need for a home theater?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The ideal pixel pitch depends on your viewing distance. For residential home theaters where viewers typically sit 6 to 12 feet from the screen, a pixel pitch between 0.7mm and 1.2mm delivers the best results. Opal Screens offers 0.7mm (Onyx Series) for ultra-close viewing in dedicated theaters, 0.9mm (Boulder and Crystal Series) as the most popular choice for premium home cinemas, and 1.2mm (Crystal Series) for larger rooms with viewing distances of 4 feet or more."
+          "text": "The ideal pixel pitch depends on your viewing distance. For residential home theaters where viewers typically sit 6 to 12 feet from the screen, a pixel pitch between 0.6mm and 1.2mm delivers the best results. Opal Screens offers 0.7mm and 0.6mm (Onyx Series) for ultra-close viewing in dedicated theaters, 0.9mm (Boulder and Crystal Series) as the most popular choice for premium home cinemas, and 1.2mm (Crystal Series) for larger rooms with viewing distances of 4 feet or more."
         }
       },
       {
@@ -164,7 +164,7 @@
       "@context": "https://schema.org",
       "@type": "Product",
       "name": "Opal Screens Onyx Series",
-      "description": "Ultra-fine pitch MicroLED video wall delivering unmatched close-viewing clarity with 0.7mm pixel pitch, powered by BlackFire contrast and NanoPix color precision for environments where picture quality is everything.",
+      "description": "Ultra-fine pitch MicroLED video wall delivering unmatched close-viewing clarity with 0.7mm and 0.6mm pixel-pitch options, powered by BlackFire contrast and NanoPix color precision for environments where picture quality is everything.",
       "image": "https://opalscreens.com/assets/og-image.png",
       "brand": {
         "@type": "Brand",
@@ -187,7 +187,7 @@
         {
           "@type": "PropertyValue",
           "name": "Pixel Pitch",
-          "value": "0.7mm"
+          "value": "0.7mm / 0.6mm"
         },
         {
           "@type": "PropertyValue",
@@ -1756,6 +1756,8 @@
     }
 
     .footer-links {
+      flex-wrap: wrap;
+      justify-content: center;
       display: flex;
       gap: 2rem;
       list-style: none;
@@ -1815,14 +1817,22 @@
       .footer-inner { flex-direction: column; gap: 1rem; }
       .aspect-demos { flex-wrap: wrap; justify-content: center; }
       .aspect-32-9 { width: 220px; height: 62px; }
-      .blackfire-stats { grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
+      .blackfire-grid > * { min-width: 0; }
+      .blackfire-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; }
       .stat { padding: 0.8rem; }
       .stat-value { font-size: 1.4rem; }
+      .silkstream-title, .blackfire-title { font-size: 2rem; letter-spacing: 0; }
+      .stat-label { overflow-wrap: anywhere; }
       .hero { padding: 7rem 1.5rem 3rem; }
       section { padding: 4rem 1.5rem; }
       .cta-box { padding: 3rem 1.5rem; }
     }
+    @media (max-width: 360px) {
+      .stat-value { font-size: 1rem; }
+      .stat { padding: 0.6rem 0.3rem; }
+    }
   </style>
+  <link rel="stylesheet" href="/assets/model-tech.css">
 </head>
 <body>
 
@@ -1914,7 +1924,7 @@
                 <span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span>
               </div>
-              <div class="nano-label">0.7mm</div>
+              <div class="nano-label">0.6mm</div>
             </div>
           </div>
         </div>
@@ -1926,7 +1936,7 @@
           <p>This is the epitome of precision in display technology — ensuring that even at intimate viewing distances, the image remains impeccably sharp and defined.</p>
           <div class="blackfire-stats">
             <div class="stat">
-              <div class="stat-value" style="color: #a78bfa;">0.7mm</div>
+              <div class="stat-value" style="color: #a78bfa;">0.6mm</div>
               <div class="stat-label">Pixel Pitch</div>
             </div>
             <div class="stat">
@@ -2023,7 +2033,8 @@
             </svg>
           </div>
           <div class="series-name">Boulder Series</div>
-          <div class="series-tagline">Motion King — BlackFire + SilkStream</div>
+          <div class="series-tagline">Motion King</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--silkstream" role="img" aria-label="SilkStream">SILK<span>STREAM</span></span></div>
           <p class="series-desc">The Boulder pairs BlackFire contrast with SilkStream 384 Hz full-panel refresh and video input up to 120 Hz. Built for sports, cinema, gaming, and live action where motion performance is central to the room.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm</span></li>
@@ -2053,10 +2064,11 @@
             </svg>
           </div>
           <div class="series-name">Onyx Series</div>
-          <div class="series-tagline">Ultra-Fine Pitch — BlackFire + NanoPix</div>
-          <p class="series-desc">The finest detail available. At 0.7mm pixel pitch, the Onyx delivers unmatched clarity where every pixel disappears — powered by BlackFire contrast and NanoPix color precision. Purpose-built for close-viewing environments where picture quality is everything.</p>
+          <div class="series-tagline">Ultra-Fine Pitch</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--nanopix" role="img" aria-label="NanoPix">NANO<span>PIX</span></span></div>
+          <p class="series-desc">Onyx offers 0.7mm and 0.6mm pixel-pitch options for close-viewing rooms. BlackFire contrast and NanoPix color precision support detailed images in dedicated theaters, media rooms and art displays.</p>
           <ul class="series-specs">
-            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7mm</span></li>
+            <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.7 / 0.6mm</span></li>
             <li><span class="spec-label">Resolution</span><span class="spec-value">4K @ 60Hz</span></li>
             <li><span class="spec-label">Brightness</span><span class="spec-value">600 nits</span></li>
             <li><span class="spec-label">Contrast</span><span class="spec-value">≤ 100,000:1</span></li>
@@ -2082,7 +2094,8 @@
             </svg>
           </div>
           <div class="series-name">Crystal Series</div>
-          <div class="series-tagline">Premium Indoor — BlackFire + SilkStream</div>
+          <div class="series-tagline">Premium Indoor</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span><span class="model-mark model-mark--silkstream" role="img" aria-label="SilkStream">SILK<span>STREAM</span></span></div>
           <p class="series-desc">The Crystal pairs BlackFire contrast with SilkStream 384 Hz full-panel refresh and 1,000-nit brightness. Designed for home theaters and media rooms, with 4K60 or 1080p120 video input.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9mm & 1.2mm</span></li>
@@ -2137,7 +2150,8 @@
             </svg>
           </div>
           <div class="series-name">Doublet Series</div>
-          <div class="series-tagline">BlackFire MicroLED</div>
+          <div class="series-tagline">Indoor MicroLED</div>
+          <div class="model-tech"><span class="model-mark model-mark--blackfire" role="img" aria-label="BlackFire">BLACK<span>FIRE</span></span></div>
           <p class="series-desc">Doublet combines BlackFire technology with 0.9mm, 1.2mm and 1.5mm pixel-pitch options. Select the pitch to suit the display size and seating distance, with video input up to 60Hz.</p>
           <ul class="series-specs">
             <li><span class="spec-label">Pixel Pitch</span><span class="spec-value">0.9 / 1.2 / 1.5mm</span></li>
@@ -2148,7 +2162,6 @@
             <li><span class="spec-label">Viewing Angle</span><span class="spec-value">170°</span></li>
             <li><span class="spec-label">Environment</span><span class="series-badge">Indoor · IP43</span></li>
             <li><span class="spec-label">PiP Support</span><span class="spec-value">Yes</span></li>
-            <li><span class="spec-label">Technology</span><span class="spec-value">BlackFire</span></li>
           </ul>
           <a class="series-download" href="/spec-sheets/opal-doublet-series-spec-sheet.pdf" download>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 21h14"/></svg>
@@ -2304,7 +2317,7 @@
             <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>A MicroLED video wall is a seamless, bezel-free LED display built from modular panels that tile together to create one continuous image surface. Unlike traditional TVs or projectors, MicroLED walls have no visible grid lines or panel gaps. Opal Screens offers MicroLED video walls in standard 16:9 sizes ranging from 110 to 270 inches, with 4K resolution, custom aspect ratios, and pixel pitches as fine as 0.7mm for exceptional close-viewing clarity.</p>
+            <p>A MicroLED video wall is a seamless, bezel-free LED display built from modular panels that tile together to create one continuous image surface. Unlike traditional TVs or projectors, MicroLED walls have no visible grid lines or panel gaps. Opal Screens offers MicroLED video walls in standard 16:9 sizes ranging from 110 to 270 inches, with 4K resolution, custom aspect ratios, and pixel pitches as fine as 0.6mm for exceptional close-viewing clarity.</p>
           </div>
         </div>
         <div class="faq-item">
@@ -2331,7 +2344,7 @@
             <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
           <div class="faq-answer">
-            <p>The ideal pixel pitch depends on your viewing distance. For residential home theaters where viewers typically sit 6 to 12 feet from the screen, a pixel pitch between 0.7mm and 1.2mm delivers the best results. Opal Screens offers 0.7mm (Onyx Series) for ultra-close viewing in dedicated theaters, 0.9mm (Boulder and Crystal Series) as the most popular choice for premium home cinemas, and 1.2mm (Crystal Series) for larger rooms with viewing distances of 4 feet or more.</p>
+            <p>The ideal pixel pitch depends on your viewing distance. For residential home theaters where viewers typically sit 6 to 12 feet from the screen, a pixel pitch between 0.6mm and 1.2mm delivers the best results. Opal Screens offers 0.7mm and 0.6mm (Onyx Series) for ultra-close viewing in dedicated theaters, 0.9mm (Boulder and Crystal Series) as the most popular choice for premium home cinemas, and 1.2mm (Crystal Series) for larger rooms with viewing distances of 4 feet or more.</p>
           </div>
         </div>
         <div class="faq-item">
