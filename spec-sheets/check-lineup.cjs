@@ -26,6 +26,7 @@ const output = process.env.QA_OUTPUT;
       const data = await page.evaluate(() => ({
         names: [...document.querySelectorAll('.series-name')].map(n => n.textContent.trim()),
         crystal: document.querySelector('.series-card.crystal').textContent,
+        doublet: document.querySelector('.series-card.doublet')?.textContent,
         schemas: [...document.querySelectorAll('script[type="application/ld+json"]')].map(n => JSON.parse(n.textContent)),
         content: document.body.innerText
       }));
@@ -33,6 +34,10 @@ const output = process.env.QA_OUTPUT;
       if (route === '/') assert.equal(data.names.length, 5);
       for (const term of ['SilkStream', '384', '1,000', '1080p120']) assert(data.crystal.includes(term), route + ': ' + term);
       assert(!data.crystal.includes('600 nits'));
+      if (data.doublet) {
+        for (const term of ['0.9 / 1.2 / 1.5mm', 'BlackFire', '60Hz']) assert(data.doublet.includes(term), route + ': Doublet ' + term);
+        assert(!data.doublet.includes('SilkStream'));
+      }
       assert(!data.content.includes('2027'));
       for (const width of [1440, 390]) {
         await page.setViewport({width, height:900});
@@ -49,6 +54,13 @@ const output = process.env.QA_OUTPUT;
     await page.goto('https://opalscreens.com/#silkstream');
     assert.deepEqual(await page.$$eval('.silk-step-hz', nodes => nodes.map(n => n.textContent)), ['60','120','384']);
     for (const hz of [120,384]) await page.waitForFunction(hz => document.querySelector('#silkHzNumber').textContent === String(hz), {timeout:15000}, hz);
-    console.log('PASS: series order, Crystal facts, structured data, mobile/desktop text fit, original 60/120/384 animation.');
+    await page.goto('https://opalscreens.com/spec-sheets/doublet-series.html');
+    assert.deepEqual(await page.$$eval('.pitch-value', nodes => nodes.map(n => n.textContent)), ['P0.9', 'P1.2', 'P1.5']);
+    const sheet = await page.$eval('.specs-table', n => n.textContent);
+    assert(sheet.includes('BlackFire') && sheet.includes('60Hz') && sheet.includes('Confirmation pending'));
+    assert(!sheet.includes('70W') && !sheet.includes('239 BTU'));
+    assert(await page.$eval('.page', n => n.contains(document.querySelector('.footer'))));
+    assert(await page.$eval('.page', n => document.querySelector('.footer').getBoundingClientRect().bottom <= n.getBoundingClientRect().bottom));
+    console.log('PASS: lineup facts/order, Doublet pitch options and sheet, structured data, mobile/desktop text fit, original 60/120/384 animation.');
   } finally { await browser.close(); }
 })().catch(error => {console.error(error); process.exitCode = 1;});
