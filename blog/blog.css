@@ -281,8 +281,11 @@ nav {
   display: inline-block;
   padding: 0.85rem 2rem;
   background: linear-gradient(135deg, var(--accent), var(--accent-dark));
-  color: #fff;
+  /* Force white text and no underline so per-article link styles
+     (.article-body a) can't leave the button low-contrast cyan-on-cyan. */
+  color: #fff !important;
   text-decoration: none;
+  border-bottom: none !important;
   border-radius: 10px;
   font-weight: 600;
   font-size: 0.95rem;
