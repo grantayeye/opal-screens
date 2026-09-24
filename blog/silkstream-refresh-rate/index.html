@@ -37,7 +37,7 @@
       "name": "Opal Screens"
     },
     "datePublished": "2026-03-13",
-    "dateModified": "2026-08-25",
+    "dateModified": "2026-09-23",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https://opalscreens.com/blog/silkstream-refresh-rate/"
@@ -135,10 +135,102 @@
       border-bottom: 1px solid var(--border);
     }
 
+    /* --- Explanatory diagrams --- */
+    .dgm { margin: 2.75rem 0; }
+    .dgm-title {
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 1.1rem;
+    }
+    .dgm-cap {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 0.9rem;
+      line-height: 1.5;
+    }
+
+    /* Timing diagram: source frames vs panel refresh intervals */
+    .timing {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem 1.5rem 1.5rem;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+        rgba(255,255,255,0.02);
+      background-size: 28px 100%;
+    }
+    .timing-row { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.1rem; }
+    .timing-row:last-child { margin-bottom: 0; }
+    .timing-label { width: 118px; flex-shrink: 0; font-size: 0.82rem; font-weight: 600; color: var(--text-primary); }
+    .timing-label span { display: block; color: var(--text-muted); font-weight: 400; font-size: 0.72rem; margin-top: 0.15rem; }
+    .timing-track { flex: 1; display: flex; gap: 6px; }
+    .frame { flex: 1; display: flex; gap: 4px; padding: 5px; border: 1px solid rgba(0,194,255,0.42); border-radius: 8px; }
+    .frame span { flex: 1; height: 26px; border-radius: 4px; background: linear-gradient(180deg, rgba(0,194,255,0.55), rgba(0,194,255,0.18)); }
+
+    /* Scan-rate math breakdown */
+    .scan-math {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .sm-term {
+      flex: 1;
+      min-width: 120px;
+      background: rgba(0,194,255,0.03);
+      border: 1px solid rgba(0,194,255,0.12);
+      border-radius: 12px;
+      padding: 1.1rem 0.9rem;
+      text-align: center;
+    }
+    .sm-term b {
+      display: block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.1;
+    }
+    .sm-term span { display: block; font-size: 0.74rem; color: var(--text-muted); margin-top: 0.45rem; line-height: 1.4; }
+    .sm-term.accent { border-color: rgba(0,194,255,0.4); background: rgba(0,194,255,0.08); }
+    .sm-term.accent b { background: linear-gradient(135deg, #fff 30%, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .sm-op {
+      display: flex;
+      align-items: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    /* Signal-chain / weakest-link diagram */
+    .chain { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0.5rem; }
+    .link {
+      padding: 0.7rem 1.1rem;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.03);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
+    }
+    .link.display { border-color: rgba(0,194,255,0.4); background: rgba(0,194,255,0.08); color: var(--text-primary); }
+    .link.capped { border-color: rgba(255,120,120,0.45); background: rgba(255,120,120,0.08); color: #ffb3b3; }
+    .chain-op { color: var(--accent); font-weight: 600; }
+
     @media (max-width: 768px) {
       .stat-row { grid-template-columns: 1fr; gap: 1rem; }
       .stat-number { font-size: 1.8rem; }
       .pull-quote { font-size: 1.2rem; }
+      .timing-row { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+      .timing-label { width: 100%; }
+      .sm-op { justify-content: center; }
     }
   </style>
 </head>
@@ -204,6 +296,20 @@
 
     <p>The remaining specification is the scan architecture. SilkStream uses a 1/40 scan rate, meaning the driver sequences the image through 40 pixel groups. The arithmetic is straightforward: 15,360 per-pixel refresh cycles divided across 40 scan groups equals 384 nominal full-panel scan cycles per second. Opal specifies the resulting panel performance conservatively as 240 Hz+ rather than presenting 384 Hz as a video-input claim.</p>
 
+    <figure class="dgm">
+      <div class="dgm-title">How the scan rate produces the panel number</div>
+      <div class="scan-math">
+        <div class="sm-term"><b>15,360 Hz</b><span>per-pixel refresh</span></div>
+        <div class="sm-op">÷</div>
+        <div class="sm-term"><b>40</b><span>scan groups (1/40)</span></div>
+        <div class="sm-op">=</div>
+        <div class="sm-term"><b>384</b><span>nominal full-panel scans / sec</span></div>
+        <div class="sm-op">&rarr;</div>
+        <div class="sm-term accent"><b>240 Hz+</b><span>stated conservatively</span></div>
+      </div>
+      <figcaption class="dgm-cap">Conceptual visualization. The 240 Hz+ figure is a deliberately conservative statement of panel capability, not a video-input rating.</figcaption>
+    </figure>
+
     <div class="callout">
       <h4>The Short Version</h4>
       <p>120 Hz is the maximum incoming video rate. 240 Hz+ is the full-panel refresh capability. 15,360 Hz is the per-pixel driver refresh. The 1/40 scan rate connects the pixel-level number to the full image surface.</p>
@@ -215,9 +321,48 @@
 
     <p>The source, switcher, cabling, processor, and input configuration must all support that rate. If one device in the chain is limited to 60 Hz, the display receives 60 unique frames per second regardless of its panel capability.</p>
 
+    <figure class="dgm">
+      <div class="dgm-title">The signal path is only as fast as its slowest link</div>
+      <div class="chain">
+        <span class="link">Source</span>
+        <span class="chain-op">&rarr;</span>
+        <span class="link">Switcher</span>
+        <span class="chain-op">&rarr;</span>
+        <span class="link capped">Cabling &middot; 60 Hz</span>
+        <span class="chain-op">&rarr;</span>
+        <span class="link">Processor</span>
+        <span class="chain-op">&rarr;</span>
+        <span class="link display">Display</span>
+      </div>
+      <figcaption class="dgm-cap">Conceptual visualization. A single 60 Hz link caps the entire path at 60 Hz, no matter how capable the panel is.</figcaption>
+    </figure>
+
     <h2>Why 240 Hz+ at the Panel Still Matters</h2>
 
     <p>A panel that operates faster than the incoming signal has more timing headroom for presenting each frame. At 120 Hz input, SilkStream has at least two full-panel refresh intervals per source frame. At 60 Hz, it has at least four. That additional temporal capacity supports consistent frame presentation and gives the controller more room to manage the display surface.</p>
+
+    <figure class="dgm">
+      <div class="dgm-title">Panel refresh intervals per source frame</div>
+      <div class="timing">
+        <div class="timing-row">
+          <div class="timing-label">120 Hz input<span>2 refreshes / frame</span></div>
+          <div class="timing-track">
+            <div class="frame"><span></span><span></span></div>
+            <div class="frame"><span></span><span></span></div>
+            <div class="frame"><span></span><span></span></div>
+            <div class="frame"><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="timing-row">
+          <div class="timing-label">60 Hz input<span>4 refreshes / frame</span></div>
+          <div class="timing-track">
+            <div class="frame"><span></span><span></span><span></span><span></span></div>
+            <div class="frame"><span></span><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+      <figcaption class="dgm-cap">Conceptual visualization. Each outlined box is one source frame; each inner block is one 240 Hz+ panel refresh. The 240 Hz+ panel updates the same number of times over equal time, so a slower source simply repeats each frame across more refresh intervals.</figcaption>
+    </figure>
 
     <p>The 15,360 Hz per-pixel refresh also matters when the wall is photographed or filmed. Higher-frequency pixel driving can reduce the likelihood of rolling bars and scan artifacts being captured, although camera shutter, frame rate, lighting, processor settings, and synchronization still affect the result. No display specification can guarantee artifact-free capture under every camera configuration.</p>
 
