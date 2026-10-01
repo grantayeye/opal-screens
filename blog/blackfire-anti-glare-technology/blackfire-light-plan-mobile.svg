@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 460" role="img" aria-labelledby="title desc">
+  <title id="title">Light reaching the BlackFire surface</title>
+  <desc id="desc">Incoming daylight and lamp light reach the display. Seating marks where to check picture depth. Arrows locate light sources without quantifying surface behavior.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ddb66a"/></marker></defs>
+  <rect width="400" height="460" fill="#121318"/>
+  <g font-family="Arial,sans-serif" fill="#f0f0f5" font-size="19">
+    <text x="20" y="31" font-size="14" fill="#bfc3ce">ROOM LIGHTING PLAN</text>
+    <text x="205" y="69" text-anchor="middle">BlackFire display surface</text>
+    <path d="M33 210 V96 H367 V370 H33 V295" stroke="#656975" fill="none" stroke-width="2"/>
+    <rect x="82" y="87" width="246" height="18" fill="#233d35" stroke="#9bcdbb" stroke-width="2"/>
+    <path d="M33 218 V287" stroke="#ddb66a" stroke-width="6"/>
+    <path d="M38 238 L107 114 M347 225 L302 114" stroke="#ddb66a" fill="none" stroke-width="2.5" marker-end="url(#arrow)"/>
+    <circle cx="351" cy="240" r="9" fill="#ddb66a"/>
+    <text x="49" y="306" fill="#ddb66a" font-size="16">Window</text>
+    <text x="290" y="270" fill="#ddb66a" font-size="16">Lamp</text>
+    <text x="205" y="155" text-anchor="middle" fill="#9bcdbb" font-size="16">Ambient-light absorption</text>
+    <text x="205" y="185" text-anchor="middle" fill="#9bcdbb" font-size="16">Visible reflection</text>
+    <text x="205" y="208" text-anchor="middle" fill="#9bcdbb" font-size="16">suppression</text>
+    <rect x="145" y="297" width="131" height="32" rx="4" fill="#293039" stroke="#afb5c2"/>
+    <path d="M188 297 V329 M232 297 V329" stroke="#afb5c2"/>
+    <text x="210" y="352" text-anchor="middle" fill="#bfc3ce" font-size="16">Main seating</text>
+    <text x="200" y="413" text-anchor="middle" fill="#bfc3ce" font-size="17">Check picture depth from</text>
+    <text x="200" y="439" text-anchor="middle" fill="#bfc3ce" font-size="17">the seats you use most.</text>
+  </g>
+</svg>
