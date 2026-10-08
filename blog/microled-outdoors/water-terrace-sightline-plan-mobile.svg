@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="630" viewBox="0 0 400 630" role="img" aria-labelledby="title desc"><title id="title">Terrace seats, light and service route</title><desc id="desc">Display wall at the top, two seats with dashed sightlines, light from the open terrace edge and an equipment route. Not to scale.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10z" fill="#29735e"/></marker></defs><rect width="400" height="630" fill="#f3f1e9"/><g font-family="Arial, sans-serif" fill="#1c2e28" font-size="19">
+<text x="20" y="35" font-weight="700" font-size="23">Seats, light and service</text>
+<path d="M22 375 V78 H375 V375" fill="#e6e9df" stroke="#758479" stroke-width="3"/>
+<path d="M87 80 H304" stroke="#193e32" stroke-width="12"/><text x="121" y="117" font-weight="700">Display wall</text>
+<path d="M127 208 L170 127 M255 289 L219 127" stroke="#29735e" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+<rect x="38" y="213" width="140" height="47" rx="5" fill="#fff" stroke="#758479"/><text x="50" y="243">Nearest seat</text>
+<rect x="194" y="295" width="158" height="47" rx="5" fill="#fff" stroke="#758479"/><text x="207" y="325">Main seating</text>
+<text x="83" y="394" font-weight="700">Open terrace edge</text>
+<path d="M342 367 L331 145" stroke="#9f661d" stroke-width="3"/><text x="20" y="433" fill="#7b4c12">Review afternoon sun and</text><text x="20" y="458" fill="#7b4c12">reflected light from outside.</text>
+<text x="20" y="504" fill="#40546c">Coordinate the equipment location,</text><text x="20" y="529" fill="#40546c">protection, cable and service routes.</text>
+<text x="20" y="577" font-size="17">Not to scale. Confirm actual</text><text x="20" y="601" font-size="17">exposure, dimensions and access.</text>
+</g></svg>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 800 520" role="img" aria-labelledby="title desc"><title id="title">Terrace sightline and exposure plan</title><desc id="desc">A plan shows the display at the covered wall, sightlines from nearest and main seats, light from the open edge and a separate equipment route. It is not to scale.</desc><defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#29735e"/></marker><marker id="sun" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#9f661d"/></marker></defs><rect width="800" height="520" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28" font-size="18">
+<text x="32" y="40" font-weight="700" font-size="24">Plan the seats, light and service route</text>
+<path d="M55 415 V92 H552 V415" fill="#e6e9df" stroke="#758479" stroke-width="3"/>
+<path d="M145 95 H455" stroke="#193e32" stroke-width="12"/>
+<text x="175" y="131" font-weight="700">DISPLAY WALL</text>
+<path d="M206 253 L275 139 M378 346 L326 139" stroke="#29735e" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow)"/>
+<rect x="120" y="255" width="130" height="52" rx="6" fill="#fff" stroke="#758479"/><text x="131" y="287">Nearest seat</text>
+<rect x="304" y="350" width="156" height="52" rx="6" fill="#fff" stroke="#758479"/><text x="318" y="382">Main seating</text>
+<text x="194" y="449" font-weight="700">OPEN TERRACE EDGE</text>
+<path d="M505 405 L480 166" stroke="#9f661d" stroke-width="3" marker-end="url(#sun)"/>
+<text x="577" y="332" fill="#7b4c12">Review afternoon</text><text x="577" y="357" fill="#7b4c12">sun and reflected</text><text x="577" y="382" fill="#7b4c12">light from outside.</text>
+<path d="M458 95 H600 V184" fill="none" stroke="#52667f" stroke-width="3" stroke-dasharray="5 5"/>
+<rect x="574" y="188" width="188" height="76" fill="#fff" stroke="#52667f"/><text x="590" y="218">Equipment location</text><text x="590" y="244" font-size="16">Confirm its protection.</text>
+<text x="577" y="111" fill="#40546c" font-size="16">Coordinate cable</text><text x="577" y="133" fill="#40546c" font-size="16">and service routes.</text>
+<text x="32" y="493" font-size="16">Not to scale. Document actual exposure, dimensions and access requirements.</text>
+</g></svg>
