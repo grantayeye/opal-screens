@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="520" viewBox="0 0 400 520" role="img" aria-labelledby="title desc"><title id="title">Service access plan for a built-in MicroLED wall</title><desc id="desc">A room plan shows the display wall, a clear service zone in front of it, seating set back from the wall, a separate equipment rack and a documented cable route between them. Dimensions are illustrative.</desc><rect width="400" height="520" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28" font-size="17">
+<text x="20" y="34" font-weight="700" font-size="20">Plan service access</text><text x="20" y="58" font-weight="700" font-size="20">before finishes go in</text>
+<path d="M20 500 V92 H380 V500" fill="#e6e9df" stroke="#758479" stroke-width="3"/>
+<path d="M50 95 H320" stroke="#193e32" stroke-width="12"/>
+<text x="50" y="128" font-weight="700">DISPLAY WALL</text><text x="50" y="150" font-size="15">serviced from the room side</text>
+<rect x="45" y="168" width="280" height="96" rx="6" fill="#ffffff" fill-opacity="0.7" stroke="#29735e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="185" y="200" text-anchor="middle" font-weight="700" fill="#29735e">Clear service zone</text>
+<text x="185" y="225" text-anchor="middle" font-size="15">No fixed furniture or decor</text><text x="185" y="245" text-anchor="middle" font-size="15">against the screen</text>
+<rect x="40" y="330" width="180" height="56" rx="6" fill="#ffffff" stroke="#758479"/>
+<text x="130" y="364" text-anchor="middle" font-size="16">Seating set back</text>
+<rect x="236" y="400" width="130" height="64" rx="6" fill="#ffffff" stroke="#9f661d" stroke-width="2"/>
+<text x="301" y="428" text-anchor="middle" font-size="15">Equipment rack</text><text x="301" y="448" text-anchor="middle" font-size="13">ventilated, reachable</text>
+<path d="M320 95 H350 V400" fill="none" stroke="#9f661d" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="340" y="300" text-anchor="end" font-size="14" fill="#7a4d14">Documented</text><text x="340" y="318" text-anchor="end" font-size="14" fill="#7a4d14">cable route</text>
+</g></svg>

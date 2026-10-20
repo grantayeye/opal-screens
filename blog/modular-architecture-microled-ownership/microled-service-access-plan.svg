@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="460" viewBox="0 0 800 460" role="img" aria-labelledby="title desc"><title id="title">Service access plan for a built-in MicroLED wall</title><desc id="desc">A room plan shows the display wall, a clear service zone in front of it, seating set back from the wall, a separate equipment rack and a documented cable route between them. Dimensions are illustrative.</desc><rect width="800" height="460" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28" font-size="18">
+<text x="32" y="40" font-weight="700" font-size="24">Plan service access before finishes go in</text>
+<path d="M50 440 V92 H750 V440" fill="#e6e9df" stroke="#758479" stroke-width="3"/>
+<path d="M170 95 H630" stroke="#193e32" stroke-width="12"/>
+<text x="185" y="128" font-weight="700">DISPLAY WALL</text><text x="350" y="128" font-size="16">modules serviced from the room side</text>
+<rect x="170" y="145" width="460" height="92" rx="6" fill="#ffffff" fill-opacity="0.7" stroke="#29735e" stroke-width="2" stroke-dasharray="8 6"/>
+<text x="400" y="182" text-anchor="middle" font-weight="700" fill="#29735e">Clear service zone</text>
+<text x="400" y="210" text-anchor="middle" font-size="16">No fixed furniture or decor against the screen</text>
+<rect x="215" y="330" width="300" height="58" rx="6" fill="#ffffff" stroke="#758479"/>
+<text x="365" y="365" text-anchor="middle">Seating set back</text>
+<rect x="575" y="330" width="150" height="58" rx="6" fill="#ffffff" stroke="#9f661d" stroke-width="2"/>
+<text x="650" y="356" text-anchor="middle" font-size="16">Equipment rack</text><text x="650" y="376" text-anchor="middle" font-size="14">ventilated, reachable</text>
+<path d="M630 95 H700 V330" fill="none" stroke="#9f661d" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="690" y="270" text-anchor="end" font-size="15" fill="#7a4d14">Documented</text><text x="690" y="290" text-anchor="end" font-size="15" fill="#7a4d14">cable route</text>
+</g></svg>

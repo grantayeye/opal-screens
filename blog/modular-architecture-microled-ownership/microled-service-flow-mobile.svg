@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="680" viewBox="0 0 400 680" role="img" aria-labelledby="title desc"><title id="title">From a visible change to a verified fix</title><desc id="desc">Six steps: the owner notices a change, records it and contacts the dealer; the integrator diagnoses the signal chain or module, replaces or adjusts with a matched compatible part, and re-verifies uniformity and saved settings.</desc><defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#29735e"/></marker></defs><rect width="400" height="680" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="20" y="34" font-weight="700" font-size="20">From a visible change</text><text x="20" y="58" font-weight="700" font-size="20">to a verified fix</text>
+<rect x="20" y="74" width="14" height="14" fill="#ffffff" stroke="#758479"/><text x="42" y="86" font-size="14">Owner</text>
+<rect x="104" y="74" width="14" height="14" fill="#dfeae4" stroke="#29735e"/><text x="126" y="86" font-size="14">Authorized integrator</text>
+<g font-size="17">
+<rect x="30" y="104" width="340" height="68" rx="6" fill="#ffffff" stroke="#758479"/><text x="46" y="133" font-weight="700">1. Notice a change</text><text x="46" y="157" font-size="14">dark spot, color shift, dropout</text>
+<rect x="30" y="196" width="340" height="68" rx="6" fill="#ffffff" stroke="#758479"/><text x="46" y="225" font-weight="700">2. Record it</text><text x="46" y="249" font-size="14">photo, source, time of day</text>
+<rect x="30" y="288" width="340" height="68" rx="6" fill="#ffffff" stroke="#758479"/><text x="46" y="317" font-weight="700">3. Contact your dealer</text><text x="46" y="341" font-size="14">leave the wall closed</text>
+<rect x="30" y="380" width="340" height="68" rx="6" fill="#dfeae4" stroke="#29735e"/><text x="46" y="409" font-weight="700">4. Diagnose</text><text x="46" y="433" font-size="14">signal chain or display module</text>
+<rect x="30" y="472" width="340" height="68" rx="6" fill="#dfeae4" stroke="#29735e"/><text x="46" y="501" font-weight="700">5. Replace or adjust</text><text x="46" y="525" font-size="14">matched compatible part</text>
+<rect x="30" y="564" width="340" height="68" rx="6" fill="#dfeae4" stroke="#29735e"/><text x="46" y="593" font-weight="700">6. Re-verify</text><text x="46" y="617" font-size="14">uniformity and saved settings</text>
+</g>
+<g stroke="#29735e" stroke-width="2.5" fill="none" marker-end="url(#a)">
+<path d="M200 173 V192"/><path d="M200 265 V284"/><path d="M200 357 V376"/><path d="M200 449 V468"/><path d="M200 541 V560"/>
+</g></g></svg>
