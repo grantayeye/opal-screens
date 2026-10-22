@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400" role="img" aria-labelledby="title desc"><title id="title">97-inch OLED TV compared with a 150-inch MicroLED wall</title><desc id="desc">Two 16:9 screens drawn to the same scale. The 97-inch OLED TV is about 84 inches wide and 48 inches tall. The 150-inch MicroLED wall is about 131 inches wide and 74 inches tall.</desc><rect width="800" height="400" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="32" y="44" font-weight="700" font-size="24">Drawn to the same scale</text>
+<path d="M32 340 H768" stroke="#758479" stroke-width="2"/>
+<rect x="40" y="188" width="270" height="152" fill="#3d4a44"/>
+<rect x="350" y="105" width="418" height="235" fill="#193e32"/>
+<text x="175" y="370" text-anchor="middle" font-size="17" font-weight="700">97-inch OLED TV</text>
+<text x="175" y="391" text-anchor="middle" font-size="14">about 84 in wide × 48 in tall</text>
+<text x="559" y="370" text-anchor="middle" font-size="17" font-weight="700">150-inch MicroLED wall</text>
+<text x="559" y="391" text-anchor="middle" font-size="14">about 131 in wide × 74 in tall</text>
+<text x="175" y="270" text-anchor="middle" font-size="15" fill="#e6e9df">Largest OLED size</text>
+<text x="559" y="228" text-anchor="middle" font-size="15" fill="#e6e9df">One example size</text>
+</g></svg>

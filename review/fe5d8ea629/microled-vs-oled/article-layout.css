@@ -45,3 +45,19 @@ a:focus-visible, button:focus-visible, .table-wrap:focus-visible { outline: 2px 
   .article-body td:last-child { padding-bottom: 0; }
   .mobile-cell-label { display: block; font-weight: 600; color: #eef3f1; margin-bottom: 4px; }
 }
+
+/* Comparison grid: stays a true three-column matrix on every screen */
+.compare-grid table { min-width: 0; table-layout: fixed; }
+.compare-grid thead th { background: #193129; }
+.compare-grid thead th:first-child { width: 24%; }
+.compare-grid tbody th { width: 24%; }
+.compare-grid td { width: 38%; }
+@media (max-width: 620px) {
+  .compare-grid table, .compare-grid tbody, .compare-grid tr { display: table; width: 100%; }
+  .compare-grid table { display: table; font-size: 13px; line-height: 1.45; }
+  .compare-grid thead { position: static; width: auto; height: auto; overflow: visible; clip-path: none; display: table-header-group; }
+  .compare-grid tbody { display: table-row-group; }
+  .compare-grid tr { display: table-row; padding: 0; border: 0; }
+  .compare-grid tbody th, .compare-grid td, .compare-grid thead th { display: table-cell; padding: 10px 6px; border-bottom: 1px solid #43434a; font-size: 13px; }
+  .compare-grid tbody th { font-size: 13px; padding-left: 0; }
+}
