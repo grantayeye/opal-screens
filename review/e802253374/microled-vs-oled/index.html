@@ -39,7 +39,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/blog.css"><link rel="stylesheet" href="article-layout.css">
 </head><body>
-<div style="position:sticky;top:0;z-index:2000;background:#9f661d;color:#fff;text-align:center;font:600 14px/1.4 Inter,Arial,sans-serif;padding:8px 12px">Draft preview for review. Not published.</div>
+<div style="position:fixed;left:0;right:0;bottom:0;z-index:2000;box-shadow:0 -2px 8px rgba(0,0,0,.35);background:#9f661d;color:#fff;text-align:center;font:600 14px/1.4 Inter,Arial,sans-serif;padding:8px 12px">Draft preview for review. Not published.</div>
   <!-- NAVIGATION -->
   <nav id="navbar">
     <div class="nav-inner">
@@ -113,6 +113,7 @@
 <a href="/blog/microled-sightlines-viewing-distance-seating/" class="related-card"><span class="article-category">Design</span><h4>The Designer’s Guide to MicroLED Sightlines: Viewing Distance, Scale, and Seating</h4></a>
 </div></section>
 <footer class="blog-footer"><p>© 2026 Opal Screens. All rights reserved. | <a href="/blog/">Back to Blog</a> | <a href="/">Main Site</a></p></footer>
+<div style="height:44px"></div>
   <script>
     window.addEventListener('scroll', () => {
       document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
