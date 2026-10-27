@@ -15,3 +15,14 @@ and browser to Google Fonts. Lockfile integrity and Rafter SCA cover dependency
 tampering; repository-owned inputs limit browser abuse and local-file disclosure.
 The accepted residual risks are the official installer running package code and
 the public font request. Generated PDFs are checked before publication.
+
+## Collection-validation dependency
+
+Puppeteer 25.13 uses an upstream BiDi package that supports Zod 4. The lockfile
+pins patched Zod 4.6.7 without an override (CVE-2023-54404 / GHSA-mrhx-c7xc-m3w5).
+The dependency belongs to local rendering and QA; the GitHub Pages site serves
+static files and does not execute this Node dependency.
+
+Run `npm test` here to check early rejection of oversized bounded arrays, sets,
+and maps, ordinary element validation, and BiDi parser compatibility. The patch
+does not impose limits on unbounded schemas or make untrusted rendering safe.
