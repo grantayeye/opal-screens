@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600" role="img" aria-labelledby="title desc"><title id="title">Front wall before and after a MicroLED upgrade</title><desc id="desc">On top, a projection screen with the left, center and right speakers hidden behind it. Below, a solid MicroLED wall with the left and right speakers beside it and the center speaker just below it.</desc><rect width="400" height="600" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="24" y="40" font-weight="700" font-size="22">Front wall, before and after</text>
+<text x="200" y="82" text-anchor="middle" font-size="17" font-weight="700">Projector room</text>
+<rect x="64" y="96" width="272" height="153" fill="#e3dfcf" stroke="#9aa59d" stroke-width="2"/>
+<g fill="none" stroke="#3d4a44" stroke-width="2" stroke-dasharray="5 4"><rect x="82" y="178" width="34" height="62"/><rect x="167" y="208" width="66" height="26"/><rect x="284" y="178" width="34" height="62"/></g>
+<path d="M32 272 H368" stroke="#758479" stroke-width="2"/>
+<text x="200" y="296" text-anchor="middle" font-size="15">Speakers hidden behind an</text>
+<text x="200" y="316" text-anchor="middle" font-size="15">acoustically transparent screen</text>
+<text x="200" y="366" text-anchor="middle" font-size="17" font-weight="700">MicroLED wall</text>
+<rect x="78" y="382" width="244" height="137" fill="#193e32"/>
+<g fill="#3d4a44"><rect x="36" y="464" width="30" height="94"/><rect x="334" y="464" width="30" height="94"/><rect x="165" y="530" width="70" height="20"/></g>
+<path d="M28 558 H372" stroke="#758479" stroke-width="2"/>
+<text x="200" y="584" text-anchor="middle" font-size="15">Speakers beside, center just below</text>
+</g></svg>
