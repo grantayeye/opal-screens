@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500" role="img" aria-labelledby="title desc"><title id="title">Home gym plan around a MicroLED wall</title><desc id="desc">Room plan with the MicroLED wall on one end. An open floor zone with a mat sits directly in front of it, a bike and a treadmill sit to either side with a clear view, a mirror runs along a side wall, windows run along the other side, and weights sit at the far end of the room.</desc><rect width="800" height="500" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="400" y="40" text-anchor="middle" font-weight="700" font-size="20">MicroLED wall</text>
+<rect x="80" y="56" width="640" height="410" fill="#fbfaf5" stroke="#758479" stroke-width="2"/>
+<rect x="170" y="56" width="460" height="14" fill="#193e32"/>
+<g stroke="#758479" stroke-width="2" stroke-dasharray="6 5" fill="none"><path d="M175 196 L300 72"/><path d="M400 176 V72"/><path d="M610 176 L500 72"/></g>
+<rect x="280" y="120" width="240" height="210" fill="none" stroke="#3d4a44" stroke-width="2" stroke-dasharray="5 4"/>
+<rect x="330" y="176" width="140" height="66" fill="#d9d5c4"/>
+<text x="400" y="214" text-anchor="middle" font-size="15" font-weight="700">Floor mat</text>
+<text x="400" y="290" text-anchor="middle" font-size="14">Open floor for</text>
+<text x="400" y="308" text-anchor="middle" font-size="14">standing work</text>
+<rect x="130" y="196" width="90" height="46" fill="#3d4a44"/><text x="175" y="224" text-anchor="middle" font-size="15" fill="#f3f1e9" font-weight="700">Bike</text>
+<rect x="566" y="176" width="88" height="112" fill="#3d4a44"/><text x="610" y="237" text-anchor="middle" font-size="14" fill="#f3f1e9" font-weight="700">Treadmill</text>
+<rect x="240" y="382" width="320" height="64" fill="#e3dfcf" stroke="#9aa59d"/>
+<text x="400" y="420" text-anchor="middle" font-size="15" font-weight="700">Weights, far from the wall</text>
+<path d="M80 150 V380" stroke="#7f9ca0" stroke-width="8"/><text transform="translate(58 265) rotate(-90)" text-anchor="middle" font-size="15">Windows</text>
+<path d="M720 130 V400" stroke="#9aa59d" stroke-width="8"/><text transform="translate(748 265) rotate(90)" text-anchor="middle" font-size="15">Mirror</text>
+</g></svg>
