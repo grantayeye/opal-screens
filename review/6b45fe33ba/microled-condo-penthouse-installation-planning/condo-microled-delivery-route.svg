@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="360" viewBox="0 0 800 360" role="img" aria-labelledby="title desc"><title id="title">Delivery route for a condo MicroLED wall</title><desc id="desc">Route diagram for a condo or penthouse MicroLED wall. Every crate, support member and equipment rack travels from the loading dock, through the service elevator and building corridors, in through the unit entry and into the room, where the wall is assembled. Each stop has its own limits: booked access at the dock, cab and door size in the elevator, turns and protection in the corridors, doors and halls inside the unit, and space to unpack in the room.</desc><rect width="800" height="360" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="400" y="44" text-anchor="middle" font-weight="700" font-size="20">From the loading dock to the finished wall</text>
+<rect x="28" y="92" width="132" height="150" rx="6" fill="#fbfaf5" stroke="#758479" stroke-width="2"/>
+<circle cx="94.0" cy="126" r="16" fill="#3d4a44"/><text x="94.0" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">1</text>
+<text x="94.0" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#1c2e28">Loading dock</text>
+<text x="94.0" y="200" text-anchor="middle" font-size="13" fill="#1c2e28">Booked access</text><text x="94.0" y="218" text-anchor="middle" font-size="13" fill="#1c2e28">and building rules</text>
+<path d="M164 167 H184" stroke="#3d4a44" stroke-width="3"/><path d="M182 160 L190 167 L182 174 Z" fill="#3d4a44"/>
+<rect x="190" y="92" width="132" height="150" rx="6" fill="#fbfaf5" stroke="#758479" stroke-width="2"/>
+<circle cx="256.0" cy="126" r="16" fill="#3d4a44"/><text x="256.0" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">2</text>
+<text x="256.0" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#1c2e28">Service elevator</text>
+<text x="256.0" y="200" text-anchor="middle" font-size="13" fill="#1c2e28">Cab size, door</text><text x="256.0" y="218" text-anchor="middle" font-size="13" fill="#1c2e28">and weight limit</text>
+<path d="M326 167 H346" stroke="#3d4a44" stroke-width="3"/><path d="M344 160 L352 167 L344 174 Z" fill="#3d4a44"/>
+<rect x="352" y="92" width="132" height="150" rx="6" fill="#fbfaf5" stroke="#758479" stroke-width="2"/>
+<circle cx="418.0" cy="126" r="16" fill="#3d4a44"/><text x="418.0" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">3</text>
+<text x="418.0" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#1c2e28">Corridors</text>
+<text x="418.0" y="200" text-anchor="middle" font-size="13" fill="#1c2e28">Turns, ceilings</text><text x="418.0" y="218" text-anchor="middle" font-size="13" fill="#1c2e28">and protection</text>
+<path d="M488 167 H508" stroke="#3d4a44" stroke-width="3"/><path d="M506 160 L514 167 L506 174 Z" fill="#3d4a44"/>
+<rect x="514" y="92" width="132" height="150" rx="6" fill="#fbfaf5" stroke="#758479" stroke-width="2"/>
+<circle cx="580.0" cy="126" r="16" fill="#3d4a44"/><text x="580.0" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">4</text>
+<text x="580.0" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#1c2e28">Unit entry</text>
+<text x="580.0" y="200" text-anchor="middle" font-size="13" fill="#1c2e28">Doors, halls</text><text x="580.0" y="218" text-anchor="middle" font-size="13" fill="#1c2e28">and turns inside</text>
+<path d="M650 167 H670" stroke="#3d4a44" stroke-width="3"/><path d="M668 160 L676 167 L668 174 Z" fill="#3d4a44"/>
+<rect x="676" y="92" width="132" height="150" rx="6" fill="#193e32" stroke="#758479" stroke-width="2"/>
+<circle cx="742.0" cy="126" r="16" fill="#f3f1e9"/><text x="742.0" y="132" text-anchor="middle" font-size="15" font-weight="700" fill="#193e32">5</text>
+<text x="742.0" y="172" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">The room</text>
+<text x="742.0" y="200" text-anchor="middle" font-size="13" fill="#f3f1e9">Space to unpack</text><text x="742.0" y="218" text-anchor="middle" font-size="13" fill="#f3f1e9">and assemble</text>
+<rect x="28" y="276" width="744" height="52" rx="6" fill="#e3dfcf" stroke="#9aa59d"/><text x="400" y="308" text-anchor="middle" font-size="15" font-weight="700">Every crate, support member and equipment rack takes this route</text>
+</g></svg>
