@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-labelledby="title desc">
+  <title id="title">Plan the light reaching BlackFire</title>
+  <desc id="desc">Room plan with incoming daylight and lamp light directed toward a BlackFire display. Seating is shown for assessing picture depth. The diagram locates light sources and does not encode measured absorption or reflection ratios.</desc>
+  <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ddb66a"/></marker></defs>
+  <rect width="800" height="450" fill="#121318"/>
+  <g font-family="Arial,sans-serif" fill="#f0f0f5" font-size="19">
+    <text x="28" y="34" font-size="15" fill="#bfc3ce">ROOM LIGHTING PLAN</text>
+    <text x="430" y="71" text-anchor="middle" font-size="21">BlackFire display surface</text>
+    <path d="M100 226 V102 H736 V375 H100 V326" fill="none" stroke="#656975" stroke-width="2"/>
+    <rect x="235" y="93" width="390" height="18" fill="#233d35" stroke="#9bcdbb" stroke-width="2"/>
+    <path d="M100 235 V316" stroke="#ddb66a" stroke-width="6"/>
+    <path d="M104 264 L278 118 M671 231 L566 118" stroke="#ddb66a" fill="none" stroke-width="3" marker-end="url(#arrow)"/>
+    <text x="112" y="187" fill="#ddb66a" font-size="17">Daylight</text>
+    <text x="626" y="174" fill="#ddb66a" font-size="17">Lamp light</text>
+    <circle cx="676" cy="242" r="12" fill="#ddb66a"/>
+    <text x="109" y="346" fill="#ddb66a" font-size="17">Window</text>
+    <text x="430" y="156" text-anchor="middle" fill="#9bcdbb" font-size="16">Ambient-light absorption</text>
+    <text x="430" y="181" text-anchor="middle" fill="#9bcdbb" font-size="16">Visible reflection suppression</text>
+    <rect x="291" y="293" width="230" height="37" rx="4" fill="#293039" stroke="#afb5c2"/>
+    <path d="M368 294 V330 M445 294 V330" stroke="#afb5c2"/>
+    <rect x="585" y="296" width="43" height="34" rx="4" fill="#293039" stroke="#afb5c2"/>
+    <text x="425" y="358" text-anchor="middle" fill="#bfc3ce" font-size="17">Check picture depth from each seat.</text>
+    <text x="400" y="420" text-anchor="middle" fill="#bfc3ce" font-size="17">Coordinate daylight, fixture aim and display settings.</text>
+  </g>
+</svg>
