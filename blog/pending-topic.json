@@ -1,0 +1,400 @@
+{
+  "proposal_revision": 1,
+  "proposed_at": "2026-11-12T15:06:45Z",
+  "expires_at": "2026-11-15T15:06:45Z",
+  "reminder_sent_at": null,
+  "publish_not_before": "2026-11-17T15:24:44.237730Z",
+  "workflow_status": "published",
+  "owning_topic": 34,
+  "previous_cycle_archive": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-blog-proposals-20261112/completed-20261105.json",
+  "cadence": {
+    "checked_at": "2026-11-12T15:06:45Z",
+    "helper": {
+      "last_article_added_at": "2026-11-10T10:18:25-05:00",
+      "publish_not_before": "2026-11-17T10:18:25-05:00",
+      "publication_eligible": false,
+      "preparation_allowed": true,
+      "basis": "First-add article commit; confirm the article is live and account for deployment delay before publishing."
+    },
+    "latest_completed_cycle": {
+      "title": "MicroLED for a Home Gym: Plan the Wall Around Your Workout",
+      "url": "https://opalscreens.com/blog/microled-home-gym-video-wall/",
+      "commit": "f03a3417dfa7fd00fdea93a964a6d9f44b15a816",
+      "datePublished": "2026-11-10",
+      "dateModified": "2026-11-10",
+      "published_at": "2026-11-10T15:24:44.237730+00:00",
+      "publication_receipt": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-home-gym-publish-20261110/live-verification.json",
+      "approved_sha256": "c9a070c468d715c753de3e4bf4c0256b4d7014b625f3b059cb916ed3c7efbd84",
+      "http_status": 200,
+      "local_live_match": true,
+      "canonical_verified": true,
+      "hero_http_status": 200,
+      "index_entry_verified": true,
+      "sitemap_entry_verified": true,
+      "deployment_id": 7686089421,
+      "deployment_state": "success",
+      "deployment_completed_at": "2026-11-10T15:24:37Z"
+    },
+    "publish_not_before": "2026-11-17T15:24:44.237730Z",
+    "publication_eligible": false,
+    "preparation_allowed": true,
+    "basis": "Use the later of the first-add helper floor, successful Pages deployment plus seven days and recorded deterministic live verification plus seven days. Routine corrections and dateModified edits do not reset cadence. Confirm history and live deployment again before any publication.",
+    "timezone_note": "Earliest publication is Tuesday November17 at10:24:44.237730 AM EST. The 72-hour selection expiry is a separate time."
+  },
+  "editorial_overrides": {
+    "voice": "Opal brand/manufacturer voice. Authorized integrators specify, coordinate, sell and install.",
+    "current_lineup": "Boulder and Crystal SilkStream nominal 384Hz; BlackFire Boulder/Onyx/Crystal/Doublet; NanoPix Onyx-only; Crystal 1,000 nits, 4K60/1080p120; Boulder HDMI 2.1 4K120, 10-bit HDR, maximum input120Hz; Onyx0.7/0.6mm, Doublet0.9/1.2/1.5mm, both maximum input60Hz. Preserve display order Boulder, Onyx, Crystal, Water, Doublet. No inferred pitch-specific cabinet, electrical or thermal data.",
+    "image_presentation": "Alt text only; no figcaption, subtitles, automatic generation labels or invented real-installation claims.",
+    "matrices": "Real factor-by-option comparison grids; remain grids on phones, never stacked cards.",
+    "opening": "Plain-language purpose and honest direct answer within 120 words; no promotional filler or hedge-heavy copy.",
+    "draft_review": "If Bradd asks for a draft review, prepare and verify a finished unlisted noindex page at /review/<random-token>/<slug>/, preserve the exact draft for approval, and remove the review directory in the publication commit.",
+    "approval_scope": "No previous-cycle draft or image approval, selection, hold or schedule transfers. Preserve any new exact-draft approval hold if Bradd requests a review.",
+    "publishing": "For a selected update_existing, preserve the URL and original datePublished, update dateModified/sitemap and do not create a duplicate index card. No publication in this proposal run."
+  },
+  "topics": [
+    {
+      "title": "MicroLED for a Condo or Penthouse: Plan Beyond the Screen Wall",
+      "slug": "microled-condo-penthouse-installation-planning",
+      "description": "Plan a condo or penthouse MicroLED wall around delivery access, building coordination, neighboring rooms, utilities and future service before the room is finished.",
+      "primary_keyword": "MicroLED for a condo",
+      "supporting_keywords": [
+        "penthouse video wall",
+        "condo home theater installation",
+        "high-rise MicroLED installation",
+        "condo video wall planning"
+      ],
+      "search_intent": "specification",
+      "primary_audience": "Owners renovating a premium condominium or penthouse, with their architect, builder, building team and authorized residential AV integrator.",
+      "residential_use_case": "A private media room or living room in a high-rise residence where shared building infrastructure affects delivery, sound, utilities and service.",
+      "funnel_stage": "specification",
+      "seo_target": "New residential planning page for MicroLED in condos and penthouses; focus on building and delivery constraints rather than generic bright-room design.",
+      "unique_angle": "Treat the route into the apartment and the systems around it as part of the display decision. Connect the delivered assembly, wall support, sound transmission, building interfaces and future service in one pre-design brief.",
+      "cannibalization_check": "The branded-residences page concerns shared amenity rooms, not an owner's apartment. The sun-filled-room guide concerns daylight, not freight access or neighboring dwellings. The architecture and cooling guides cover underlying requirements but not the coordinated high-rise delivery and service plan. Do not duplicate them or the recent existing-theater upgrade article.",
+      "standalone_page_case": "An owner must decide whether a proposed wall can be delivered, supported, coordinated with shared systems and serviced in that specific building. These linked constraints form a complete high-rise residential problem, not a generic elevator or acoustic tip. No current URL substantially answers it.",
+      "brand_authority_case": "Opal's modular display architecture changes the components and support assembly that an authorized integrator must document. Opal can identify the actual dimensions, load, access and infrastructure information needed without promising an elevator fit or claiming authority over building engineering.",
+      "recommended_action": "new_article",
+      "internal_links": [
+        "/blog/specifying-microled-architects-designers/",
+        "/blog/microled-room-cooling-requirements/",
+        "/blog/modular-architecture-microled-ownership/"
+      ],
+      "article_angle": "Answer up front: a condo wall is a building-coordination project as well as a display choice, and modular construction does not remove the need to verify the whole delivery and support plan. Walk from loading access to the finished room, then cover adjacent dwellings, equipment location, utilities and the future service route. Include what the integrator is actually deciding and which project professionals supply each answer.",
+      "media_angle": "Original loading-route-to-room diagram and a true factor-by-project-condition grid covering delivery, support, sound, utilities and service. Add a short owner/design-team information checklist. Keep the grid intact on phones; no image captions or invented measured dimensions.",
+      "dealer_channel_insight": "The authorized integrator needs the building's actual access and work constraints, the packed dimensions of every assembly and the qualified team's support/acoustic requirements before fixing the display layout or promising an installation route.",
+      "conceptual_hero_direction": "A believable premium high-rise residence with a continuous bezel-free MicroLED image on a solid interior wall, correctly scaled sofa seating and a recognizable unbranded city/landscape film. A modest city view through a side window establishes the apartment setting without becoming generic glass-room imagery. Realistic finishes, asymmetric furniture and practical daylight; no logos, text, decorative glow, visible frame or captions.",
+      "primary_sources": [
+        "opal",
+        "condo-acoustics",
+        "condo-logistics"
+      ],
+      "specification_guardrails": [
+        "No universal condo permission, work-hour, elevator, noise or permit claim; the actual building team and qualified professionals establish the project's requirements.",
+        "Do not prescribe structural anchors, slab cuts, isolation assemblies, fire protection or electrical work.",
+        "Cabinets, support members, packing and tools all need a verified access route; do not claim modular means anything fits.",
+        "No guaranteed soundproofing or numerical isolation target, and no claim that quiet display electronics eliminate speaker transmission.",
+        "No invented pitch-specific dimensions, mass, cabinet heat or HVAC capacity.",
+        "Do not narrate another designer's project as an Opal installation; original planning guidance must be the article's value."
+      ]
+    },
+    {
+      "title": "MicroLED for Sim Racing: Match the Wall to the Cockpit",
+      "slug": "microled-sim-racing-room-display",
+      "description": "Plan a residential sim-racing wall around cockpit position, field of view, pixel detail and the tested game-to-display signal path.",
+      "primary_keyword": "sim racing video wall",
+      "supporting_keywords": [
+        "MicroLED sim racing",
+        "racing simulator display wall",
+        "sim racing screen field of view",
+        "home racing simulator room"
+      ],
+      "search_intent": "use_case",
+      "primary_audience": "Premium-home owners planning a dedicated racing cockpit, with their simulator specialist and authorized residential AV integrator.",
+      "residential_use_case": "A dedicated home racing-simulator room, with a stationary cockpit and one flat display wall; no ball or projectile strikes the surface.",
+      "funnel_stage": "specification",
+      "seo_target": "New residential use-case page for a sim-racing video wall, centered on physical cockpit geometry and a verified complete display path.",
+      "unique_angle": "A bigger wall is not automatically a better windshield. Set the driver's actual eye position, image width, horizon and game field of view together, then evaluate fine detail and measured response from that position.",
+      "cannibalization_check": "The gaming-room guide covers general 4K120, latency, HDR and source planning, but not cockpit eye position, physical versus rendered field of view or aligning the virtual horizon and steering position. Link to it instead of repeating its technical sections. Cinema sightlines are not a complete racing-cockpit guide.",
+      "standalone_page_case": "A fixed cockpit changes the geometry and acceptance checks from sofa gaming: driver position, view angle, horizon, interface scale, native detail and response must work as one configuration. That is a distinct residential simulator use case, not merely a different game named inside the broad gaming pillar.",
+      "brand_authority_case": "Opal can explain the relationship between a real modular flat wall, native pixel layout, nearest viewing point and confirmed input capability. Its dealer can coordinate with the simulator specialist without inventing latency results, performance advantages or curved/flexible hardware.",
+      "recommended_action": "new_article",
+      "internal_links": [
+        "/blog/microled-home-gaming-room-4k120-latency/",
+        "/blog/pixel-pitch-explained/",
+        "/blog/microled-video-processing-signal-chain/"
+      ],
+      "article_angle": "Open with the decision: plan the picture from the driver's eyes, not from the back wall of the room. Explain physical field of view versus the game's rendered view, a single flat image and cockpit/horizon alignment; then specify actual-content and measured-response checks for the complete PC/processor/display path. Include when another display approach may better fit the required geometry, without rival-brand comparisons.",
+      "media_angle": "Original side and plan views locating the driver's eyes, steering wheel and flat image plane, plus a real configuration/check/acceptance-evidence grid. Any example dimensions are illustrative geometry, not guaranteed orderable cabinet layouts. The grid stays a grid on phones; no captions.",
+      "dealer_channel_insight": "The integrator and simulator specialist must approve the same cockpit position, render resolution and output mode, then test visible detail and response in the actual game. Panel refresh alone does not establish end-to-end latency or game frame rate.",
+      "conceptual_hero_direction": "One believable premium home sim-racing room with a stationary unbranded racing seat, wheel and pedals facing a single flat, continuous bezel-free MicroLED wall. Show recognizable unbranded cockpit-view road racing with a plausible horizon aligned to the seated driver's position. Correct separation between the rig and wall, practical task lighting and restrained materials; no balls, projectiles, curved/folding LED panels, automotive logos, text, motion blur, glow or captions.",
+      "primary_sources": [
+        "opal",
+        "racing"
+      ],
+      "specification_guardrails": [
+        "This is driving simulation, not a golf, tennis, baseball or other projectile-impact simulator. Never introduce an impact-screen use.",
+        "No claimed racing-skill improvement, medical benefit, motion-sickness reduction or safety certification.",
+        "Boulder supports HDMI 2.1 4K120 with 10-bit HDR and maximum advertised input120Hz; do not confuse this with nominal384Hz panel rating or claim guaranteed120fps gameplay.",
+        "Do not invent measured latency, VRR, G-SYNC, FreeSync or low-latency modes.",
+        "Do not claim the wall can curve or wrap, physically move with a rig, or use triple-monitor projection settings for a single flat image.",
+        "Evaluate pixel visibility from the actual driver's position; do not promise a fine-pitch or size configuration not confirmed for the supplied system."
+      ]
+    },
+    {
+      "title": "MicroLED Aspect Ratio: 16:9 or CinemaScope for a Home Theater?",
+      "slug": "microled-custom-aspect-ratios",
+      "description": "Choose a MicroLED home theater aspect ratio around films, sports and games, with clear examples of image size, unused screen area and content fitting.",
+      "primary_keyword": "MicroLED aspect ratio for home theater",
+      "supporting_keywords": [
+        "16:9 vs CinemaScope MicroLED",
+        "widescreen MicroLED home theater",
+        "MicroLED black bars",
+        "2.39 home theater video wall"
+      ],
+      "search_intent": "decision",
+      "primary_audience": "Owners specifying a private cinema or mixed-use theater and the design team choosing the wall's physical proportions.",
+      "residential_use_case": "A home theater that alternates between wide-format films and 16:9 sports, games and streaming menus.",
+      "funnel_stage": "comparison",
+      "seo_target": "Rebuild the existing custom-aspect-ratio URL as a direct residential 16:9-versus-scope decision guide; preserve its URL and canonical.",
+      "unique_angle": "Compare the visible picture for the owner's actual content mix, not just the outer wall shape. Show the same-width and same-height tradeoffs and where unused image area remains when content is preserved rather than cropped or stretched.",
+      "cannibalization_check": "Update /blog/microled-custom-aspect-ratios/ rather than adding a separate 16:9-versus-scope page. The seating guide owns viewing distance, the pitch guide owns native resolution, and multiview owns multiple independent sources. The refreshed page owns physical picture shape and content-fit decisions. Do not rewrite the approved OLED, projector-upgrade or home-gym articles.",
+      "standalone_page_case": "The screen shape is a complete residential decision that affects every film, game and sports source, not just a paragraph on dimensions. Its existing URL already has the correct subject and should be strengthened rather than split into near-duplicate ratio pages.",
+      "brand_authority_case": "Opal's modular canvas makes the native cabinet arrangement and actual image mapping part of the choice. The brand can explain that geometric flexibility does not mean arbitrary dimensions, automatic bar removal or a single ratio that fits all content.",
+      "recommended_action": "update_existing",
+      "existing_url": "https://opalscreens.com/blog/microled-custom-aspect-ratios/",
+      "internal_links": [
+        "/blog/home-theater-video-wall-ideas/",
+        "/blog/pixel-pitch-explained/",
+        "/blog/multiview-microled-home-sports/"
+      ],
+      "article_angle": "Answer early: 16:9 can be the clearer fit for a room centered on sports and games, while a scope-shaped wall can suit a film-led room; neither shape makes every source fill the entire wall without tradeoffs. Use explicit geometry examples, distinguish image composition from its video container, show fit/crop/stretch honestly, and have the integrator demonstrate menus, subtitles and varying-ratio films before confirming the available cabinet layout.",
+      "media_angle": "Original equal-width and equal-height image-fit diagrams and a genuine 16:9/scope comparison grid covering wide films,16:9 sources, menus/subtitles and native-grid verification. Retain visible blank areas where the geometry requires them. Preserve the grid on phones and do not put captions below images.",
+      "dealer_channel_insight": "The integrator must coordinate cabinet geometry, native pixel count and processor behavior with the actual source library. A custom wall shape does not by itself remove letterboxing embedded in a source or reposition subtitles.",
+      "conceptual_hero_direction": "A credible premium private cinema with a wide flat bezel-free image wall showing recognizable unbranded cinematic landscape footage, realistically placed seating and restrained practical lights. Keep the active image geometrically consistent with a scope composition without a fake physical border; no logos, text, glow, impossible wall geometry or captions. Technical fit diagrams, not the hero, carry the comparison.",
+      "primary_sources": [
+        "opal",
+        "film-formats",
+        "screen-shape"
+      ],
+      "specification_guardrails": [
+        "Do not equate literal21:9(2.333...) with2.35,2.37,2.39 or2.40. Use actual ratios for each example.",
+        "Do not say all theatrical films or all streaming programs share one composition.",
+        "No arbitrary continuous wall-size promise: the supplied cabinet grid and pitch constrain orderable dimensions and native resolution.",
+        "No automatic cropping, subtitle relocation, source detection, masking or anamorphic processing is confirmed as an Opal-native feature.",
+        "Keep the original publication date; update modified date and sitemap lastmod for a selected in-place rebuild, with no duplicate blog card.",
+        "Do not transfer projector lenses, zoom or masking requirements to a direct-view display."
+      ]
+    }
+  ],
+  "feedback_context": {
+    "prior_feedback": [
+      {
+        "at": "2026-10-29T16:29:45Z",
+        "topic_index": "all",
+        "reason": "Bradd (topic 34): \"I think we've used these topics before - need some fresh ones. See what Just Video Walls is posting about\"",
+        "superseded": [
+          "MicroLED for a Bright Living Room with Floor-to-Ceiling Glass",
+          "MicroLED Screen Size for Home Theater: Plan Every Seat",
+          "MicroLED vs. Mini-LED for a Large Home Theater"
+        ],
+        "replacements": [
+          "Replacing a Projector or TV with MicroLED: What Changes in an Existing Room",
+          "MicroLED for a Collector's Garage: Designing a Car Gallery Video Wall",
+          "MicroLED for a Lake House or Mountain Home: Planning a Second-Home Video Wall"
+        ],
+        "research": "Just Video Walls sitemap (justvideowalls.com/microled-articles): recurring themes are project tours of projector-to-MicroLED upgrades, garages/mancaves, lake and mountain second homes, multi-wall homes and dealer showrooms. Audited all 38 Opal posts for overlap."
+      }
+    ],
+    "excluded_repeat_titles": [
+      "MicroLED for a Bright Living Room with Floor-to-Ceiling Glass",
+      "MicroLED Screen Size for Home Theater: Plan Every Seat",
+      "MicroLED vs. Mini-LED for a Large Home Theater"
+    ],
+    "previous_unselected_titles": [
+      "MicroLED Above a Fireplace: When the Wall Works and When It Does Not",
+      "Hidden MicroLED Video Walls: Planning Sliding Panels"
+    ],
+    "application": "Do not re-list recent fireplace or hidden-panel choices or the rejected generic bright-room, seating-size and Mini-LED set. The aspect-ratio option is a distinct content-fitting decision on its existing URL, not another generic size/pitch proposal.",
+    "previous_completed_cycle": {
+      "title": "MicroLED for a Home Gym: Plan the Wall Around Your Workout",
+      "url": "https://opalscreens.com/blog/microled-home-gym-video-wall/"
+    }
+  },
+  "research_audit": {
+    "audited_at": "2026-11-12T15:06:45Z",
+    "article_count": 41,
+    "coverage_receipt": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-blog-proposals-20261112/coverage-audit.json",
+    "inspected_fields": [
+      "title",
+      "H1",
+      "slug",
+      "description",
+      "canonical",
+      "H2",
+      "relative and absolute related-article/body internal links"
+    ],
+    "candidate_queries": [
+      {
+        "query": "MicroLED condo penthouse video wall installation elevator",
+        "primary_query": "MicroLED for a condo",
+        "disposition": "proposed_new_article",
+        "primary_sources": [
+          "opal",
+          "condo-acoustics",
+          "condo-logistics"
+        ],
+        "reason": "A private high-rise apartment has delivery, adjacent-dwelling, building-system and future-access constraints not covered by shared-amenity or bright-room articles."
+      },
+      {
+        "query": "MicroLED sim racing video wall field of view",
+        "primary_query": "sim racing video wall",
+        "disposition": "proposed_new_article",
+        "primary_sources": [
+          "opal",
+          "racing"
+        ],
+        "reason": "Driver eye position, game field of view and horizon alignment create a complete cockpit-specific use case beyond the general gaming-room signal-path guide. No projectile impact."
+      },
+      {
+        "query": "MicroLED 16:9 CinemaScope home theater aspect ratio",
+        "primary_query": "MicroLED aspect ratio for home theater",
+        "disposition": "proposed_update_existing",
+        "target": "/blog/microled-custom-aspect-ratios/",
+        "primary_sources": [
+          "opal",
+          "film-formats",
+          "screen-shape"
+        ],
+        "reason": "An existing URL covers this intent but makes broad arbitrary-size and no-black-bar claims. Rebuild around honest source-fitting geometry instead of creating a duplicate."
+      },
+      {
+        "query": "MicroLED HDR calibration home theater",
+        "disposition": "reject_standalone_this_cycle",
+        "target": "/blog/choosing-right-brightness-nits/",
+        "primary_sources": [
+          "opal",
+          "hdr"
+        ],
+        "reason": "Existing brightness, processing and maintenance guides already address HDR commissioning. A separate page lacks confirmed Opal-specific controls; no generic calibration-settings article."
+      },
+      {
+        "query": "MicroLED home theater subtitles readability captions",
+        "disposition": "reject_standalone_this_cycle",
+        "target": "/blog/microled-custom-aspect-ratios/",
+        "primary_sources": [
+          "captions",
+          "film-formats"
+        ],
+        "reason": "Actual subtitle visibility belongs in source-fitting and real-content checks; no distinct Opal evidence supports a new captions-only URL."
+      },
+      {
+        "query": "MicroLED historic home theater reversible installation",
+        "disposition": "reject_this_cycle",
+        "primary_sources": [
+          "opal"
+        ],
+        "reason": "Without confirmed heritage-specific construction facts, the idea becomes a generic renovation essay or unsupported jurisdictional advice. Prefer the concrete high-rise coordination brief."
+      }
+    ],
+    "search_evidence": "Current queries informed natural-language residential questions, not estimated search volume or ranking claims. Original manufacturer/platform documentation, the original project professionals and film-mastering documentation support the limits. Competitor results and general trends are not the main value.",
+    "primary_sources": [
+      {
+        "id": "opal",
+        "title": "Opal Screens current product lineup",
+        "url": "https://opalscreens.com/",
+        "local_path": "/Users/grant/clawd/projects/opal-screens/index.html",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "Confirmed modular, bezel-free display architecture, series facts and authorized-dealer role.",
+        "limits": "No unverified packed dimensions, cabinet mass, heat load, mounting, gaming latency, VRR, scaling or building-specific claims."
+      },
+      {
+        "id": "condo-acoustics",
+        "title": "Ribeiro Home Theater - WSDG",
+        "url": "https://wsdg.com/projects-items/ribeiro-home-theater/",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "The original acoustic designer identifies neighboring apartments and elevator shafts as sound-transmission concerns in a real penthouse project.",
+        "limits": "Use only to support the need to evaluate transmission paths. Do not retell the project as Opal's, copy its construction details or isolation ratings, or promise soundproofing."
+      },
+      {
+        "id": "condo-logistics",
+        "title": "Moving Up! - Dover Home Remodelers penthouse renovation",
+        "url": "https://doverremodeling.com/portfolio/penthouse-renovation/",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "The original remodeler describes coordinating with building management and the constraint of a freight-elevator delivery route.",
+        "limits": "Use as evidence that access can shape a high-rise renovation, not as a universal building rule. Do not present its project as Opal's or infer that every Opal cabinet fits an elevator."
+      },
+      {
+        "id": "racing",
+        "title": "How to Configure Your Seating Position - iRacing",
+        "url": "https://support.iracing.com/support/solutions/articles/31000169161-how-to-configure-your-seating-position",
+        "modified_at": "2025-09-09",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "The software maker specifies eye-to-screen distance, image width and horizon/driver-height alignment when configuring a single flat screen.",
+        "limits": "This documents game geometry, not Opal certification, low latency, motion-platform compatibility or improved driving skill. Recheck current controls at draft time."
+      },
+      {
+        "id": "film-formats",
+        "title": "Sony Pictures IMF Master and Archive Specifications",
+        "url": "https://partnerzone.sonypictures.com/imf-specification.html",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "The film studio distinguishes full-frame 16:9 from letterboxed 1.85, 2.39 and 2.40 content, and distinguishes image composition from container shape.",
+        "limits": "Use format definitions only. Do not equate 21:9, 2.35, 2.37, 2.39 and 2.40; do not transfer mastering specifications to Opal hardware or claim all films share one ratio."
+      },
+      {
+        "id": "screen-shape",
+        "title": "Selecting a Projector Screen - Kaleidescape home theater guide",
+        "url": "https://www.kaleidescape.com/home-theater-guide/selecting-a-projector-screen/",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "Explains how a mismatch between screen and content shape affects visible image size, including width- and height-oriented presentation.",
+        "limits": "Use the framing principle, not projection lenses, masking hardware or automatic processing as Opal features."
+      },
+      {
+        "id": "hdr",
+        "title": "HDR Calibration - Light Illusion",
+        "url": "https://lightillusion.com/hdr_calibration.html",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "Calibration-software maker's explanation shows that HDR calibration depends on the actual display and processing controls.",
+        "limits": "Candidate screening only. Do not adopt its editorial opinions or infer Opal LUT compatibility, tone-mapping controls, profiles or settings."
+      },
+      {
+        "id": "captions",
+        "title": "Understanding WCAG 2.2 SC 1.2.2: Captions (Prerecorded) - W3C",
+        "url": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded.html",
+        "checked_at": "2026-11-12T15:06:45Z",
+        "use": "Explains captions as an equivalent for audio information, informing an actual-content check rather than a new thin display page.",
+        "limits": "Candidate screening only. This is not a residential installation law, medical viewing recommendation or display pixel-pitch standard. Video captions are distinct from the forbidden image captions under article images."
+      }
+    ],
+    "cannibalization_summary": "All41 article title/H1/slug/metadata/H2 records and155 internal link references were inspected, including absolute site links. Relevant aspect-ratio body copy and adjacent gaming, architecture, shared-amenity, brightness, caption and pitch scopes were checked. Two proposals are new complete use cases; the third strengthens the established aspect URL.",
+    "selection_guidance": "Use residential relevance and confirmed specification value. Condo planning has architectural and dealer-conversion value; sim racing has distinct geometry and media potential; the in-place aspect-ratio rebuild resolves misleading content-fit claims without fragmenting existing search coverage.",
+    "previous_cycle": "Current live checks confirm the approved home-gym article hash, canonical, hero200, index and sitemap entry. Git shows its first-add commit and GitHub reports successful deployment. Archive the completed state and preserve all approved assets unchanged."
+  },
+  "selected_index": 0,
+  "selected_at": "2026-11-12T15:12:30Z",
+  "selection_source": "Bradd (Grant app chat Opal) question card answer: \"1 but let me see full written preview before posting\"",
+  "requested_direction": "MicroLED for a Condo or Penthouse: Plan Beyond the Screen Wall (exact draft r1 approved by Bradd after full review)",
+  "draft_approval_required": true,
+  "image_requested_at": "2026-11-12T15:12:30Z",
+  "image_review_status": "approved_with_draft",
+  "image_path": "/Users/grant/.codex/telegram-bridge-home/generated_images/claude/e2b0ba2500863ad75d8f7cb9/opal-condo-penthouse-hero-20261112-v1.png",
+  "image_message_id": 1800021891,
+  "image_delivered_at": "2026-11-12T10:13:12-05:00",
+  "draft_review_url": "https://opalscreens.com/review/6b45fe33ba/microled-condo-penthouse-installation-planning/",
+  "draft_review_repo_path": "review/6b45fe33ba/microled-condo-penthouse-installation-planning/",
+  "draft_review_commits": [
+    "ca93598"
+  ],
+  "draft_preview_dir": "/Users/grant/.codex/telegram-bridge-home/previews/opal-condo-penthouse-20261112/site",
+  "draft_revision": 1,
+  "draft_article_sha256": "c4e6d402bac59886a0ede65b0859c2ccf41b4f8001cdcd16ec689a217f359153",
+  "draft_external_source": "https://wsdg.com/projects-items/ribeiro-home-theater/",
+  "draft_approval_status": "approved",
+  "approved_at": "2026-11-12T22:16:08Z",
+  "approved_article_sha256": "c4e6d402bac59886a0ede65b0859c2ccf41b4f8001cdcd16ec689a217f359153",
+  "approval_source": "Bradd (Grant app chat Opal) question card answer \"Approved\" to \"Is the condo/penthouse draft approved to publish?\"",
+  "scheduled_publish_at": "2026-11-17T10:30:00-05:00",
+  "scheduled_job_name": "opal-condo-penthouse-publish-20261117",
+  "published_at": "2026-11-17T15:35:27.002732+00:00",
+  "published_url": "https://opalscreens.com/blog/microled-condo-penthouse-installation-planning/",
+  "published_commit": "8842e22319160ad1519ca419b7c7c8549b41e05a",
+  "publication_receipt": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-condo-penthouse-publish-20261117/live-verification.json"
+}
