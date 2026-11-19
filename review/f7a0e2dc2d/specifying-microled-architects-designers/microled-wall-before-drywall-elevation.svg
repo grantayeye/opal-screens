@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="470" viewBox="0 0 800 470" role="img" aria-labelledby="title desc"><title id="title">What to reserve on the front wall before drywall</title><desc id="desc">Front-wall elevation for a room that will get a MicroLED wall. The center of the wall is reserved as the image zone for the largest picture the room should hold. Speaker zones sit on each side of it. A cable route runs from below the image zone to an equipment location in an adjoining closet, which is ventilated and reachable after finishes. The route is accessible and documented.</desc><rect width="800" height="470" fill="#f3f1e9"/>
+<g font-family="Arial, sans-serif" fill="#1c2e28">
+<text x="400" y="42" text-anchor="middle" font-weight="700" font-size="20">Reserve these on the front wall before drywall</text>
+<rect x="30" y="70" width="510" height="290" fill="#e7e3d4" stroke="#758479" stroke-width="2"/>
+<rect x="110" y="100" width="350" height="196" fill="#d5ddd6" stroke="#193e32" stroke-width="2.5" stroke-dasharray="9 6"/>
+<circle cx="285" cy="176" r="16" fill="#3d4a44"/><text x="285" y="182" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">1</text>
+<text x="285" y="216" text-anchor="middle" font-size="15" font-weight="700">Image zone</text>
+<rect x="52" y="130" width="44" height="136" fill="#fbfaf5" stroke="#193e32" stroke-width="2" stroke-dasharray="6 5"/>
+<rect x="474" y="130" width="44" height="136" fill="#fbfaf5" stroke="#193e32" stroke-width="2" stroke-dasharray="6 5"/>
+<circle cx="74" cy="198" r="14" fill="#3d4a44"/><text x="74" y="203" text-anchor="middle" font-size="14" font-weight="700" fill="#f3f1e9">2</text>
+<circle cx="496" cy="198" r="14" fill="#3d4a44"/><text x="496" y="203" text-anchor="middle" font-size="14" font-weight="700" fill="#f3f1e9">2</text>
+<line x1="30" y1="360" x2="770" y2="360" stroke="#3d4a44" stroke-width="3"/>
+<path d="M285 296 V336 H586" fill="none" stroke="#0b6f8f" stroke-width="4" stroke-dasharray="10 6"/>
+<circle cx="430" cy="336" r="14" fill="#0b6f8f"/><text x="430" y="341" text-anchor="middle" font-size="14" font-weight="700" fill="#f3f1e9">4</text>
+<rect x="586" y="200" width="184" height="160" rx="4" fill="#193e32" stroke="#758479" stroke-width="2"/>
+<circle cx="678" cy="238" r="16" fill="#f3f1e9"/><text x="678" y="244" text-anchor="middle" font-size="15" font-weight="700" fill="#193e32">3</text>
+<text x="678" y="280" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">Equipment</text><text x="678" y="300" text-anchor="middle" font-size="15" font-weight="700" fill="#f3f1e9">location</text>
+<text x="678" y="190" text-anchor="middle" font-size="13">Adjoining closet</text>
+<rect x="30" y="382" width="740" height="72" rx="6" fill="#e3dfcf" stroke="#9aa59d"/>
+<text x="48" y="410" font-size="14" font-weight="700">1 Image zone</text><text x="48" y="432" font-size="13">Largest picture planned</text>
+<text x="232" y="410" font-size="14" font-weight="700">2 Speaker zones</text><text x="232" y="432" font-size="13">Beside, above or below</text>
+<text x="416" y="410" font-size="14" font-weight="700">3 Equipment location</text><text x="416" y="432" font-size="13">Ventilated and reachable</text>
+<text x="600" y="410" font-size="14" font-weight="700">4 Cable route</text><text x="600" y="432" font-size="13">Accessible and documented</text>
+</g></svg>
