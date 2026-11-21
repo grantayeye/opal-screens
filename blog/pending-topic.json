@@ -1,0 +1,394 @@
+{
+  "proposal_revision": 1,
+  "workflow_status": "approved_scheduled",
+  "owning_topic": 34,
+  "proposed_at": "2026-11-19T15:05:22Z",
+  "expires_at": "2026-11-22T15:05:22Z",
+  "reminder_sent_at": null,
+  "publish_not_before": "2026-11-24T15:35:27.002732Z",
+  "previous_cycle_archive": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-blog-proposals-20261119/completed-20261112.json",
+  "cadence": {
+    "checked_at": "2026-11-19T15:05:22Z",
+    "helper": {
+      "last_article_added_at": "2026-11-17T10:34:12-05:00",
+      "publish_not_before": "2026-11-24T10:34:12-05:00",
+      "publication_eligible": false,
+      "preparation_allowed": true,
+      "basis": "First-add article commit; confirm the article is live and account for deployment delay before publishing."
+    },
+    "publish_not_before": "2026-11-24T15:35:27.002732Z",
+    "publication_eligible": false,
+    "preparation_allowed": true,
+    "latest_completed_cycle": {
+      "title": "MicroLED for a Condo or Penthouse: Plan Beyond the Screen Wall",
+      "commit": "8842e22319160ad1519ca419b7c7c8549b41e05a",
+      "published_at": "2026-11-17T15:35:27.002732+00:00",
+      "publication_receipt": "/Users/grant/.codex/projects/codex-telegram-bridge/memory/notes/opal-condo-penthouse-publish-20261117/live-verification.json",
+      "deployment_completed_at": "2026-11-17T15:35:06Z",
+      "approved_article_sha256": "c4e6d402bac59886a0ede65b0859c2ccf41b4f8001cdcd16ec689a217f359153",
+      "status": 200,
+      "canonical": "https://opalscreens.com/blog/microled-condo-penthouse-installation-planning/",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "matches_approved_and_local": true,
+      "hero_status": 200,
+      "hero_matches_candidate": true,
+      "index_card_count": 1,
+      "sitemap_count": 1
+    },
+    "basis": "Allow seven days from verified live publication, after seven days from the first-add commit and the successful Pages deployment. Recheck before publishing."
+  },
+  "editorial_overrides": {
+    "voice": "Opal brand/manufacturer voice. Authorized integrators specify, coordinate, sell and install.",
+    "current_lineup": "Boulder and Crystal SilkStream nominal 384Hz; BlackFire Boulder/Onyx/Crystal/Doublet; NanoPix Onyx-only; Crystal 1,000 nits, 4K60/1080p120; Boulder HDMI 2.1 4K120, 10-bit HDR, maximum input120Hz; Onyx0.7/0.6mm, Doublet0.9/1.2/1.5mm, both maximum input60Hz. Preserve display order Boulder, Onyx, Crystal, Water, Doublet. No inferred pitch-specific cabinet, electrical or thermal data.",
+    "image_presentation": "Alt text only; no figcaption, subtitles, automatic generation labels or invented real-installation claims.",
+    "matrices": "Real factor-by-option comparison grids; remain grids on phones, never stacked cards.",
+    "opening": "Plain-language purpose and honest direct answer within 120 words; no promotional filler or hedge-heavy copy.",
+    "draft_review": "If Bradd asks for a draft review, prepare and verify a finished unlisted noindex page at /review/<random-token>/<slug>/, preserve the exact draft for approval, and remove the review directory in the publication commit.",
+    "approval_scope": "The archived approval and assets apply only to the completed condo article. Respect any newly requested exact-draft approval hold.",
+    "publishing": "An in-place update keeps the URL and original publication date and updates the modified date, sitemap and existing index card. Use the established public URL as self-canonical where the legacy page lacks the tag."
+  },
+  "topics": [
+    {
+      "title": "Planning a MicroLED Wall Before Drywall: What to Set Now and What Can Wait",
+      "slug": "specifying-microled-architects-designers",
+      "description": "Plan a future MicroLED wall before drywall. Decide what to reserve, what depends on the selected wall, and what the builder should document.",
+      "primary_keyword": "plan for a MicroLED wall before drywall",
+      "supporting_keywords": [
+        "MicroLED prewire",
+        "future video wall rough-in",
+        "MicroLED wall construction planning",
+        "home theater display conduit"
+      ],
+      "search_intent": "specification",
+      "primary_audience": "Owners building or renovating a premium home, their architect and builder, and their authorized residential integrator.",
+      "residential_use_case": "A home theater or great room being finished now with a large-format display planned for a later phase.",
+      "funnel_stage": "specification",
+      "seo_target": "Refresh the architectural planning guide around pre-drywall decisions and separate paths for a confirmed configuration or a future display.",
+      "unique_angle": "Show how the builder and integrator hand off reserved image and speaker space, equipment location, service access and usable cable routes. Explain which backing, recess, power and cooling details need the actual selected wall.",
+      "cannibalization_check": "The current architect guide already owns early planning. Its refresh can replace unsourced rule-of-thumb depths, loads, conduit and viewing-angle figures. The cooling guide owns thermal design, the condo guide owns building access, and the upgrade article serves an already finished room.",
+      "standalone_page_case": "A staged installation requires a coordinated drawing set and site handoff across structure, sightlines, sound, cabling and finishes. The pre-existing architecture URL fits the complete decision.",
+      "brand_authority_case": "Opal's modular configuration determines the installed dimensions and model-specific information an authorized integrator supplies for coordination with the relevant trades.",
+      "recommended_action": "update_existing",
+      "existing_url": "https://opalscreens.com/blog/specifying-microled-architects-designers/",
+      "internal_links": [
+        "/blog/home-theater-video-wall-ideas/",
+        "/blog/microled-room-cooling-requirements/",
+        "/blog/microled-video-wall-audio-center-channel-planning/"
+      ],
+      "article_angle": "Lead with a two-stage handoff. Identify what can be reserved when the display is a future option, and what must be validated with selected cabinet geometry, speakers, support, cooling and service clearances before the walls close. Ask for a dimensioned elevation, pathway record and construction photos. Leave structural and electrical design with the qualified project team.",
+      "media_angle": "Original front-wall elevation and rack-to-wall cable path. Use a real comparison grid for a wall selected now and a wall planned for later. Keep it a grid on phones, with alt text and no image captions.",
+      "dealer_channel_insight": "Get a dimensioned wall elevation and documented, accessible route before finishes go in. Confirm model-specific backing, recess, power and thermal requirements with the qualified team.",
+      "conceptual_hero_direction": "Finished premium residential media room with a large bezel-free MicroLED showing an unbranded coastal scene, visibly integrated into a plausible solid front wall with practical speaker positions and adjoining millwork. Natural side light, realistic seating and subdued finishes. No logos, text, exposed cables, glow or implication of a completed Opal project.",
+      "primary_sources": [
+        "opal",
+        "cedia-wiring"
+      ],
+      "constraints": [
+        "Retain the existing URL, canonical and April 16 publication date. On publication update dateModified and sitemap lastmod.",
+        "Use configuration-specific requirements and qualified trade coordination. Avoid universal conduit, backing, electrical and thermal dimensions and any future-compatibility guarantee."
+      ]
+    },
+    {
+      "title": "MicroLED Picture Uniformity: What to Check at Handover",
+      "slug": "microled-picture-uniformity-home-theater",
+      "description": "Review a finished MicroLED wall with the dealer using neutral test fields, familiar footage, and the seats and lighting conditions the room was designed for.",
+      "primary_keyword": "MicroLED picture uniformity",
+      "supporting_keywords": [
+        "MicroLED color uniformity",
+        "video wall gray uniformity",
+        "MicroLED panel matching",
+        "MicroLED handover checklist"
+      ],
+      "search_intent": "trust",
+      "primary_audience": "Owners evaluating a newly installed private cinema or large media wall with their authorized integrator and design team.",
+      "residential_use_case": "A completed home cinema where owners want a repeatable viewing check before accepting the wall.",
+      "funnel_stage": "dealer_contact",
+      "seo_target": "New residential guide to evaluating picture consistency at initial handover.",
+      "unique_angle": "Pair controlled gray fields at several levels with ordinary content in the room's actual modes. See whether an observation follows the content or stays in the same place, and give the dealer enough information to investigate.",
+      "cannibalization_check": "The maintenance guide covers matching a replacement after service. The Onyx and signal-processing articles mention calibration. The new guide owns initial whole-wall acceptance across scenes, sources and viewing positions. It leaves maintenance, pitch and processor setup with existing pages.",
+      "standalone_page_case": "An owner and dealer must agree on viewing conditions, evaluate actual material and patterns, record persistent observations and recheck after correction. That is a complete initial acceptance decision.",
+      "brand_authority_case": "Opal can explain consistency across a modular image surface, including the documented role of Onyx's NanoPix calibration. The authorized dealer demonstrates what the actual configuration delivers.",
+      "recommended_action": "new_article",
+      "internal_links": [
+        "/blog/modular-architecture-microled-ownership/",
+        "/blog/inside-nanopix-onyx/",
+        "/blog/choosing-right-brightness-nits/"
+      ],
+      "article_angle": "Open with the sequence: ask the dealer to show neutral fields and follow with familiar clips in the intended picture modes and seats. Compare a sky pan and a dark scene. Record where a shade or tint difference appears and under what condition. Have the dealer isolate source, reflections, setup and display before diagnosing the cause.",
+      "media_angle": "A compact screen-coordinate diagram and real comparison grid with controlled patterns and familiar content as columns. Explain what each shows. Keep the grid on phones and avoid fabricated defect photography or image captions.",
+      "dealer_channel_insight": "Agree on test content, lighting, seats and picture settings in advance. Record reproducible observations and verify any correction in the same conditions.",
+      "conceptual_hero_direction": "Believable private cinema viewed from the main seat. A large continuous bezel-free wall displays an unbranded dusk sky above hills with realistic gradients. Practical lighting, natural materials and credible seating. No logos, text, artificial striping or glowing cabinet edges.",
+      "primary_sources": [
+        "opal",
+        "uniformity"
+      ],
+      "constraints": [
+        "Use third-party material for the general calibration principle without tying its technology or supplier to Opal.",
+        "NanoPix is Onyx-only. Avoid guarantees, universal tolerances or undocumented settings.",
+        "The viewer reports observations. The authorized dealer determines whether content, reflections, configuration or the display causes them."
+      ]
+    },
+    {
+      "title": "MicroLED for a Living Room and Terrace: One Screen or Two?",
+      "slug": "outdoor-microled-pool-terraces-covered-loggias",
+      "description": "Choose a shared screen or separate displays for a living room and covered terrace by checking sightlines, daylight, closed doors and sound coverage.",
+      "primary_keyword": "MicroLED for indoor-outdoor entertaining",
+      "supporting_keywords": [
+        "indoor outdoor media room",
+        "covered terrace video wall",
+        "living room and patio screen",
+        "indoor outdoor AV zones"
+      ],
+      "search_intent": "decision",
+      "primary_audience": "Premium-home owners and designers planning adjoining entertaining spaces with an authorized residential integrator.",
+      "residential_use_case": "A living room opens onto a covered terrace. People in both spaces may want the same game or independent picture and sound.",
+      "funnel_stage": "comparison",
+      "seo_target": "Refresh the existing terrace and loggia guide around shared versus separate display placement in connected residential spaces.",
+      "unique_angle": "Compare a single screen with two local viewing and sound zones. Test closed and open door positions, glare and content priorities at both seats before discussing source sharing.",
+      "cannibalization_check": "The terrace guide already discusses shared sightlines through doors and nearby listening areas. It should own this decision in place. The Water guide retains outdoor product selection, the BlackFire guide retains glare detail, and the sports multiview guide owns several feeds on a single display.",
+      "standalone_page_case": "Two adjoining spaces create a combined choice about location, exposure, door states, shared or independent content and sound. Strengthen the existing terrace URL with an explicit room plan and a direct comparison.",
+      "brand_authority_case": "Use Opal's verified indoor and outdoor product distinctions, including the Water Series' ratings, to explain what the dealer must verify in each proposed location.",
+      "recommended_action": "update_existing",
+      "existing_url": "https://opalscreens.com/blog/outdoor-microled-pool-terraces-covered-loggias/",
+      "internal_links": [
+        "/blog/microled-outdoors/",
+        "/blog/blackfire-anti-glare-technology/",
+        "/blog/microled-control-scenes-art-cinema-hosting/"
+      ],
+      "article_angle": "Start with the room conditions that make a shared screen workable. Use separate screens when closed doors, independent content or obstructed viewing make one unsuitable. Have the dealer map the primary seats, check both spaces in daylight and evening, and test audio coverage and timing where the spaces meet.",
+      "media_angle": "Original plan of the living room, doors and covered terrace with example sightlines, plus a shared-screen versus separate-screen grid. Keep it a grid on phones. Alt text only.",
+      "dealer_channel_insight": "Walk both viewing areas in daylight and at night, with doors open and closed. Confirm each screen location's exposure, playable sources and usable sound in each space.",
+      "conceptual_hero_direction": "Plausible covered residential terrace seen from the living room through open glazed doors. One continuous bezel-free wall display is secured to a solid outdoor wall under the cover and shows a recognizable unbranded landscape. Both seating areas read clearly, with practical lights and believable materials. No splash exposure, impossible reflections, text, logos or decorative glow.",
+      "primary_sources": [
+        "opal",
+        "ip-classification",
+        "outdoor-audio"
+      ],
+      "constraints": [
+        "Retain the current URL and July 2 datePublished. The existing Open Graph URL is correct and the page lacks a canonical tag. Set a self-canonical on that same URL if published.",
+        "Water is published as 4,000 nits and IP65. An enclosure rating alone does not establish site suitability or extend to other components.",
+        "Avoid promises about built-in shared audio, synchronized sources or automatic exposure adjustment."
+      ]
+    }
+  ],
+  "feedback_context": {
+    "prior_feedback": [
+      {
+        "at": "2026-10-29T16:29:45Z",
+        "topic_index": "all",
+        "reason": "Bradd (topic 34): \"I think we've used these topics before - need some fresh ones. See what Just Video Walls is posting about\"",
+        "superseded": [
+          "MicroLED for a Bright Living Room with Floor-to-Ceiling Glass",
+          "MicroLED Screen Size for Home Theater: Plan Every Seat",
+          "MicroLED vs. Mini-LED for a Large Home Theater"
+        ],
+        "replacements": [
+          "Replacing a Projector or TV with MicroLED: What Changes in an Existing Room",
+          "MicroLED for a Collector's Garage: Designing a Car Gallery Video Wall",
+          "MicroLED for a Lake House or Mountain Home: Planning a Second-Home Video Wall"
+        ],
+        "research": "Just Video Walls sitemap (justvideowalls.com/microled-articles): recurring themes are project tours of projector-to-MicroLED upgrades, garages/mancaves, lake and mountain second homes, multi-wall homes and dealer showrooms. Audited all 38 Opal posts for overlap."
+      }
+    ],
+    "excluded_repeat_titles": [
+      "MicroLED for a Bright Living Room with Floor-to-Ceiling Glass",
+      "MicroLED Screen Size for Home Theater: Plan Every Seat",
+      "MicroLED vs. Mini-LED for a Large Home Theater"
+    ],
+    "previous_unselected_titles": [
+      "MicroLED for Sim Racing: Match the Wall to the Cockpit",
+      "MicroLED Aspect Ratio: 16:9 or CinemaScope for a Home Theater?"
+    ],
+    "application": "Avoid the rejected bright-room, screen-size and Mini-LED set, as well as the recent sim-racing and aspect-ratio proposals.",
+    "previous_completed_cycle": {
+      "title": "MicroLED for a Condo or Penthouse: Plan Beyond the Screen Wall",
+      "url": "https://opalscreens.com/blog/microled-condo-penthouse-installation-planning/"
+    }
+  },
+  "research_audit": {
+    "audited_at": "2026-11-19T15:05:22Z",
+    "article_count": 42,
+    "inspected_fields": [
+      "title",
+      "H1",
+      "H2",
+      "slug",
+      "description and search metadata",
+      "canonical",
+      "absolute and relative internal and related links"
+    ],
+    "audited_slugs": [
+      "blackfire-anti-glare-technology",
+      "choosing-right-brightness-nits",
+      "designing-with-microled",
+      "home-theater-video-wall-ideas",
+      "inside-nanopix-onyx",
+      "microled-100000-hour-longevity",
+      "microled-ai-boardroom-hybrid-collaboration",
+      "microled-branded-residences-private-residential-clubs",
+      "microled-condo-penthouse-installation-planning",
+      "microled-control-scenes-art-cinema-hosting",
+      "microled-custom-aspect-ratios",
+      "microled-digital-art",
+      "microled-home-gaming-room-4k120-latency",
+      "microled-home-gym-video-wall",
+      "microled-in-the-boardroom",
+      "microled-luxury-hospitality",
+      "microled-luxury-retail-salons-product-showrooms",
+      "microled-off-state-architectural-integration",
+      "microled-outdoors",
+      "microled-private-bars-wine-rooms-cigar-lounges",
+      "microled-room-cooling-requirements",
+      "microled-sightlines-viewing-distance-seating",
+      "microled-spatial-audio-private-cinema",
+      "microled-sun-filled-living-rooms",
+      "microled-superyachts-marine",
+      "microled-video-processing-signal-chain",
+      "microled-video-wall-audio-center-channel-planning",
+      "microled-vs-oled",
+      "microled-vs-projector",
+      "microled-vs-traditional-led",
+      "microled-wellness-spa-meditation-rooms",
+      "modular-architecture-microled-ownership",
+      "multiview-microled-home-sports",
+      "opal-screens-2027-microled-lineup",
+      "outdoor-microled-pool-terraces-covered-loggias",
+      "pixel-pitch-explained",
+      "real-cost-of-video-wall",
+      "replace-projector-with-microled-home-theater",
+      "silkstream-camera-safe-microled-video-wall",
+      "silkstream-motion-without-fatigue-microled",
+      "silkstream-refresh-rate",
+      "specifying-microled-architects-designers"
+    ],
+    "candidate_queries": [
+      {
+        "query": "plan for a MicroLED wall before drywall",
+        "disposition": "update_existing",
+        "primary_sources": [
+          "opal",
+          "cedia-wiring"
+        ],
+        "reason": "Turn existing early specification coverage into a phased decision with a documented handoff."
+      },
+      {
+        "query": "MicroLED picture uniformity at handover",
+        "disposition": "new_article",
+        "primary_sources": [
+          "opal",
+          "uniformity"
+        ],
+        "reason": "Initial visual acceptance is distinct from module replacement or processor settings."
+      },
+      {
+        "query": "indoor outdoor media room one screen or two",
+        "disposition": "update_existing",
+        "primary_sources": [
+          "opal",
+          "ip-classification",
+          "outdoor-audio"
+        ],
+        "reason": "Existing terrace guide already touches both spaces and can own the screen-count decision."
+      },
+      {
+        "query": "home theater video wall lip sync audio delay",
+        "disposition": "defer_as_section",
+        "primary_sources": [
+          "lip-sync"
+        ],
+        "reason": "Use in a wider signal-path commissioning update when model-specific information is available."
+      },
+      {
+        "query": "AV prewire fiber conduit for future video wall",
+        "disposition": "merge_with_architectural_update",
+        "primary_sources": [
+          "opal",
+          "cedia-wiring"
+        ],
+        "reason": "Cabling is one part of the phased construction decision."
+      },
+      {
+        "query": "outdoor TV speaker coverage for covered patio",
+        "disposition": "merge_with_terrace_update",
+        "primary_sources": [
+          "outdoor-audio"
+        ],
+        "reason": "Audio coverage supports the two-space display decision and does not need a separate product-light speaker guide."
+      }
+    ],
+    "primary_sources": [
+      {
+        "id": "opal",
+        "title": "Opal Screens lineup",
+        "url": "https://opalscreens.com/",
+        "use": "Local manufacturer homepage checked for modular architecture, Onyx NanoPix and Water ratings.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      },
+      {
+        "id": "cedia-wiring",
+        "title": "CEDIA smart home wiring guide",
+        "url": "https://cedia.org/en-us/smart-home-professionals/news/the-ultimate-smart-home-wiring-guide/",
+        "use": "Use accessible pathway and construction documentation principles.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      },
+      {
+        "id": "uniformity",
+        "title": "Brompton Technology PureTone",
+        "url": "https://www.bromptontech.com/features/puretone/",
+        "use": "General evidence that panels matched at high light output can differ in dark gray. This is not evidence of Opal compatibility or sourcing.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      },
+      {
+        "id": "ip-classification",
+        "title": "IEC 60529 scope",
+        "url": "https://webstore.iec.ch/en/publication/2452",
+        "use": "Use the openly published scope for enclosure protection classification.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      },
+      {
+        "id": "outdoor-audio",
+        "title": "Sonance outdoor landscape solutions",
+        "url": "https://sonance.com/collections/landscape-solutions",
+        "use": "Use the general principle of designing audio coverage for the specific outdoor area.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      },
+      {
+        "id": "lip-sync",
+        "title": "HDMI Licensing Administrator Latency Indication Protocol",
+        "url": "https://www.hdmi.org/spec2sub/lip",
+        "use": "Candidate screening only. Audio/video sync concerns the whole path. No Opal protocol support inferred.",
+        "checked_at": "2026-11-19T15:05:22Z"
+      }
+    ],
+    "search_evidence": "Public search phrasing helped identify candidate questions. Primary sources support the technical decisions. No traffic or ranking estimates.",
+    "coverage_summary": "Two proposals strengthen existing articles. Initial whole-wall picture acceptance is the new guide. One current terrace URL lacks a canonical tag and has the correct Open Graph URL."
+  },
+  "selected_index": 0,
+  "selected_at": "2026-11-19T15:07:45Z",
+  "selection_source": "Bradd (Grant app chat Opal) question card answer: \"1. Planning a MicroLED Wall Before Drywall\"",
+  "requested_direction": "Planning a MicroLED Wall Before Drywall: What to Set Now and What Can Wait",
+  "draft_approval_required": true,
+  "image_requested_at": "2026-11-19T15:07:45Z",
+  "image_review_status": "approved",
+  "image_path": "/Users/grant/.codex/telegram-bridge-home/generated_images/claude/e2b0ba2500863ad75d8f7cb9/opal-predrywall-hero-20261119-v1.png",
+  "image_delivered_at": "2026-11-19T10:08:28-05:00",
+  "draft_preview_dir": "/Users/grant/.codex/telegram-bridge-home/previews/opal-predrywall-20261119/site/blog/specifying-microled-architects-designers/",
+  "draft_article_sha256": "aa90f53501df714aaf1adb11446ec096d2f9e370c210756f1bc5e9b243f1fd54",
+  "draft_ready_at": "2026-11-19T15:13:45.382358+00:00",
+  "draft_external_source": "https://cedia.org/en-us/smart-home-professionals/news/the-ultimate-smart-home-wiring-guide/",
+  "draft_qa": "0 figcaptions; image_copy_policy pass; style scan clean; grid 3 cols, no overflow at 1440/390/320; mobile SVG at 390; all images load",
+  "scheduled_publish_at": "2026-11-24T10:45:00-05:00",
+  "scheduled_job_name": "opal-predrywall-refresh-publish-20261124",
+  "preview_link_requested": true,
+  "draft_approved": true,
+  "preview_requested_at": "2026-11-19T15:17:44.027484+00:00",
+  "preview_request_source": "Bradd (Grant app chat Opal): \"Let me see the draft finalized\"",
+  "review_url": "https://opalscreens.com/review/f7a0e2dc2d/specifying-microled-architects-designers/",
+  "review_dir": "review/f7a0e2dc2d/",
+  "review_commit": "11b00a5",
+  "draft_approved_at": "2026-11-19T15:20:25.584445+00:00",
+  "draft_approval_source": "Bradd (Grant app chat Opal) question card answer \"Approved\" to \"Approve the MicroLED wall before drywall refresh to publish Tue Nov 24?\" for review URL https://opalscreens.com/review/f7a0e2dc2d/specifying-microled-architects-designers/",
+  "approved_at": "2026-11-19T15:20:25.584445+00:00",
+  "approval_source": "Bradd (Grant app chat Opal) question card answer \"Approved\" to \"Approve the MicroLED wall before drywall refresh to publish Tue Nov 24?\" for review URL https://opalscreens.com/review/f7a0e2dc2d/specifying-microled-architects-designers/"
+}
